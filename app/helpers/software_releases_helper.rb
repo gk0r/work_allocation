@@ -1,0 +1,2 @@
+module SoftwareReleasesHelper
+end

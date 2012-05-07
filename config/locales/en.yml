@@ -1,0 +1,17 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  hello: "Hello world"
+  release: 
+    name: "Release"
+    date: "Release date"
+    version: "Software version"
+  project:
+    dmr: "DMR"
+    software_release: "Release"
+    warrant_status: "Warrant"
+    work_order: "Work order"
+    rfc: "RFC"
+    timesheets_request_date: "Timesheets date"
+    admin_ref: "Admin file"

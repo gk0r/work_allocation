@@ -1,0 +1,20 @@
+<%= simple_form_for @deliverable, :html => { :class => 'form-horizontal' } do |f| %>
+
+  <%= f.input :description %>
+  <%= f.input :user_id %>
+  <%= f.input :project_id %>
+  <%= f.input :spec_name %>
+  <%= f.input :spec_progress %>
+  <%= f.input :ba_deliverable_id %>
+  <%= f.input :tech_deliverable_id %>
+  
+  <% f.fields_for :ba_deliverable do |builder| %>
+  <p>test</p>
+  <% end %>
+  
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                deliverables_path, :class => 'btn btn-danger' %>
+  </div>
+<% end %>

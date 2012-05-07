@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  internal_date: 2012-05-04
+  internal_signoff: false
+  external_date: 2012-05-04
+  external_signoff: false
+  final_date: 2012-05-04
+  comment: MyString
+
+two:
+  internal_date: 2012-05-04
+  internal_signoff: false
+  external_date: 2012-05-04
+  external_signoff: false
+  final_date: 2012-05-04
+  comment: MyString

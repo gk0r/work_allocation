@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  dmr: MyString
+  software_release_id: MyString
+  warrant_status: MyString
+  work_order: MyString
+  rfc: MyString
+  timesheets_request_date: MyString
+  admin_ref: MyString
+
+two:
+  name: MyString
+  dmr: MyString
+  software_release_id: MyString
+  warrant_status: MyString
+  work_order: MyString
+  rfc: MyString
+  timesheets_request_date: MyString
+  admin_ref: MyString

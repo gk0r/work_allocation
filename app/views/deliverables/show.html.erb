@@ -1,0 +1,43 @@
+<%- model_class = @deliverable.class -%>
+<h1><%=t '.title', :default => model_class.model_name.human %></h1>
+
+<p>
+  <strong><%= model_class.human_attribute_name(:description) %>:</strong><br>
+  <%= @deliverable.description %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:user_id) %>:</strong><br>
+  <%= @deliverable.user_id %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:project_id) %>:</strong><br>
+  <%= @deliverable.project_id %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:spec_name) %>:</strong><br>
+  <%= @deliverable.spec_name %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:spec_progress) %>:</strong><br>
+  <%= @deliverable.spec_progress %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:ba_deliverable_id) %>:</strong><br>
+  <%= @deliverable.ba_deliverable_id %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:tech_deliverable_id) %>:</strong><br>
+  <%= @deliverable.tech_deliverable_id %>
+</p>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              deliverables_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_deliverable_path(@deliverable), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              deliverable_path(@deliverable),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' %>
+</div>
