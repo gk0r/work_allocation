@@ -14,6 +14,7 @@ end
 
 gem 'jquery-rails'
 gem 'simple_form'
+gem 'nested_form'
 gem 'slim'
 gem 'audited-activerecord'
 gem 'cancan'
