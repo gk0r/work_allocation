@@ -15,7 +15,8 @@ end
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'nested_form'
-gem 'slim'
+gem 'slim'                      # Technically 'slim-rails' supersedes the need to include this gem, but I am leaving this here just in case.
+gem 'slim-rails'                # This gem allows SLIM templates to be generated automatically via the rails generator
 gem 'audited-activerecord'
 gem 'cancan'
 

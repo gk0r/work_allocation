@@ -1,0 +1,2 @@
+module TechSpecsHelper
+end

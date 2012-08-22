@@ -1,0 +1,29 @@
+h1 Listing tech_specs
+
+table
+  tr
+    th Deliverable
+    th Name
+    th Comment
+    th Internal review date
+    th Internal review signoff
+    th Final version
+    th
+    th
+    th
+
+  - @tech_specs.each do |tech_spec|
+    tr
+      td = tech_spec.deliverable_id
+      td = tech_spec.name
+      td = tech_spec.comment
+      td = tech_spec.internal_review_date
+      td = tech_spec.internal_review_signoff
+      td = tech_spec.final_version
+      td = link_to 'Show', tech_spec
+      td = link_to 'Edit', edit_tech_spec_path(tech_spec)
+      td = link_to 'Destroy', tech_spec, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New Tech spec', new_tech_spec_path

@@ -3,6 +3,8 @@ class DeliverablesController < ApplicationController
   # GET /deliverables.json
   def index
     @deliverables = Deliverable.all
+    # @deliverables = Deliverable.includes(:ba_specs, :tech_specs)
+    # @deliverables = Deliverable.joins(:ba_specs, :tech_specs)
 
     respond_to do |format|
       format.html # index.html.erb

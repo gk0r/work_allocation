@@ -1,0 +1,33 @@
+p#notice = notice
+
+p
+  strong Deliverable:
+  = @ba_spec.deliverable_id
+p
+  strong Name:
+  = @ba_spec.name
+p
+  strong Progress:
+  = @ba_spec.progress
+p
+  strong Internal review date:
+  = @ba_spec.internal_review_date
+p
+  strong Internal review signoff:
+  = @ba_spec.internal_review_signoff
+p
+  strong External review date:
+  = @ba_spec.external_review_date
+p
+  strong External review signoff:
+  = @ba_spec.external_review_signoff
+p
+  strong Final version:
+  = @ba_spec.final_version
+p
+  strong Comments:
+  = @ba_spec.comments
+
+= link_to 'Edit', edit_ba_spec_path(@ba_spec)
+'|
+= link_to 'Back', ba_specs_path

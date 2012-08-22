@@ -1,0 +1,36 @@
+= form_for @ba_spec do |f|
+  - if @ba_spec.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@ba_spec.errors.count, "error")} prohibited this ba_spec from being saved:"
+      ul
+        - @ba_spec.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :deliverable_id
+    = f.number_field :deliverable_id
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :progress
+    = f.number_field :progress
+  .field
+    = f.label :internal_review_date
+    = f.date_select :internal_review_date
+  .field
+    = f.label :internal_review_signoff
+    = f.check_box :internal_review_signoff
+  .field
+    = f.label :external_review_date
+    = f.date_select :external_review_date
+  .field
+    = f.label :external_review_signoff
+    = f.check_box :external_review_signoff
+  .field
+    = f.label :final_version
+    = f.date_select :final_version
+  .field
+    = f.label :comments
+    = f.text_field :comments
+  .actions = f.submit 'Save'

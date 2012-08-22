@@ -1,0 +1,35 @@
+h1 Listing ba_specs
+
+table
+  tr
+    th Deliverable
+    th Name
+    th Progress
+    th Internal review date
+    th Internal review signoff
+    th External review date
+    th External review signoff
+    th Final version
+    th Comments
+    th
+    th
+    th
+
+  - @ba_specs.each do |ba_spec|
+    tr
+      td = ba_spec.deliverable_id
+      td = ba_spec.name
+      td = ba_spec.progress
+      td = ba_spec.internal_review_date
+      td = ba_spec.internal_review_signoff
+      td = ba_spec.external_review_date
+      td = ba_spec.external_review_signoff
+      td = ba_spec.final_version
+      td = ba_spec.comments
+      td = link_to 'Show', ba_spec
+      td = link_to 'Edit', edit_ba_spec_path(ba_spec)
+      td = link_to 'Destroy', ba_spec, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New Ba spec', new_ba_spec_path

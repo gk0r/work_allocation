@@ -1,0 +1,21 @@
+= simple_nested_form_for @deliverable, :html => {:class=>'form form-horizontal'} do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input 'description'
+    = f.association :project
+
+    = f.simple_fields_for :ba_specs do |spec|
+      = spec.input :name
+      = spec.input :comments
+      = spec.link_to_remove 'Remove BA Spec'
+    = f.link_to_add "Add BA Spec", :ba_specs
+
+    = f.simple_fields_for :tech_specs do |tech|
+      = tech.input :name
+      = tech.input :comment
+      = tech.link_to_remove 'Remove Tech Spec'
+    = f.link_to_add "Add Tech Spec", :tech_specs
+
+  .form-actions
+    = f.button :submit

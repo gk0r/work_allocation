@@ -1,0 +1,24 @@
+p#notice = notice
+
+p
+  strong Deliverable:
+  = @tech_spec.deliverable_id
+p
+  strong Name:
+  = @tech_spec.name
+p
+  strong Comment:
+  = @tech_spec.comment
+p
+  strong Internal review date:
+  = @tech_spec.internal_review_date
+p
+  strong Internal review signoff:
+  = @tech_spec.internal_review_signoff
+p
+  strong Final version:
+  = @tech_spec.final_version
+
+= link_to 'Edit', edit_tech_spec_path(@tech_spec)
+'|
+= link_to 'Back', tech_specs_path
