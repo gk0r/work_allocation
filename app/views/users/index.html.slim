@@ -12,12 +12,13 @@ table.table.table-striped
   tbody
     - @users.each do |user|
       tr
-        td = link_to user.first_name, edit_user_path(user)
+        td = link_to user.name, edit_user_path(user)
         td = link_to user.username, edit_user_path(user)
         td = link_to user.telephone_number, edit_user_path(user)
         td = link_to user.role.name, edit_user_path(user)
         td = link_to user.team.name, edit_user_path(user)
-        td = link_to "Delete", user_path(user), :method => :delete, :confirm => 'Are you sure you want to delete this user?',
+        td = link_to '<i class="icon-white icon-trash"></i> Delete'.html_safe, user_path(user), 
+                      :method => :delete, :confirm => 'Are you sure you want to delete this user?',
                       :class => 'btn btn-mini btn-danger'
 
 = link_to t('.new', :default => t("helpers.links.new")),

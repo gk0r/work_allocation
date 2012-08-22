@@ -1,13 +1,22 @@
-<%= nested_form_for @deliverable do |f| %>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-  
+<%= simple_nested_form_for @deliverable, :html => {:class => 'form form-horizontal'} do |f| %>
+  <%= f.input :description %>
+  <%= f.association :user %>
+  <%= f.input :spec_name %>
+  <%= f.association :project  %>
+  <%= f.input :spec_progress %>
   
   <%= f.fields_for :ba_deliverables do |ba| %>
-    <%= ba.text_field :comment %>
-    <%= ba.link_to_remove "Remove this task" %>
+    <%= ba.input :internal_date %>
+    <%= ba.input :internal_signoff %>
+    <%= ba.input :external_date %>
+    <%= ba.input :external_signoff %>
+    <%= ba.input :final_date %>
+    <%= ba.input :final_date %>
+    <%= ba.input :comment %>
+    
+    <%= ba.link_to_remove "Remove this deliverable" %>
   <% end %>
-  <p><%= f.link_to_add "Add a task", :ba_deliverables %></p>
+  <p><%= f.link_to_add "Add BA Deliverable", :ba_deliverables %></p>
   
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>

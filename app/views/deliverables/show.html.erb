@@ -23,11 +23,11 @@
 </p>
 <p>
   <strong><%= model_class.human_attribute_name(:ba_deliverable_id) %>:</strong><br>
-  <%= @deliverable.ba_deliverable_id %>
+  <%= @deliverable.ba_deliverable_id if defined?(@deliverable.ba_deliverable_id) %>
 </p>
 <p>
   <strong><%= model_class.human_attribute_name(:tech_deliverable_id) %>:</strong><br>
-  <%= @deliverable.tech_deliverable_id %>
+  <%= @deliverable.tech_deliverable_id if defined?(@deliverable.tech_deliverable_id) %>
 </p>
 
 <div class="form-actions">

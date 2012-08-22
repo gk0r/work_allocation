@@ -11,7 +11,6 @@
       <th><%= model_class.human_attribute_name(:spec_progress) %></th>
       <th><%= model_class.human_attribute_name(:ba_deliverable_id) %></th>
       <th><%= model_class.human_attribute_name(:tech_deliverable_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -20,13 +19,12 @@
       <tr>
         <td><%= link_to deliverable.id, deliverable_path(deliverable) %></td>
         <td><%= deliverable.description %></td>
-        <td><%= deliverable.user_id %></td>
-        <td><%= deliverable.project_id %></td>
+        <td><%= deliverable.user.name %></td>
+        <td><%= deliverable.project.name %></td>
         <td><%= deliverable.spec_name %></td>
         <td><%= deliverable.spec_progress %></td>
-        <td><%= deliverable.ba_deliverable_id %></td>
-        <td><%= deliverable.tech_deliverable_id %></td>
-        <td><%=l deliverable.created_at %></td>
+        <td><%= deliverable.ba_deliverable.comment if defined?(ba_deliverable_id) %></td>
+        <td><%= deliverable.tech_deliverable_id if defined?(tech_deliverable_id) %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_deliverable_path(deliverable), :class => 'btn btn-mini' %>
