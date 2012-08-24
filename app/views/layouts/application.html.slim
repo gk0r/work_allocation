@@ -12,17 +12,26 @@ html
       .navbar-inner
         .container
           a.brand href='#' Test
+          ul.nav
+            li: a href="" Test
 
     / Success, Notice, and Error flash messages.
     .container
       -flash.each do |name, msg|
-        .alert.alert-error
+        -if name == :error
+          .alert.alert-error
+            =msg
+        -elsif name == :success
+        .alert.alert-success
           =msg
-          
+        -else  
+          .alert.alert-notice
+            =msg
+
     / Main body of content
-    .container
+    .container  
       .content
-        .row
+        .row 
           .span9
             = yield
           .span3
@@ -37,7 +46,6 @@ html
                 li= link_to 'Deliverables', deliverables_url
                 li= link_to 'BA Specs', ba_specs_url
                 li= link_to 'Tech Specs', tech_specs_url
-                # li= link_to 'Code', code_url
 
     / Placed at the end of the document so the pages load faster
     = javascript_include_tag "application"

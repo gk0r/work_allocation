@@ -46,7 +46,7 @@ class DeliverablesController < ApplicationController
 
     respond_to do |format|
       if @deliverable.save
-        format.html { redirect_to @deliverable, notice: 'Deliverable was successfully created.' }
+        format.html { redirect_to deliverables_url, notice: 'Deliverable was successfully created.' }
         format.json { render json: @deliverable, status: :created, location: @deliverable }
       else
         format.html { render action: "new" }

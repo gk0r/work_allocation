@@ -2,20 +2,32 @@
   = f.error_notification
 
   .form-inputs
-    = f.input 'description'
+    = f.input :description
     = f.association :project
 
     = f.simple_fields_for :ba_specs do |spec|
-      = spec.input :name
-      = spec.input :comments
-      = spec.link_to_remove 'Remove BA Spec'
-    = f.link_to_add "Add BA Spec", :ba_specs
+      .well
+        h3 BA User Spec / Combined Spec
+        = spec.input :name
+        = spec.input :comments
+        = spec.association :user
+        = spec.link_to_remove 'Remove', :class => 'btn btn-danger'
+    = f.link_to_add "Add BA Spec", :ba_specs, :class => 'btn btn-primary'
 
     = f.simple_fields_for :tech_specs do |tech|
-      = tech.input :name
-      = tech.input :comment
-      = tech.link_to_remove 'Remove Tech Spec'
-    = f.link_to_add "Add Tech Spec", :tech_specs
+      .well
+        h3 Tech Spec
+        = tech.input :name
+        = tech.input :comment
+        = tech.link_to_remove 'Remove Tech Spec', :class => 'btn btn-danger'
+    = f.link_to_add "Add Tech Spec", :tech_specs, :class => 'btn btn-primary'
 
+    = f.simple_fields_for :code do |c|
+      .well
+        h3 Code   
+        = c.input :comments
+        = c.link_to_remove 'Code', :class => 'btn btn-danger'
+    = f.link_to_add "Add Code", :code, :class => 'btn btn-primary'
+    
   .form-actions
     = f.button :submit

@@ -11,42 +11,40 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120822015105) do
+ActiveRecord::Schema.define(:version => 20120823020913) do
 
   create_table "ba_specs", :force => true do |t|
     t.integer  "deliverable_id"
     t.string   "name"
     t.string   "comments"
-    t.integer  "progress", :default => 0
+    t.integer  "progress",                :default => 0
     t.date     "internal_review_date"
     t.boolean  "internal_review_signoff"
     t.date     "external_review_date"
     t.boolean  "external_review_signoff"
     t.date     "final_version"
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+    t.integer  "user_id"
   end
 
   create_table "code", :force => true do |t|
     t.integer  "deliverable_id"
-    t.integer  "progress", :default => 0
+    t.integer  "progress",         :default => 0
     t.date     "code_review_date"
     t.date     "q_level_date"
     t.date     "staged_date"
     t.string   "comments"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.integer  "user_id"
   end
 
   create_table "deliverables", :force => true do |t|
     t.string   "description"
     t.string   "project_id"
-    # t.integer  "ba_spec_id"
-    # t.integer  "tech_spec_id"
-    # t.integer  "code_id"
-    # t.integer  "testing_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "projects", :force => true do |t|
@@ -91,6 +89,7 @@ ActiveRecord::Schema.define(:version => 20120822015105) do
     t.date     "final_version"
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
+    t.integer  "user_id"
   end
 
   create_table "user_roles", :force => true do |t|

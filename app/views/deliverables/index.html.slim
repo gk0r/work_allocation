@@ -13,7 +13,7 @@ table
     tr
       td = deliverable.id
       td = deliverable.description
-      
+
       td 
         - deliverable.ba_specs.each do |spec|
           = spec.name
@@ -22,24 +22,10 @@ table
         - deliverable.tech_specs.each do |spec|
           = spec.name
       
-      / td = deliverable.ba_specs.last.name
-      / td = deliverable.ba_specs.last.progress
-      
-      / td = deliverable.tech_specs.name
-      / td = debug(deliverable.tech_specs.last)
-      / td = debug(deliverable)
-      
-      
-      / td = deliverable.ba_specs.name
-      / td = deliverable.ba_specs.comments if defined?(deliverable.ba_specs.comments)
-      / td = deliverable.tech_spec_id
-      / td = deliverable.code_id
-      / td = debug(deliverable)
-      / td = debug(deliverable.ba_specs.last.name)
       td 
-        = link_to 'Show', deliverable
-        = link_to 'Edit', edit_deliverable_path(deliverable)
-        = link_to 'Destroy', deliverable, :confirm => 'Are you sure?', :method => :delete
+        = link_to '<i class="icon-white icon-pencil"></i>'.html_safe, edit_deliverable_path(deliverable), :class => 'btn btn-mini btn-primary'
+        = link_to '<i class="icon-white icon-trash"></i>'.html_safe, deliverable, :confirm => 'Are you sure?', :method => :delete, 
+          :class => 'btn btn-mini btn-danger'
 
 br
 

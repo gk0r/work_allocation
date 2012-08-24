@@ -3,8 +3,10 @@ class User < ActiveRecord::Base
   belongs_to :team
   
   has_many :projects
-  has_many :deliverables
-  has_many :ba_deliverabvles, :through => :deliverables
+  has_many :deliverables # No longer need this in the new design
+  has_many :ba_specs
+  has_many :tech_specs
+  has_many :code
   
   validates_presence_of :username, :first_name, :last_name, :telephone_number, :role_id, :team_id
   

@@ -1,8 +1,9 @@
-h1 Listing ba_specs
+legend Listing ba_specs
 
 table
   tr
     th Deliverable
+    th Responsible BA
     th Name
     th Progress
     th Internal review date
@@ -15,20 +16,21 @@ table
     th
     th
 
-  - @ba_specs.each do |ba_spec|
+  - @ba_specs.each do |b|
     tr
-      td = ba_spec.deliverable_id
-      td = ba_spec.name
-      td = ba_spec.progress
-      td = ba_spec.internal_review_date
-      td = ba_spec.internal_review_signoff
-      td = ba_spec.external_review_date
-      td = ba_spec.external_review_signoff
-      td = ba_spec.final_version
-      td = ba_spec.comments
-      td = link_to 'Show', ba_spec
-      td = link_to 'Edit', edit_ba_spec_path(ba_spec)
-      td = link_to 'Destroy', ba_spec, :confirm => 'Are you sure?', :method => :delete
+      td = b.deliverable_id
+      td = b.try(:user).try(:name)
+      td = b.name
+      td = b.progress
+      td = b.internal_review_date
+      td = b.internal_review_signoff
+      td = b.external_review_date
+      td = b.external_review_signoff
+      td = b.final_version
+      td = b.comments
+      td = link_to link_to '<i class="icon-white icon-pencil"></i>'.html_safe, edit_ba_spec_path(b), :class => 'btn btn-mini btn-primary'
+      td = link_to '<i class="icon-white icon-trash"></i>'.html_safe, b, :confirm => 'Are you sure?', :method => :delete, 
+          :class => 'btn btn-mini btn-danger'
 
 br
 
