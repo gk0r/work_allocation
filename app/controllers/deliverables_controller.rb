@@ -46,7 +46,7 @@ class DeliverablesController < ApplicationController
 
     respond_to do |format|
       if @deliverable.save
-        format.html { redirect_to deliverables_url, notice: 'Deliverable was successfully created.' }
+        format.html { redirect_to deliverables_url, :flash => {:success => t("flash.created_new", :type => "deliverable", :name => @deliverable.description) } }
         format.json { render json: @deliverable, status: :created, location: @deliverable }
       else
         format.html { render action: "new" }

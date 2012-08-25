@@ -1,27 +1,18 @@
-= form_for @tech_spec do |f|
-  - if @tech_spec.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@tech_spec.errors.count, "error")} prohibited this tech_spec from being saved:"
-      ul
-        - @tech_spec.errors.full_messages.each do |message|
-          li = message
+= simple_form_for @tech_spec, :html => { :class => 'form-horizontal' } do |f|
+  = f.error_notification
 
-  .field
-    = f.label :deliverable_id
-    = f.number_field :deliverable_id
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :comment
-    = f.text_field :comment
-  .field
-    = f.label :internal_review_date
-    = f.date_select :internal_review_date
-  .field
-    = f.label :internal_review_signoff
-    = f.check_box :internal_review_signoff
-  .field
-    = f.label :final_version
-    = f.date_select :final_version
-  .actions = f.submit 'Save'
+  .form-inputs
+    = f.association :user, :label => 'Technical Programmer'
+    = f.input :name, :label => 'Document name', :input_html => { :class => 'span5' }
+
+    = f.input :comments, :as => :text, :input_html => { :rows => 4, :class => 'span5' }
+    = f.input :progress, :input_html => { :class => 'span1' }
+
+    = f.input :internal_review_date, :as => :string, :input_html => { :class => 'span2' }
+    = f.input :internal_review_signoff
+
+    = f.input :final_version, :as => :string, :input_html => { :class => 'span2' }
+    
+  .form-actions
+    = f.submit "Add Tech Spec", :class => 'btn btn-primary'
+    = link_to 'Cancel', tech_specs_path, :class => 'btn btn-danger'

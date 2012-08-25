@@ -1,0 +1,15 @@
+= simple_form_for @code, :html => { :class => 'form-horizontal' } do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :deliverable
+    = f.association :user, :label => 'Programmer'
+    = f.input :comments, :as => :text, :input_html => { :rows => 4, :class => 'span5' }
+    = f.input :progress, :input_html => { :class => 'span1' }
+    = f.input :code_review_date, :as => :string, :input_html => { :class => 'span2' }
+    = f.input :q_level_date, :as => :string, :input_html => { :class => 'span2' }
+    = f.input :staged_date, :as => :string, :input_html => { :class => 'span2' }
+
+  .form-actions
+    = f.submit "Add Code", :class => 'btn btn-primary'
+    = link_to "Cancel", code_index_url, :class => 'btn btn-danger'
