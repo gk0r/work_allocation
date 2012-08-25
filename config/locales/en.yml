@@ -15,3 +15,6 @@ en:
     rfc: "RFC"
     timesheets_request_date: "Timesheets date"
     admin_ref: "Admin file"
+  flash:
+    created_new: "Successfully created new %{type}: %{name}"
+    updated: "%{name} updated"

@@ -1,0 +1,28 @@
+/ Success, Notice, and Error flash messages.
+
+/ DEVIATION FROM CONVENTION.
+/ In the interest of streamlining controllers, and not having to worry about excessive :flash => {:type => 'message'} coding - I have decided to..
+
+.container
+  -flash.each do |name, msg|
+    -if name == :error
+      .alert.alert-error
+        =msg
+        
+    -elsif name == :success
+    .alert.alert-success
+      =msg
+      
+    -elsif name == :warning
+      .alert.alert-warning
+        =msg
+        
+    -elsif name == :info
+      .alert.alert-info
+        =msg
+
+    -else # Default to notice if all matches fail
+      .alert.alert-notice
+        =msg
+        
+    / = debug (flash) # Turn this on if I need to debug flash messages

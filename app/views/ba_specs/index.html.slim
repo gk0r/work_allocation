@@ -1,6 +1,6 @@
-legend Listing ba_specs
+legend Listing BA Deliverables
 
-table
+table.table
   tr
     th Deliverable
     th Responsible BA
@@ -12,26 +12,23 @@ table
     th External review signoff
     th Final version
     th Comments
-    th
-    th
-    th
+    th Delete
 
   - @ba_specs.each do |b|
     tr
-      td = b.deliverable_id
-      td = b.try(:user).try(:name)
-      td = b.name
-      td = b.progress
-      td = b.internal_review_date
-      td = b.internal_review_signoff
-      td = b.external_review_date
-      td = b.external_review_signoff
-      td = b.final_version
-      td = b.comments
-      td = link_to link_to '<i class="icon-white icon-pencil"></i>'.html_safe, edit_ba_spec_path(b), :class => 'btn btn-mini btn-primary'
-      td = link_to '<i class="icon-white icon-trash"></i>'.html_safe, b, :confirm => 'Are you sure?', :method => :delete, 
-          :class => 'btn btn-mini btn-danger'
+      td = index_link b.deliverable_id,           edit_ba_spec_path(b)
+      td = index_link b.try(:user).try(:name),    edit_ba_spec_path(b)
+      td = index_link b.name,                     edit_ba_spec_path(b)
+      td = index_link b.progress,                 edit_ba_spec_path(b)
+      td = index_link b.internal_review_date,     edit_ba_spec_path(b)
+      td = index_link b.internal_review_signoff,  edit_ba_spec_path(b)
+      td = index_link b.external_review_date,     edit_ba_spec_path(b)
+      td = index_link b.external_review_signoff,  edit_ba_spec_path(b)
+      td = index_link b.final_version,            edit_ba_spec_path(b)
+      td = index_link b.comments,                 edit_ba_spec_path(b)
+      
+      td = link_to '<i class="icon-white icon-trash"></i>'.html_safe, b, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
 
 br
 
-= link_to 'New Ba spec', new_ba_spec_path
+= link_to 'New BA Spec', new_ba_spec_path, :class => 'btn btn-primary'

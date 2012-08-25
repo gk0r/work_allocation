@@ -11,22 +11,12 @@ html
     .navbar
       .navbar-inner
         .container
-          a.brand href='#' Test
+          a.brand href=root_url Work Allocation
           ul.nav
             li: a href="" Test
 
     / Success, Notice, and Error flash messages.
-    .container
-      -flash.each do |name, msg|
-        -if name == :error
-          .alert.alert-error
-            =msg
-        -elsif name == :success
-        .alert.alert-success
-          =msg
-        -else  
-          .alert.alert-notice
-            =msg
+    = render 'layouts/flash_messages'
 
     / Main body of content
     .container  
