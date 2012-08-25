@@ -1,29 +1,25 @@
-h1 Listing tech_specs
+h2 Tech Specs
 
-table
+table.table
   tr
     th Deliverable
     th Name
     th Comment
-    th Internal review date
+    th Internal review
     th Internal review signoff
     th Final version
-    th
-    th
-    th
+    th Delete
 
   - @tech_specs.each do |tech_spec|
     tr
-      td = tech_spec.deliverable_id
-      td = tech_spec.name
-      td = tech_spec.comments
-      td = tech_spec.internal_review_date
-      td = tech_spec.internal_review_signoff
-      td = tech_spec.final_version
-      td = link_to 'Show', tech_spec
-      td = link_to 'Edit', edit_tech_spec_path(tech_spec)
-      td = link_to 'Destroy', tech_spec, :confirm => 'Are you sure?', :method => :delete
+      td = index_link tech_spec.deliverable_id,           edit_tech_spec_path(tech_spec)
+      td = index_link tech_spec.name,                     edit_tech_spec_path(tech_spec)
+      td = index_link tech_spec.comments,                 edit_tech_spec_path(tech_spec)
+      td = index_link tech_spec.internal_review_date,     edit_tech_spec_path(tech_spec)
+      td = index_link tech_spec.internal_review_signoff,  edit_tech_spec_path(tech_spec)
+      td = index_link tech_spec.final_version,            edit_tech_spec_path(tech_spec)
+      td = link_to '<i class="icon-white icon-trash"></i>'.html_safe, tech_spec, :confirm => 'Are you sure?', :method => :delete
 
 br
 
-= link_to 'New Tech spec', new_tech_spec_path
+= link_to 'New Tech Spec', new_tech_spec_path, :class => 'btn btn-primary'

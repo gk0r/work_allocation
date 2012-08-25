@@ -46,7 +46,7 @@ class DeliverablesController < ApplicationController
 
     respond_to do |format|
       if @deliverable.save
-        format.html { redirect_to deliverables_url, :flash => {:success => t("flash.created_new", :type => "deliverable", :name => @deliverable.description) } }
+        format.html { redirect_to deliverables_path}#, :flash => {:success => t("flash.created_new", :type => "deliverable", :name => @deliverable.description) } }
         format.json { render json: @deliverable, status: :created, location: @deliverable }
       else
         format.html { render action: "new" }
@@ -62,7 +62,7 @@ class DeliverablesController < ApplicationController
 
     respond_to do |format|
       if @deliverable.update_attributes(params[:deliverable])
-        format.html { redirect_to @deliverable, notice: 'Deliverable was successfully updated.' }
+        format.html { redirect_to deliverables_path, :flash => {:success => "Deliverable was successfully updated."} }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
