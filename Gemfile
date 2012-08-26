@@ -15,10 +15,10 @@ end
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'nested_form'
-gem 'slim'                      # Technically 'slim-rails' supersedes the need to include this gem, but I am leaving this here just in case.
 gem 'slim-rails'                # This gem allows SLIM templates to be generated automatically via the rails generator
 gem 'audited-activerecord'
 gem 'cancan'
+gem 'rails_admin'
 
 # Gems that are only required in Development and Test environments
 group :development, :test do
@@ -33,3 +33,5 @@ end
 gem 'redcarpet'
 gem 'albino'
 gem 'nokogiri'
+
+gem "devise"

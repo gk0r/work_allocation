@@ -1,4 +1,8 @@
 WorkAllocation::Application.routes.draw do
+  mount RailsAdmin::Engine => '/rails_admin', :as => 'rails_admin'
+
+  devise_for :admins
+
   resources :code
 
   resources :tech_specs
