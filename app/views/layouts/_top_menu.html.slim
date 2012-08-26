@@ -2,5 +2,15 @@
   .navbar-inner
     .container
       a.brand href=root_url Work Allocation
+
       ul.nav
         li: a href="" Test
+      
+      ul.nav.pull-right
+        li.dropdown
+          erb:
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Username<b class="caret"></b></a>
+          ul.dropdown-menu
+            li: a href='#' Update Profile
+            li.divider
+            li: a href='#' Signout
