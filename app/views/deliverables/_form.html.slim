@@ -2,33 +2,34 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :description
+    = f.input :description, :as => :text, :input_html => { :rows => 4, :class => 'span5' }
     = f.association :project
     = f.association :software_release
 
     = f.simple_fields_for :ba_specs do |spec|
       .well
         h3 BA User Spec / Combined Spec
-        = spec.association :user
-        = spec.input :comments
+        = spec.input :user_id, :collection => User.where(:role_id => 1), :label => 'Business Analyst'
+        = spec.input :comments, :as => :text, :input_html => { :rows => 4, :class => 'span5' }
         = spec.link_to_remove 'Remove', :class => 'btn btn-danger'
     = f.link_to_add "Add BA Spec", :ba_specs, :class => 'btn btn-info'
 
     = f.simple_fields_for :tech_specs do |tech|
       .well
         h3 Tech Spec
-        = tech.association :user        
-        = tech.input :comments
+        = tech.input :user_id, :collection => User.where(:role_id => 2), :label => 'Technical Programmer' 
+        = tech.input :comments, :as => :text, :input_html => { :rows => 4, :class => 'span5' }
         = tech.link_to_remove 'Remove Tech Spec', :class => 'btn btn-danger'
     = f.link_to_add "Add Tech Spec", :tech_specs, :class => 'btn btn-info'
 
     = f.simple_fields_for :code do |c|
       .well
         h3 Code   
-        = c.association :user
-        = c.input :comments
+        = c.input :user_id, :collection => User.where(:role_id => 2), :label => 'Technical Programmer' 
+        = c.input :comments, :as => :text, :input_html => { :rows => 4, :class => 'span5' }
         = c.link_to_remove 'Code', :class => 'btn btn-danger'
     = f.link_to_add "Add Code", :code, :class => 'btn btn-info'
     
   .form-actions
     = f.button :submit, :class => 'btn btn-primary'
+    = cancel_link(deliverables_path)
