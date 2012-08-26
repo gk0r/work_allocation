@@ -2,7 +2,7 @@
   = f.error_notification
 
   .form-inputs
-    = f.association :user, :label => 'Technical Programmer'
+    = f.input :user_id, :label => 'Technical Programmer', :collection => User.where(:role_id => 2)
     = f.input :name, :label => 'Document name', :input_html => { :class => 'span5' }
 
     = f.input :comments, :as => :text, :input_html => { :rows => 4, :class => 'span5' }
