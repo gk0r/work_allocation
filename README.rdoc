@@ -11,3 +11,8 @@ A few notes about security
 * This is application is designed to run behind a firewall and does not employ standard suite of security measures.
 * User management is very limited
 * The application will not work until the v1.0, this may or may not happen at all.
+
+== Conventions
+1. Fonts
+  * Use H2 headings on all Index pages
+  * Use legend on all Editing pages

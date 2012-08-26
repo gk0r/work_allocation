@@ -4,6 +4,7 @@
   .form-inputs
     = f.input :description
     = f.association :project
+    = f.association :software_release
 
     = f.simple_fields_for :ba_specs do |spec|
       .well

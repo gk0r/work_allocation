@@ -35,6 +35,7 @@ class TechSpecsController < ApplicationController
   # GET /tech_specs/1/edit
   def edit
     @tech_spec = TechSpec.find(params[:id])
+    session[:return_to] = request.referer
   end
 
   # POST /tech_specs
@@ -44,7 +45,7 @@ class TechSpecsController < ApplicationController
 
     respond_to do |format|
       if @tech_spec.save
-        format.html { redirect_to @tech_spec, notice: 'Tech spec was successfully created.' }
+        format.html { redirect_to tech_specs_path, :flash => {:success => "Tech Spec created"} }
         format.json { render json: @tech_spec, status: :created, location: @tech_spec }
       else
         format.html { render action: "new" }
@@ -60,7 +61,7 @@ class TechSpecsController < ApplicationController
 
     respond_to do |format|
       if @tech_spec.update_attributes(params[:tech_spec])
-        format.html { redirect_to @tech_spec, notice: 'Tech spec was successfully updated.' }
+        format.html { redirect_to session[:return_to], :flash => {:success => "Tech Spec updated"} }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

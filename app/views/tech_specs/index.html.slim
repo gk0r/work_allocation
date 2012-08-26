@@ -5,6 +5,7 @@ table.table
     th Deliverable
     th Name
     th Comment
+    th Progress
     th Internal review
     th Internal review signoff
     th Final version
@@ -15,10 +16,11 @@ table.table
       td = index_link tech_spec.deliverable_id,           edit_tech_spec_path(tech_spec)
       td = index_link tech_spec.name,                     edit_tech_spec_path(tech_spec)
       td = index_link tech_spec.comments,                 edit_tech_spec_path(tech_spec)
+      td = index_link tech_spec.progress.to_s + '%',      edit_tech_spec_path(tech_spec)
       td = index_link tech_spec.internal_review_date,     edit_tech_spec_path(tech_spec)
       td = index_link tech_spec.internal_review_signoff,  edit_tech_spec_path(tech_spec)
       td = index_link tech_spec.final_version,            edit_tech_spec_path(tech_spec)
-      td = link_to '<i class="icon-white icon-trash"></i>'.html_safe, tech_spec, :confirm => 'Are you sure?', :method => :delete
+      td = link_to '<i class="icon-white icon-trash"></i>'.html_safe, tech_spec, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
 
 br
 

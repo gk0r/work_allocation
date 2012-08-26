@@ -4,6 +4,7 @@ table.table
   tr
     th ID
     th Description
+    th Release
     th Project
     th BA Spec
     th Tech Spec
@@ -13,22 +14,24 @@ table.table
   - @deliverables.each do |deliverable|
     tr
       td = deliverable.id
-      td = index_link deliverable.description,    edit_deliverable_path(deliverable)
-      / td = debug(deliverable.project.try(:id))
-      / td = index_link deliverable.try(:project).try(:name),     edit_project_path(deliverable.try(:project).try(:id)) if deliverable.project.try(:id)
+      td = index_link deliverable.description,                  edit_deliverable_path(deliverable)
+      td = index_link deliverable.software_release.try(:name),  edit_deliverable_path(deliverable)
       td = index_link deliverable.try(:project).try(:name),     edit_project_path(deliverable.try(:project).try(:id)) if deliverable.project.try(:id)
 
       td 
         - deliverable.ba_specs.each do |s|
-          = link_to "<i class=icon-white icon-pencil></i>#{s.progress}%".html_safe, edit_ba_spec_path(s)
+          = link_to s.progress, edit_ba_spec_path(s)
+          br
           
       td 
         - deliverable.tech_specs.each do |s|
-          = link_to "<i class=icon-white icon-pencil></i>#{s.progress}%".html_safe, edit_tech_spec_path(s)
+          = link_to s.progress, edit_tech_spec_path(s)
+          br
                     
       td 
         - deliverable.code.each do |c|
-          = link_to "<i class=icon-white icon-pencil></i>#{c.progress}%".html_safe, edit_code_path(c)
+          = link_to c.progress, edit_code_path(c)
+          br
       
       td 
         = link_to '<i class="icon-white icon-trash"></i>'.html_safe, deliverable, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'

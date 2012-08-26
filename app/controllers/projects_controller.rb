@@ -35,6 +35,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1/edit
   def edit
     @project = Project.find(params[:id])
+    session[:return_to] = request.referer
   end
 
   # POST /projects
@@ -60,7 +61,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.update_attributes(params[:project])
-        format.html { redirect_to projects_path, :flash => {:success => "Project was successfully updated."} }
+        format.html { redirect_to session[:return_to], :flash => {:success => "Project was successfully updated."} }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

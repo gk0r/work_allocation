@@ -35,6 +35,7 @@ class BaSpecsController < ApplicationController
   # GET /ba_specs/1/edit
   def edit
     @ba_spec = BaSpec.find(params[:id])
+    session[:return_to] = request.referer
   end
 
   # POST /ba_specs
@@ -44,7 +45,7 @@ class BaSpecsController < ApplicationController
 
     respond_to do |format|
       if @ba_spec.save
-        format.html { redirect_to @ba_spec, notice: 'Ba spec was successfully created.' }
+        format.html { redirect_to ba_specs_path, :flash => {:success => "BA Spec created successfully"} }
         format.json { render json: @ba_spec, status: :created, location: @ba_spec }
       else
         format.html { render action: "new" }
@@ -60,7 +61,8 @@ class BaSpecsController < ApplicationController
 
     respond_to do |format|
       if @ba_spec.update_attributes(params[:ba_spec])
-        format.html { redirect_to @ba_spec, notice: 'Ba spec was successfully updated.' }
+        # format.html { redirect_to ba_specs_path, :flash => {:success => "BA Spec updated"} }
+        format.html { redirect_to session[:return_to], :flash => {:success => "BA Spec updated"} }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

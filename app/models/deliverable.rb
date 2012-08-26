@@ -5,6 +5,7 @@ class Deliverable < ActiveRecord::Base
   
   belongs_to :project
   belongs_to :user
+  belongs_to :software_release
   
   accepts_nested_attributes_for :ba_specs # Add the destroy calls in here, so that if the Deliverable is deleted, all associated 
   accepts_nested_attributes_for :tech_specs

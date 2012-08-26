@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120823020913) do
+ActiveRecord::Schema.define(:version => 20120826022359) do
 
   create_table "ba_specs", :force => true do |t|
     t.integer  "deliverable_id"
@@ -43,8 +43,9 @@ ActiveRecord::Schema.define(:version => 20120823020913) do
   create_table "deliverables", :force => true do |t|
     t.string   "description"
     t.string   "project_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "software_release_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "projects", :force => true do |t|
@@ -89,8 +90,8 @@ ActiveRecord::Schema.define(:version => 20120823020913) do
     t.date     "internal_review_date"
     t.boolean  "internal_review_signoff"
     t.date     "final_version"
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
   end
 
   create_table "user_roles", :force => true do |t|
