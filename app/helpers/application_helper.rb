@@ -4,6 +4,11 @@ module ApplicationHelper
   end
   
   def delete_link (path)
-    link_to '<i class="icon-white icon-trash"></i>'.html_safe, path, :class => 'btn btn-mini btn-danger'
+    link_to '<i class="icon-white icon-trash"></i>'.html_safe, path, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
   end
+  
+  def cancel_link(path)
+    link_to 'Cancel', path, :class => 'btn btn-danger'
+  end
+  
 end
