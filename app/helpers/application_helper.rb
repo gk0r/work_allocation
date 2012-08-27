@@ -11,4 +11,8 @@ module ApplicationHelper
     link_to 'Cancel', path, :class => 'btn btn-danger'
   end
   
+  def close_icon
+    '<a class="close" data-dismiss="alert">x</a>'.html_safe
+  end
+  
 end

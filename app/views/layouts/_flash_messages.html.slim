@@ -7,22 +7,27 @@
   -flash.each do |name, msg|
     -if name == :error
       .alert.alert-error
-        =msg
+        = msg
+        = close_icon
         
     -elsif name == :success
-    .alert.alert-success
-      =msg
+      .alert.alert-success
+        = msg
+        = close_icon
       
     -elsif name == :warning
       .alert.alert-warning
-        =msg
-        
+        = msg
+        = close_icon
+      
     -elsif name == :info
       .alert.alert-info
-        =msg
+        = msg
+        = close_icon
 
     -else # Default to notice if all matches fail
       .alert.alert-notice
-        =msg
-        
+        = msg
+        = close_icon
+      
     / = debug (flash) # Turn this on if I need to debug flash messages

@@ -3,6 +3,7 @@
 
   .form-inputs
     = f.input :description, :as => :text, :input_html => { :rows => 4, :class => 'span5' }
+    = f.association :team
     = f.association :project
     = f.association :software_release
 
