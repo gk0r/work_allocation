@@ -1,28 +1,30 @@
 .index-heading Code
 
 table.index-table
-  tr
-    th Deliverable ID
-    th Programmer
-    th Comments
-    th Progress     
-    th Code Review
-    th Q Level
-    th Staged 
-    th Delete
-
-  - @code.each do |code|
+  thead
     tr
-      td = index_link code.deliverable_id,    edit_code_path(code)
-      / td = debug(code.user)
-      td = index_link code.try(:user).try(:name), edit_code_path(code)
-      td = index_link code.comments,              edit_code_path(code)
-      td = index_link code.progress,              edit_code_path(code)
-      td = index_link code.code_review_date,      edit_code_path(code)
-      td = index_link code.q_level_date,          edit_code_path(code)
-      td = index_link code.staged_date,           edit_code_path(code)
+      th Deliverable ID
+      th Programmer
+      th Comments
+      th Progress     
+      th Code Review
+      th Q Level
+      th Staged 
+      th Delete
+
+  tbody
+    - @code.each do |code|
+      tr
+        td = index_link code.deliverable_id,    edit_code_path(code)
+        / td = debug(code.user)
+        td = index_link code.try(:user).try(:name), edit_code_path(code)
+        td = index_link code.comments,              edit_code_path(code)
+        td = index_link code.progress,              edit_code_path(code)
+        td = index_link code.code_review_date,      edit_code_path(code)
+        td = index_link code.q_level_date,          edit_code_path(code)
+        td = index_link code.staged_date,           edit_code_path(code)
       
-      td = link_to '<i class="icon-white icon-trash"></i>'.html_safe, code, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
+        td = link_to '<i class="icon-white icon-trash"></i>'.html_safe, code, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
 
 br
 
