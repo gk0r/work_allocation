@@ -12,4 +12,4 @@
 
   .form-actions
     = f.submit "Add Code", :class => 'btn btn-primary'
-    = link_to "Cancel", code_index_url, :class => 'btn btn-danger'
+    = cancel_link(code_index_path)

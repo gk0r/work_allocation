@@ -9,7 +9,8 @@ module ApplicationHelper
   end
   
   def cancel_link(path)
-    link_to 'Cancel', path, :class => 'btn btn-danger'
+    return_to_path = session[:return_to] ? session[:return_to] : path
+    link_to 'Cancel', return_to_path, :class => 'btn btn-danger'
   end
   
   def close_icon
