@@ -6,27 +6,27 @@
 .container
   -flash.each do |name, msg|
     -if name == :error
-      .alert.alert-error
+      .alert.alert-error.fade.in
         = msg
         = close_icon
         
     -elsif name == :success
-      .alert.alert-success
+      .alert.alert-success.fade.in
         = msg
         = close_icon
       
     -elsif name == :warning
-      .alert.alert-warning
+      .alert.alert-warning.fade.in
         = msg
         = close_icon
       
     -elsif name == :info
-      .alert.alert-info
+      .alert.alert-info.fade.in
         = msg
         = close_icon
 
     -else # Default to notice if all matches fail
-      .alert.alert-notice
+      .alert.alert-notice.fade.in
         = msg
         = close_icon
       
