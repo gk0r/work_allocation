@@ -1,5 +1,6 @@
-.well.sidebar-nav.fade.in.collapse
+.well.sidebar-nav
   ul.nav.nav-list
+  
     li.nav-header Navigation
     li= link_to 'Teams', teams_url
     li= link_to "Roles", roles_url
@@ -10,9 +11,6 @@
     li= link_to 'BA Specs', ba_specs_url
     li= link_to 'Tech Specs', tech_specs_url
     li= link_to 'Code', code_index_url
+    
     li.nav-header Admin
     li= link_to 'Admin Panel', rails_admin_url
-    
-    li
-      erb:
-        <a class="close" data-toggle="collapse" data-target=".collapse">x</a>

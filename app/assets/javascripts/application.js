@@ -15,3 +15,10 @@
 //= require twitter/bootstrap
 //= require jquery_nested_form
 //= require_tree .
+
+// Experimental Area
+$(function() {
+	$(".collapse-trigger").click(function () {
+    $(".side-menu").slideUp('slow', function() {$(".main-body").removeClass("span9").addClass("span12");});
+   });
+});
