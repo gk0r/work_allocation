@@ -8,13 +8,13 @@
     = f.input :comments, :as => :text, :input_html => { :rows => 4, :class => 'span5' }
     = f.input :progress, :input_html => { :class => 'span1' }
 
-    = f.input :internal_review_date, :as => :string, :input_html => { :class => 'span2' }
+    = f.input :internal_review_date, :as => :string, :input_html => { :class => 'span2 date' }
     = f.input :internal_review_signoff
 
-    = f.input :external_review_date, :as => :string, :input_html => { :class => 'span2' }
+    = f.input :external_review_date, :as => :string, :input_html => { :class => 'span2 date' }
     = f.input :external_review_signoff
     
-    = f.input :final_version, :as => :string, :input_html => { :class => 'span2' }
+    = f.input :final_version, :as => :string, :input_html => { :class => 'span2 date' }
     
   .form-actions
     = f.button :button, :label => 'Tests', :class => 'btn btn-primary'

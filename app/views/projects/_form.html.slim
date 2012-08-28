@@ -1,0 +1,16 @@
+= simple_form_for @project, :html => { :class => 'form-horizontal' } do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name                     , :label => 'Name'                     , :input_html => { :class => 'span4' }      
+    = f.input :dmr                      , :label => 'DMR'                      , :input_html => { :class => 'span1' }      
+    = f.association :software_release   , :label => 'Software Release'
+    = f.input :warrant_status           , :label => 'Warrant Status'           , :collection => ['Warranted', 'Conditionally Warranted', 'Not Warranted']             
+    = f.input :work_order               , :label => 'Work Order'               , :input_html => { :class => 'span1' }      
+    = f.input :rfc                      , :label => 'RFC'                      , :input_html => { :class => 'span1' }      
+    = f.input :timesheets_request_date  , :label => 'Timesheets Request Date'  , :input_html => { :class => 'span2 date' }  
+    = f.input :admin_ref                , :label => 'Admin Reference'          , :input_html => { :class => 'span5' }      
+
+  .form-actions
+    = f.button :submit, :class => 'btn btn-primary'
+    = cancel_link(projects_path)

@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.datepicker
 //= require twitter/bootstrap
 //= require jquery_nested_form
 //= require_tree .
@@ -21,4 +22,6 @@ $(function() {
 	$(".collapse-trigger").click(function () {
     $(".side-menu").slideUp('slow', function() {$(".main-body").removeClass("span9").addClass("span12");});
    });
+
+	$(".date").datepicker({dateFormat: "D, d MM yy"});	
 });

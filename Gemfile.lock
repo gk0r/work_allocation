@@ -230,6 +230,7 @@ DEPENDENCIES
   coffee-rails
   devise
   jquery-rails
+  jquery-ui-rails
   launchy
   letter_opener
   nested_form
