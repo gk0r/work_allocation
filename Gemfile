@@ -8,7 +8,10 @@ gem 'sqlite3'
 group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
-  gem 'bootstrap-sass'
+  # gem 'bootstrap-sass'                                                                              # This repo is very slow getting Twitter Bootstrap 2.1 merged into the master.
+  gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'      # Use this gem when developing on my Mac
+#  gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git',    # Use this gem when deploying on Windows platform
+#                                 :branch => 'static'
   gem 'uglifier'
 end
 
