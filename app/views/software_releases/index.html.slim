@@ -19,36 +19,3 @@ table.index-table
         td = delete_link(software_release_path(software_release))
 
 = link_to 'Create new Software Release', new_software_release_path, :class => 'btn btn-primary'
-
-/ <%- model_class = SoftwareRelease.new.class -%>
-/ <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
-/ <table class="table table-striped">
-/   <thead>
-/     <tr>
-/       <th><%= model_class.human_attribute_name(:id) %></th>
-/       <th><%= model_class.human_attribute_name(:name) %></th>
-/       <th><%= model_class.human_attribute_name(:date) %></th>
-/       <th><%= model_class.human_attribute_name(:version) %></th>
-/       <th><%=t '.actions', :default => t("helpers.actions") %></th>
-/     </tr>
-/   </thead>
-/   <tbody>
-/     <% @software_releases.each do |software_release| %>
-/       <tr>
-/         <td><%= link_to software_release.id, software_release_path(software_release) %></td>
-/         <td><%= software_release.name %></td>
-/         <td><%= software_release.date %></td>
-/         <td><%= software_release.version %></td>
-/         <td>
-/           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-/                       edit_software_release_path(software_release), :class => 'btn btn-mini' %>
-/           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-/                       software_release_path(software_release),
-/                       :method => :delete,
-/                       :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-/                       :class => 'btn btn-mini btn-danger' %>
-/         </td>
-/       </tr>
-/     <% end %>
-/   </tbody>
-/ </table>
