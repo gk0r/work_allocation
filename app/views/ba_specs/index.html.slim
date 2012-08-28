@@ -1,33 +1,35 @@
-h2 BA Specs
+.index-heading BA Specs
 
-table.table
-  tr
-    th Deliverable
-    th Responsible BA
-    th Name
-    th Progress
-    th Internal review date
-    th Internal review signoff
-    th External review date
-    th External review signoff
-    th Final version
-    th Comments
-    th Delete
-
-  - @ba_specs.each do |b|
+table.index-table
+  thead
     tr
-      td = index_link b.deliverable_id,           edit_ba_spec_path(b)
-      td = index_link b.try(:user).try(:name),    edit_ba_spec_path(b)
-      td = index_link b.name,                     edit_ba_spec_path(b)
-      td = index_link b.progress,                 edit_ba_spec_path(b)
-      td = index_link b.internal_review_date,     edit_ba_spec_path(b)
-      td = index_link b.internal_review_signoff,  edit_ba_spec_path(b)
-      td = index_link b.external_review_date,     edit_ba_spec_path(b)
-      td = index_link b.external_review_signoff,  edit_ba_spec_path(b)
-      td = index_link b.final_version,            edit_ba_spec_path(b)
-      td = index_link b.comments,                 edit_ba_spec_path(b)
+      th Deliverable
+      th Responsible BA
+      th Name
+      th Progress
+      th Internal review date
+      th Internal review signoff
+      th External review date
+      th External review signoff
+      th Final version
+      th Comments
+      th Delete
+
+  tbody
+    - @ba_specs.each do |b|
+      tr
+        td = index_link b.deliverable_id,           edit_ba_spec_path(b)
+        td = index_link b.try(:user).try(:name),    edit_ba_spec_path(b)
+        td = index_link b.name,                     edit_ba_spec_path(b)
+        td = index_link b.progress,                 edit_ba_spec_path(b)
+        td = index_link b.internal_review_date,     edit_ba_spec_path(b)
+        td = index_link b.internal_review_signoff,  edit_ba_spec_path(b)
+        td = index_link b.external_review_date,     edit_ba_spec_path(b)
+        td = index_link b.external_review_signoff,  edit_ba_spec_path(b)
+        td = index_link b.final_version,            edit_ba_spec_path(b)
+        td = index_link b.comments,                 edit_ba_spec_path(b)
       
-      td = link_to '<i class="icon-white icon-trash"></i>'.html_safe, b, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
+        td = link_to '<i class="icon-white icon-trash"></i>'.html_safe, b, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
 
 br
 
