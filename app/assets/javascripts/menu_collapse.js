@@ -1,9 +1,18 @@
 $(function() {
-	// Menu Collapse
 	$(".collapse-trigger").click(function () {
-    $(".side-menu").slideUp('slow', function() {$(".main-body").removeClass("span9").addClass("span12");});
-   });
-
-	// Date Picker - jQuery UI
-	$(".date").datepicker({dateFormat: "D, d MM yy"});	
+	    if ($(".main-body").is(".span9")){
+				// Collapse the menu 
+				$(".side-menu").slideToggle('slow', function() {
+					$(".main-body").toggleClass("span9");
+					$(".collapse-trigger").html("Expand Menu");
+					});
+			}
+			else {
+				// Expand the menu
+				$(".main-body").toggleClass("span9");
+				$(".side-menu").slideToggle('slow', function() {
+					$(".collapse-trigger").html("Collapse Menu");
+				});
+			}
+	   });
 });
