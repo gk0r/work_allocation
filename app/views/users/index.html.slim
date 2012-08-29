@@ -4,7 +4,7 @@ table.index-table
   thead
     tr
       th Name
-      th Username
+      th Email
       th Telephone
       th Role
       th Team
@@ -14,7 +14,7 @@ table.index-table
     - @users.each do |user|
       tr
         td = link_to user.name, edit_user_path(user)
-        td = link_to user.username, edit_user_path(user)
+        td = link_to user.email, edit_user_path(user)
         td = link_to user.telephone_number, edit_user_path(user)
         td = link_to user.role.name, edit_user_path(user)
         td = link_to user.team.name, edit_user_path(user)
