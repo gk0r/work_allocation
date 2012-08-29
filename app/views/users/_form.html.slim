@@ -2,7 +2,6 @@
   = f.error_notification 
   
   = f.input :email            , :input_html => { :class => 'span3' }                                                                    , :placeholder => 'email@humanservices.gov.au'  , :autofocus => true
-  = f.input :password                                               , :hint => "Leave password blank if you do not wish to change it"   , :placeholder => 'Password'
   = f.input :first_name                                                                                                                 , :placeholder => 'First name'
   = f.input :last_name                                                                                                                  , :placeholder => 'Last Name'
   = f.input :telephone_number , :input_html => { :class => 'span2' }, :hint => 'Please enter in the following format: (02) 0000 0000'   , :placeholder => 'Telephone Number'
@@ -11,4 +10,5 @@
 
   .form-actions
     = f.button :submit, :class => 'btn-primary' 
+    '
     = cancel_link (users_path)

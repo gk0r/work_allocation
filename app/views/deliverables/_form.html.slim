@@ -21,6 +21,7 @@
         = tech.input :user_id, :collection => User.where(:role_id => 2), :label => 'Technical Programmer' 
         = tech.input :comments, :as => :text, :input_html => { :rows => 4, :class => 'span5' }
         = tech.link_to_remove 'Remove Tech Spec', :class => 'btn btn-danger'
+    '
     = f.link_to_add "Add Tech Spec", :tech_specs, :class => 'btn btn-info'
 
     = f.simple_fields_for :code do |c|
@@ -29,6 +30,7 @@
         = c.input :user_id, :collection => User.where(:role_id => 2), :label => 'Technical Programmer' 
         = c.input :comments, :as => :text, :input_html => { :rows => 4, :class => 'span5' }
         = c.link_to_remove 'Code', :class => 'btn btn-danger'
+    '
     = f.link_to_add "Add Code", :code, :class => 'btn btn-info'
     
   .form-actions

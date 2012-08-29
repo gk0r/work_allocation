@@ -16,3 +16,6 @@ A few notes about security
 1. Fonts
   * Use H2 headings on all Index pages
   * Use legend on all Editing pages
+  
+== Bugs
+1. Unable to create sub-deliverables when creating a brand new deliverable. This is due to having deliverable_id marked as mandatory. It appears that the sub-deliverables are created first, thereby not having access to the main deliverable...
