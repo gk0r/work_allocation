@@ -1,20 +1,16 @@
 WorkAllocation::Application.routes.draw do
-  devise_for :users
 
   mount RailsAdmin::Engine => '/rails_admin', :as => 'rails_admin'
 
   devise_for :admins
 
-  resources :code
+  resources :deliverables, :projects, :users, :software_releases, :roles, :teams, :code, :tech_specs, :ba_specs, :deliverables, :welcome
 
-  resources :tech_specs
+  root :to => 'welcome#home'
 
-  resources :ba_specs
-
-  resources :deliverables
-
-  root :to => 'users#index'
-  
-  resources :deliverables, :projects, :users, :software_releases, :roles, :teams
+  get     "sign_up"   => "users#new"
+  get     "sign_in"   => "sessions#new"
+  post    "sign_in"   => "sessions#create"
+  get     "sign_out"  => "sessions#destroy"
   
 end

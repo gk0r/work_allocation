@@ -15,5 +15,5 @@
 # end
 
 ActiveSupport::Inflector.inflections do |inflect|
-  inflect.uncountable %w( code )
+  inflect.uncountable %w( code welcome)
 end

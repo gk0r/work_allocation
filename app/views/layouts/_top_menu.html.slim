@@ -8,11 +8,18 @@
       
       ul.nav.pull-right
         li: a.collapse-trigger href="#" Collapse Menu
-      
-        li.dropdown
-          erb:
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Username<b class="caret"></b></a>
-          ul.dropdown-menu
-            li: a href='#' Update Profile
-            li.divider
-            li: a href='#' Signout
+        
+        / Logged in user options
+        - if user_signed_in?
+          li.dropdown
+            erb:
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.name %><b class="caret"></b></a>
+            ul.dropdown-menu
+              li = link_to "Update Profile", edit_user_path(current_user)
+              li.divider
+              li = link_to "Sign out", sign_out_path, :method => :delete
+
+        / Display Sign In and Register links for users who are not signed in
+        - else
+          li = link_to  "Sign In"   , sign_in_path
+          li = link_to  "Register"  , sign_up_path

@@ -3,30 +3,24 @@ class SessionsController < ApplicationController
   
   def new
     respond_to do |format|
-      format.html { render action: "sign_in" }
+      format.html { render 'sign_in' }
     end
   end
   
   def create
-    user = User.find_by_username(params[:username])
+    user = User.find_by_email(params[:session][:email])
     
-    if (user && user.authenticate(params[:password])) # or (user && ) # FIXME allow for blank passwords
-      session[:user_id] = user.id
-      redirect_to root_url, notice: t('flash.sign_in', :name => user.first_name)
+    if (user)
+      session[:user] = @current_user = current_user = user
+      redirect_to root_url
     else
-      redirect_to sign_in_path, alert: t('flash.invalid_username_or_password')
+      redirect_to sign_in_path, alert: 'Unable to find a user with this email'
     end
   end
 
   def destroy
-    session[:user_id] = nil
-    session[:current_step] = session[:booking_params] = session[:booking_step] = nil
-    redirect_to root_url, notice: t('flash.sign_out')
-  end
-  
-  def clear_booking_steps
-    session[:current_step] = session[:booking_params] = session[:booking_step] = nil
-     redirect_to root_url, notice: "Booking sessions paramters and steps have been cleared"
+    session[:user_id] = @current_user = session[:user] = nil
+    redirect_to root_url
   end
   
 end
