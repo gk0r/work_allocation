@@ -1,0 +1,12 @@
+= simple_form_for @software_release, :html => { :class => 'form-horizontal' } do |f| 
+  = f.error_notification 
+
+  .form-input
+    = f.input :name,    :label => "Release name",   :autofocus => true
+    = f.input :date,    :label => 'Release date',   :as => :string,     :input_html => { :class => 'date' }
+    = f.input :version, :label => 'Release version',                    :input_html => { :class => 'span1'} 
+
+  .form-actions
+    = f.button :submit, :class => 'btn-primary' 
+    '
+    = cancel_link(software_releases_path)
