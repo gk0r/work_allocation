@@ -35,7 +35,6 @@ class BaSpecsController < ApplicationController
   # GET /ba_specs/1/edit
   def edit
     @ba_spec = BaSpec.find(params[:id])
-    session[:return_to] = request.referer
   end
 
   # POST /ba_specs

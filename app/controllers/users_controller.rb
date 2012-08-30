@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  
+  include ApplicationHelper
+  before_filter :cancel_button_processing
+  
   # GET /users
   # GET /users.json
   def index

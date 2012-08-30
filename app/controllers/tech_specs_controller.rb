@@ -35,7 +35,6 @@ class TechSpecsController < ApplicationController
   # GET /tech_specs/1/edit
   def edit
     @tech_spec = TechSpec.find(params[:id])
-    session[:return_to] = request.referer
   end
 
   # POST /tech_specs

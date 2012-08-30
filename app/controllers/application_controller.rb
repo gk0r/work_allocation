@@ -1,10 +1,15 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
+  include ApplicationHelper
+  
   helper_method :current_user,
                 :user_signed_in?,
                 :paginate_at
-                
+  
+  before_filter :return_logic, :only => [:index, :new, :edit]              
+  before_filter :cancel_button_processing
+          
   # before_filter :user_signed_in
   
   # This is my 'Test' method. Can be accessed via a GET request to /test URL.
@@ -23,6 +28,10 @@ class ApplicationController < ActionController::Base
   
   def paginate_at
     15
+  end
+  
+  def return_logic
+    session[:return_to] = request.referer
   end
   
 end

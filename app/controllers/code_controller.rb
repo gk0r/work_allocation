@@ -1,4 +1,5 @@
 class CodeController < ApplicationController
+  
   # GET /code
   # GET /code.json
   def index
@@ -35,14 +36,15 @@ class CodeController < ApplicationController
   # GET /code/1/edit
   def edit
     @code = Code.find(params[:id])
-    session[:return_to] = request.referer
   end
 
   # POST /code
   # POST /code.json
   def create
     @code = Code.new(params[:code])
-
+    
+    return cancel_button_processing(params[:cancel]) if params[:cancel]
+    
     respond_to do |format|
       if @code.save
         format.html { redirect_to code_index_url, :flash => {:success => "Code deliverable added successfully"} }
@@ -58,7 +60,7 @@ class CodeController < ApplicationController
   # PUT /code/1.json
   def update
     @code = Code.find(params[:id])
-
+    
     respond_to do |format|
       if @code.update_attributes(params[:code])
         format.html { redirect_to session[:return_to], :flash => {:success => "Code deliverable updated"} }
