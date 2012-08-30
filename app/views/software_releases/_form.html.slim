@@ -2,11 +2,11 @@
   = f.error_notification 
 
   .form-input
-    = f.input :name,    :label => "Release name",   :autofocus => true
-    = f.input :date,    :label => 'Release date',   :as => :string,     :input_html => { :class => 'date' }
-    = f.input :version, :label => 'Release version',                    :input_html => { :class => 'span1'} 
+    = f.input :name,    :autofocus => true
+    = f.input :date,    :as => :string,     :input_html => { :class => 'date' }
+    = f.input :version,                     :input_html => { :class => 'span1'} 
 
   .form-actions
-    = f.submit, :class => 'btn-primary' 
+    = f.submit :class => 'btn-primary' 
     '
     = cancel_button f

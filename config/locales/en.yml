@@ -1,20 +1,10 @@
 # Sample localization file for English. Add more files in this directory for other locales.
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
+## RESOURCES
+# http://guides.rubyonrails.org/i18n.html#translations-for-active-record-models
+
 en:
-  hello: "Hello world"
-  release: 
-    name: "Release"
-    date: "Release date"
-    version: "Software version"
-  project:
-    dmr: "DMR"
-    software_release: "Release"
-    warrant_status: "Warrant"
-    work_order: "Work order"
-    rfc: "RFC"
-    timesheets_request_date: "Timesheets date"
-    admin_ref: "Admin file"
   flash:
     created_new: "Successfully created new %{type}: %{name}"
     updated: "%{name} updated"
@@ -22,9 +12,26 @@ en:
     submit:
       create: "Add new %{model}"
       update: "Update"
+    links:
+      new: "New %{model}"
   activerecord:
     models:
       ba_spec: "BA Spec"
       tech_spec: "Tech Spec"
-      
+      role: "Role"
+    attributes:
+      project:
+        name: "Name"
+        dmr: "DMR"
+        software_release: "Software Release"
+        warrant_status: "Warrant Status"
+        work_order: "Work Order"
+        rfc: "RFC"
+        timesheets_request_date: "Timesheets Date"
+        admin_ref: "Admin File Reference"
+      software_release: 
+        name: "Release"
+        date: "Release date"
+        version: "Software version"
+        
     
