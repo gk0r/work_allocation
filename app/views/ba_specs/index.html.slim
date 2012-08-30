@@ -18,7 +18,7 @@ table.index-table
   tbody
     - @ba_specs.each do |b|
       tr
-        td = index_link b.deliverable_id,           edit_ba_spec_path(b)
+        td = index_link b.try(:deliverable).try(:description),     edit_ba_spec_path(b)
         td = index_link b.try(:user).try(:name),    edit_ba_spec_path(b)
         td = index_link b.name,                     edit_ba_spec_path(b)
         td = index_link b.progress,                 edit_ba_spec_path(b)

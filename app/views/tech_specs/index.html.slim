@@ -3,6 +3,7 @@
 table.index-table
   thead
     tr
+      th Project
       th Deliverable
       th Name
       th Comment
@@ -15,13 +16,14 @@ table.index-table
   tbody
     - @tech_specs.each do |tech_spec|
       tr
-        td = index_link tech_spec.deliverable_id,           edit_tech_spec_path(tech_spec)
-        td = index_link tech_spec.name,                     edit_tech_spec_path(tech_spec)
-        td = index_link tech_spec.comments,                 edit_tech_spec_path(tech_spec)
-        td = index_link tech_spec.progress.to_s,            edit_tech_spec_path(tech_spec)
-        td = index_link tech_spec.internal_review_date,     edit_tech_spec_path(tech_spec)
-        td = index_link tech_spec.internal_review_signoff,  edit_tech_spec_path(tech_spec)
-        td = index_link tech_spec.final_version,            edit_tech_spec_path(tech_spec)
+        td = index_link tech_spec.deliverable.try(:project).try(:name), edit_tech_spec_path(tech_spec)
+        td = index_link tech_spec.deliverable.try(:description),    edit_tech_spec_path(tech_spec)
+        td = index_link tech_spec.name,                             edit_tech_spec_path(tech_spec)
+        td = index_link tech_spec.comments,                         edit_tech_spec_path(tech_spec)
+        td = index_link tech_spec.progress.to_s,                    edit_tech_spec_path(tech_spec)
+        td = index_link tech_spec.internal_review_date,             edit_tech_spec_path(tech_spec)
+        td = index_link tech_spec.internal_review_signoff,          edit_tech_spec_path(tech_spec)
+        td = index_link tech_spec.final_version,                    edit_tech_spec_path(tech_spec)
         td = delete_link tech_spec
 
 br

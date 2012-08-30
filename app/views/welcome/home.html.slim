@@ -1,15 +1,16 @@
 .form-heading Dashboard
 
-table.index-table
-  thead
-    tr 
-      th Description
-      th Progress
-  
-  - BaSpec.find_all_by_user_id(current_user.id).each do |s|
-    tbody
-      tr
-        td = s.try(:name)
-        td = s.try(:progress)
+-if user_signed_in?
+  table.index-table
+    thead
+      tr 
+        th Description
+        th Progress
+
+    - BaSpec.find_all_by_user_id(current_user.id).each do |s|
+      tbody
+        tr
+          td = s.try(:name)
+          td = s.try(:progress)
         
-p I will need to re-think what I want to put here...
+p I will need to have a good think about what I want to put here...

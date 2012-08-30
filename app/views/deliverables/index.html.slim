@@ -17,7 +17,7 @@ table.index-table
     - @deliverables.each do |deliverable|
       tr
         td = deliverable.id
-        td = index_link deliverable.description,                  edit_deliverable_path(deliverable)
+        td = index_link deliverable.try(:description),            edit_deliverable_path(deliverable)
         td = index_link deliverable.software_release.try(:name),  edit_deliverable_path(deliverable)
         td = index_link deliverable.try(:team).try(:name),        edit_deliverable_path(deliverable)
         td = index_link deliverable.try(:project).try(:name),     edit_project_path(deliverable.try(:project).try(:id)) if deliverable.project.try(:id)

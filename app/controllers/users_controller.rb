@@ -44,6 +44,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        session[:user] = @user unless session[:user] # Log the current user in upon successful registration, unless the user is already registered
         format.html { redirect_to users_path, :flash => {:success => "User was successfully created."} }
         format.json { render json: @user, status: :created, location: @user }
       else
@@ -59,8 +60,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     respond_to do |format|
-      if @user.update_without_password(params[:user])
-        format.html { redirect_to @user, :flash => {:success => "User was successfully updated."} }
+      if @user.update_attributes(params[:user])
+        format.html { redirect_to users_path, :flash => {:success => "User was successfully updated."} }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

@@ -1,7 +1,7 @@
 module ApplicationHelper
   
   def index_link(link_text, link_url)
-    link_to link_text, link_url if link_text
+    link_to link_text.to_s.truncate(50, :separator => ' '), link_url if link_text && link_url
   end
   
   def delete_link (path)

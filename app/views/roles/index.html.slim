@@ -3,14 +3,12 @@
 table.index-table
   thead
     tr
-      th ID
       th Role
       th Delete
 
   tbody    
     - @roles.each do |role|
       tr
-        td = index_link role.id,        edit_role_path(role)
         td = index_link role.name,      edit_role_path(role)
         td = delete_link(role)
 
