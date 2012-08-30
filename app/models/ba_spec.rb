@@ -4,6 +4,8 @@ class BaSpec < ActiveRecord::Base
   
   validates_presence_of :deliverable_id
   
+  human_attribute_name('BA Spec')
+  
   def progress
     read_attribute(:progress).to_s + '%'
   end

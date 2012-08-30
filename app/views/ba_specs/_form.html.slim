@@ -18,6 +18,7 @@
     = f.input :final_version, :as => :string, :input_html => { :class => 'span2 date' }
     
   .form-actions
-    = f.button :button, :label => 'Tests', :class => 'btn btn-primary'
+    / = f.button :button, :label => 'Tests', :class => 'btn btn-primary'
+    = f.submit :class => 'btn btn-primary'
     '
     = cancel_button f

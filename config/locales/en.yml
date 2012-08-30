@@ -18,3 +18,13 @@ en:
   flash:
     created_new: "Successfully created new %{type}: %{name}"
     updated: "%{name} updated"
+  helpers:
+    submit:
+      create: "Add new %{model}"
+      update: "Update"
+  activerecord:
+    models:
+      ba_spec: "BA Spec"
+      tech_spec: "Tech Spec"
+      
+    
