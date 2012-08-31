@@ -15,6 +15,11 @@
 //= require jquery.ui.datepicker
 //= require twitter/bootstrap
 //= require jquery_nested_form
+//= require jquery.dataTables.min
+//= require dataTables.bootstrap
 //= require_tree .
 
 // Experimental Area
+$(function() {
+	$('table').dataTable();
+});

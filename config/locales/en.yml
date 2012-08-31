@@ -13,7 +13,7 @@ en:
       create: "Add new %{model}"
       update: "Update"
     links:
-      new: "New %{model}"
+      new: "New"
   activerecord:
     models:
       ba_spec: "BA Spec"
