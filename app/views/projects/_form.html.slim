@@ -2,14 +2,17 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :name                      , :input_html => { :class => 'span4' }      
-    = f.input :dmr                       , :input_html => { :class => 'span1' }      
+    = f.input :name                       , :input_html => { :class => 'span4' }      
+    = f.input :dmr                        , :input_html => { :class => 'span1' }      
     = f.association :software_release   
-    = f.input :warrant_status            , :collection => ['Warranted', 'Conditionally Warranted', 'Not Warranted']             
-    = f.input :work_order                , :input_html => { :class => 'span1' }      
-    = f.input :rfc                       , :input_html => { :class => 'span1' }      
-    = f.input :timesheets_request_date   , :input_html => { :class => 'span2 date' }  
-    = f.input :admin_ref                 , :input_html => { :class => 'span5' }      
+    / = f.input :approval_status            , :as => :radio_buttons, :collection => ['Approved', "Not approved"]
+    = f.input :approval_status, :collection => [['Approved',true] ,['Not approved', false]], :as => :radio_buttons, :item_wrapper_class => 'inline'
+    = f.input :category                   , :collection => ['Budget', 'Legislative', 'Sponsor Funded Enhancement', 'Business as Usual']             
+    = f.input :work_plan_id               , :input_html => { :class => 'span1' }      
+    = f.input :work_order                 , :input_html => { :class => 'span1' }
+    = f.input :rfc                        , :input_html => { :class => 'span1' }      
+    = f.input :timesheets_request_date    , :input_html => { :class => 'span2 date' }  
+    = f.input :admin_ref                  , :input_html => { :class => 'span5' }      
 
   .form-actions
     = f.submit :class => 'btn btn-primary'

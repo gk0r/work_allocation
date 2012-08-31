@@ -6,7 +6,9 @@ table.index-table
       th Name
       th DMR
       th Release
-      th Warrant
+      th Approval Status
+      th Category
+      th ICT Work Plan
       th Work Order
       th RFC
       th Timesheets
@@ -19,7 +21,9 @@ table.index-table
         td = index_link project.try(:name)                          , edit_project_path(project)
         td = index_link project.try(:dmr)                           , edit_project_path(project)
         td = index_link project.try(:software_release).try(:name)   , edit_project_path(project)
-        td = index_link project.try(:warrant_status)                , edit_project_path(project)
+        td = index_link project.try(:approval_status)               , edit_project_path(project)
+        td = index_link project.try(:category)                      , edit_project_path(project)
+        td = index_link project.try(:work_plan_id)                  , edit_project_path(project)
         td = index_link project.try(:work_order)                    , edit_project_path(project)
         td = index_link project.try(:rfc)                           , edit_project_path(project)
         td = index_link project.try(:timesheets_request_date)       , edit_project_path(project)
