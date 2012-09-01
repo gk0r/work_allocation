@@ -9,7 +9,6 @@ group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'jquery-ui-rails'
-  # gem 'bootstrap-sass'                                                                              # This repo is very slow getting Twitter Bootstrap 2.1 merged into the master.
   gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'      # Use this gem when developing on my Mac
   gem 'uglifier'
 end
