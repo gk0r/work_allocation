@@ -11,8 +11,6 @@ group :assets do
   gem 'jquery-ui-rails'
   # gem 'bootstrap-sass'                                                                              # This repo is very slow getting Twitter Bootstrap 2.1 merged into the master.
   gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'      # Use this gem when developing on my Mac
-#  gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git',    # Use this gem when deploying on Windows platform
-#                                 :branch => 'static'
   gem 'uglifier'
 end
 
@@ -34,8 +32,16 @@ group :development, :test do
 end
 
 # Following three are included to use Red Carpet and Markdown from http://railscasts.com/episodes/272-markdown-with-redcarpet
+# I am probably not going to need these three gems.
 gem 'redcarpet'
 gem 'albino'
 gem 'nokogiri'
 
 gem "devise"
+
+group :production
+  gem 'thin'
+  # Use this gem when deploying on Windows platform
+  #  gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git', 
+  #                                 :branch => 'static'
+end
