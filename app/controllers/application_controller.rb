@@ -34,4 +34,22 @@ class ApplicationController < ActionController::Base
     session[:return_to] = request.referer
   end
   
+  # RAILS ADMIN CONFIGURATION
+  # 
+  # Activate this when I need it
+  # 
+  # def reload_rails_admin
+  #   models = ActiveRecord::Base.models
+  #   models.each do |m|
+  #     RailsAdmin::Config.reset_model(m)
+  #   end
+  #   RailsAdmin::Config::Actions.reset
+  # 
+  #   load("#{Rails.root}/config/initializers/rails_admin.rb")
+  # end
+  # 
+  # def rails_admin_path?
+  #   controller_path =~ /rails_admin/ && Rails.env == "development"
+  # end
+  
 end
