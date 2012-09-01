@@ -38,7 +38,7 @@ gem 'nokogiri'
 
 gem "devise"
 
-group :production
+group :production do
   gem 'thin'
   # Use this gem when deploying on Windows platform
   #  gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git', 

@@ -5,4 +5,5 @@ class Project < ActiveRecord::Base
   has_many :deliverables
   
   validates_presence_of :name
+  
 end
