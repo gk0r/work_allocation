@@ -37,8 +37,8 @@ table.index-table
             = link_to c.progress, edit_code_path(c)
             br
     
-        td 
-          = link_to '<i class="icon-white icon-trash"></i>'.html_safe, deliverable, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
+        td
+          = delete_link deliverable
 
 br
 
