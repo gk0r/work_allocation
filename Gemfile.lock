@@ -1,13 +1,3 @@
-GIT
-  remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
-  revision: e76accf9ffa9e549155a4367af18f9db3194e1f5
-  specs:
-    twitter-bootstrap-rails (2.1.3)
-      actionpack (>= 3.1)
-      less-rails (~> 2.2.3)
-      railties (>= 3.1)
-      therubyracer (~> 0.10.2)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -41,6 +31,9 @@ GEM
     addressable (2.3.2)
     albino (1.3.3)
       posix-spawn (>= 0.3.6)
+    anjlab-bootstrap-rails (2.1.0.5)
+      railties (>= 3.0)
+      sass (>= 3.2)
     arel (3.0.2)
     audited (3.0.0.rc2)
     audited-activerecord (3.0.0.rc2)
@@ -67,7 +60,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.3.3)
-    commonjs (0.2.6)
     daemons (1.1.9)
     devise (2.1.2)
       bcrypt-ruby (~> 3.0)
@@ -98,14 +90,8 @@ GEM
       railties (>= 3.0.0)
     launchy (2.1.2)
       addressable (~> 2.3)
-    less (2.2.1)
-      commonjs (~> 0.2.6)
-    less-rails (2.2.3)
-      actionpack (>= 3.1)
-      less (~> 2.2.0)
     letter_opener (0.0.2)
       launchy
-    libv8 (3.3.10.4)
     libwebsocket (0.1.5)
       addressable
     mail (2.4.4)
@@ -183,6 +169,8 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+    sass-twitter-bootstrap (0.1.0)
+      sass
     selenium-webdriver (2.25.0)
       childprocess (>= 0.2.5)
       libwebsocket (~> 0.1.3)
@@ -205,8 +193,6 @@ GEM
       tilt (~> 1.1, != 1.3.0)
     sqlite3 (1.3.6)
     temple (0.4.0)
-    therubyracer (0.10.2)
-      libv8 (~> 3.3.10)
     thin (1.4.1)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -230,6 +216,7 @@ PLATFORMS
 
 DEPENDENCIES
   albino
+  anjlab-bootstrap-rails (>= 2.1)
   audited-activerecord
   cancan
   capybara
@@ -247,9 +234,9 @@ DEPENDENCIES
   redcarpet
   rspec-rails
   sass-rails
+  sass-twitter-bootstrap
   simple_form
   slim-rails
   sqlite3
   thin
-  twitter-bootstrap-rails!
   uglifier

@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails'
 gem 'sqlite3'
+gem 'thin'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -9,7 +10,8 @@ group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'jquery-ui-rails'
-  gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'      # Use this gem when developing on my Mac
+  gem 'anjlab-bootstrap-rails', '>= 2.1', :require => 'bootstrap-rails'
+  gem 'sass-twitter-bootstrap'
   gem 'uglifier'
 end
 
@@ -37,10 +39,3 @@ gem 'albino'
 gem 'nokogiri'
 
 gem "devise"
-
-group :production do
-  gem 'thin'
-  # Use this gem when deploying on Windows platform
-  #  gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git', 
-  #                                 :branch => 'static'
-end
