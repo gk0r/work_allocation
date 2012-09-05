@@ -3,12 +3,30 @@
     .container
       a.brand href=root_url Work Allocation
 
+      / Main Navigation
       ul.nav
-        li: a href="" Test
+        li= link_to 'Deliverables', deliverables_url
+        li= link_to 'BA Specs', ba_specs_url
+        li= link_to 'Tech Specs', tech_specs_url
+        li= link_to 'Code', code_index_url
+
+        li.dropdown
+          erb:
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Team Leader Functions<b class="caret"></b></a>
+          ul.dropdown-menu
+            li= link_to 'Teams', teams_url
+            li= link_to "Roles", roles_url
+            li= link_to "Users", users_url
+            li.divider
+            li= link_to "Projects", projects_url
+            li= link_to "Software Releases", software_releases_url
+            li.divider
+            li= link_to 'Admin Panel', rails_admin_url
       
+      
+      / Minor Navigation option pulled to the right.
       ul.nav.pull-right
-        li: a.collapse-trigger href="#" Collapse Menu
-        
+
         / Logged in user options
         - if user_signed_in?
           li.dropdown

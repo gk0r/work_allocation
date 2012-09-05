@@ -17,12 +17,14 @@ html
     .container  
       .content
         .row 
-          .span9.main-body
+          .span12.main-body
             / Main body
             = yield
-          .span3.side-menu
-            / Side navigation panel
-            = render 'layouts/side_menu'
+            
+          / Side Navigation Menu is not practical, so I've removed it
+          / .span3.side-menu
+          /   / Side navigation panel
+          /   = render 'layouts/side_menu'
             
     / Placed at the end of the document so the pages load faster
     = javascript_include_tag "application"
