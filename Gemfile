@@ -11,7 +11,6 @@ group :assets do
   gem 'coffee-rails'
   gem 'jquery-ui-rails'
   gem 'anjlab-bootstrap-rails', '>= 2.1', :require => 'bootstrap-rails'
-  gem 'sass-twitter-bootstrap'
   gem 'uglifier'
 end
 
