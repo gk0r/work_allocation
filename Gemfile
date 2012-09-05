@@ -20,7 +20,7 @@ gem 'nested_form'
 gem 'slim-rails'                # This gem allows SLIM templates to be generated automatically via the rails generator
 gem 'audited-activerecord'
 gem 'cancan'
-gem 'rails_admin'
+gem 'rails_admin',  :git => 'https://github.com/sferik/rails_admin.git'
 
 # Gems that are only required in Development and Test environments
 group :development, :test do
@@ -31,10 +31,10 @@ group :development, :test do
   gem 'quiet_assets'
 end
 
-# Following three are included to use Red Carpet and Markdown from http://railscasts.com/episodes/272-markdown-with-redcarpet
-# I am probably not going to need these three gems.
-gem 'redcarpet'
-gem 'albino'
-gem 'nokogiri'
+# # Following three are included to use Red Carpet and Markdown from http://railscasts.com/episodes/272-markdown-with-redcarpet
+# # I am probably not going to need these three gems.
+# gem 'redcarpet'
+# gem 'albino'
+# gem 'nokogiri'
 
 gem "devise"
