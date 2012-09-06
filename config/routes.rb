@@ -1,9 +1,5 @@
 WorkAllocation::Application.routes.draw do
 
-  mount RailsAdmin::Engine => '/rails_admin', :as => 'rails_admin'
-
-  devise_for :admins
-
   resources :deliverables, :projects, :users, :software_releases, :roles, :teams, :code, :tech_specs, :ba_specs, :deliverables, :welcome
 
   root :to => 'welcome#home'

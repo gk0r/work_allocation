@@ -20,7 +20,6 @@ gem 'nested_form'
 gem 'slim-rails'                # This gem allows SLIM templates to be generated automatically via the rails generator
 gem 'audited-activerecord'
 gem 'cancan'
-gem 'rails_admin',  :git => 'https://github.com/sferik/rails_admin.git'
 
 # Gems that are only required in Development and Test environments
 group :development, :test do
