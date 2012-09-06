@@ -8,10 +8,14 @@ module ApplicationHelper
     link_to "<i class='icon-white icon-trash'></i> ".html_safe, path, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
   end
   
+  def submit_button (form_builder)
+    form_builder.submit :class => 'btn btn-primary'
+  end
+  
   def cancel_button (form_builder)
     form_builder.submit "Cancel", :name => "cancel", :class => 'btn btn-danger'
   end
-
+  
   def cancel_button_processing(path = nil)
     if params[:cancel]
       return_to_path = path ? path : session[:return_to]
