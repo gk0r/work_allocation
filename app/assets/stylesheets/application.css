@@ -12,5 +12,6 @@
  *= require jquery.ui.datepicker
  *= require jquery.dataTables
  *= require dataTables.bootstrap
+ *= require ColVis
  *= require_tree .
 */
