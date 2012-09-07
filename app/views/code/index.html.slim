@@ -16,16 +16,15 @@ table.index-table
   tbody
     - @code.each do |code|
       tr
-        td = index_link code.deliverable_id,    edit_code_path(code)
-        td = index_link code.try(:user).try(:name), edit_code_path(code)
-        td = index_link code.effort,                edit_code_path(code)
-        td = index_link code.comments,              edit_code_path(code)
-        td = index_link code.progress,              edit_code_path(code)
-        td = index_link code.code_review_date,      edit_code_path(code)
-        td = index_link code.q_level_date,          edit_code_path(code)
-        td = index_link code.staged_date,           edit_code_path(code)
-      
-        td = link_to '<i class="icon-white icon-trash"></i>'.html_safe, code, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
+        td = index_link code.deliverable_id,                            edit_code_path(code)
+        td = index_link code.try(:user).try(:name),                     edit_code_path(code)
+        td = index_link code.effort,                                    edit_code_path(code)
+        td = index_link code.comments,                                  edit_code_path(code)
+        td = index_link code.progress,                                  edit_code_path(code)
+        td = index_link index_format_date(code.code_review_date),       edit_code_path(code)
+        td = index_link index_format_date(code.q_level_date),           edit_code_path(code)
+        td = index_link index_format_date(code.staged_date),            edit_code_path(code)
+        td = delete_link code
 
 .row
 

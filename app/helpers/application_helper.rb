@@ -4,6 +4,10 @@ module ApplicationHelper
     link_to link_text.to_s.truncate(50, :separator => ' '), link_url if link_text && link_url
   end
   
+  def index_format_date(date = nil)
+    date.try {|b| b.strftime("%d %b")}
+  end
+  
   def delete_link (path)
     link_to "<i class='icon-white icon-trash'></i> ".html_safe, path, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
   end

@@ -16,19 +16,19 @@ table.index-table
       th Delete
 
   tbody
-    - @tech_specs.each do |tech_spec|
+    - @tech_specs.each do |ts|
       tr
-        td = index_link tech_spec.deliverable.try(:project).try(:name),   edit_tech_spec_path(tech_spec)
-        td = index_link tech_spec.deliverable.try(:description),          edit_tech_spec_path(tech_spec)
-        td = index_link tech_spec.user.try(:name),                        edit_tech_spec_path(tech_spec)
-        td = index_link tech_spec.effort,                                 edit_tech_spec_path(tech_spec)
-        td = index_link tech_spec.name,                                   edit_tech_spec_path(tech_spec)
-        td = index_link tech_spec.comments,                               edit_tech_spec_path(tech_spec)
-        td = index_link tech_spec.progress.to_s,                          edit_tech_spec_path(tech_spec)
-        td = index_link tech_spec.internal_review_date,                   edit_tech_spec_path(tech_spec)
-        td = index_link tick_box(tech_spec.internal_review_signoff),      edit_tech_spec_path(tech_spec)
-        td = index_link tech_spec.final_version,                          edit_tech_spec_path(tech_spec)
-        td = delete_link tech_spec
+        td = index_link ts.deliverable.try(:project).try(:name),              edit_tech_spec_path(ts)
+        td = index_link ts.deliverable.try(:description),                     edit_tech_spec_path(ts)
+        td = index_link ts.user.try(:name),                                   edit_tech_spec_path(ts)
+        td = index_link ts.effort,                                            edit_tech_spec_path(ts)
+        td = index_link ts.name,                                              edit_tech_spec_path(ts)
+        td = index_link ts.comments,                                          edit_tech_spec_path(ts)
+        td = index_link ts.progress.to_s,                                     edit_tech_spec_path(ts)
+        td = index_link index_format_date(ts.internal_review_date),           edit_tech_spec_path(ts)
+        td = index_link tick_box(ts.internal_review_signoff),                 edit_tech_spec_path(ts)
+        td = index_link index_format_date(ts.final_version),                  edit_tech_spec_path(ts)
+        td = delete_link ts
 
 .row
 
