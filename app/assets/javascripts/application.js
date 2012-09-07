@@ -18,4 +18,5 @@
 //= require jquery.dataTables.min
 //= require dataTables.bootstrap
 //= require ColVis
+//= require ColReorderWithResize
 //= require_tree .

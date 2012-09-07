@@ -5,6 +5,7 @@ $(function() {
 	$('table').dataTable(
 		{
 			"sDom": 'C<"clear">lfrtip',
+			"sDom": "Rlfrtip",
 			"bStateSave": true
 		});
 });
