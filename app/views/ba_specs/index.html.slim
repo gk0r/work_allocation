@@ -4,8 +4,9 @@ table.data-table
   thead
     tr
       th Deliverable
-      th Responsible BA
+      th Analyst
       th Spec Name
+      th Effort
       th Progress
       th Internal review date
       th Internal review signoff
@@ -21,6 +22,7 @@ table.data-table
         td = index_link b.try(:deliverable).try(:description),     edit_ba_spec_path(b)
         td = index_link b.try(:user).try(:name),    edit_ba_spec_path(b)
         td = index_link b.name,                     edit_ba_spec_path(b)
+        td = index_link b.effort,                     edit_ba_spec_path(b)
         td = index_link b.progress,                 edit_ba_spec_path(b)
         td = index_link b.internal_review_date,     edit_ba_spec_path(b)
         td = index_link tick_box(b.internal_review_signoff),  edit_ba_spec_path(b)

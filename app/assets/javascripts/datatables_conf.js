@@ -4,8 +4,7 @@
 $(function() {
 	$('table').dataTable(
 		{
-			"sDom": 'C<"clear">lfrtip',
-			"sDom": "Rlfrtip",
+			"sDom": 'C<"clear">Rlfrtip',
 			"bStateSave": true
 		});
 });

@@ -4,6 +4,8 @@ class BaSpec < ActiveRecord::Base
   
   validates_presence_of :deliverable
   
+  # attr_accessible :effort
+  
   human_attribute_name('BA Spec')
   
   def progress

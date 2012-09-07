@@ -34,5 +34,14 @@ en:
         name: "Release"
         date: "Release date"
         version: "Software version"
-        
+      ba_spec:
+        user_id: "Business Analyst"
+        effort: "Effot estimate"
+        name: "Document name"
+      tech_spec:
+        user_id: "Technical Programmer"        
+        effort: "Effot estimate"
+      code:
+        user_id: "Technical Programmer"
+        effort: "Effot estimate"        
     

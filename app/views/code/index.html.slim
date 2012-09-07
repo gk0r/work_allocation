@@ -5,6 +5,7 @@ table.index-table
     tr
       th Deliverable ID
       th Programmer
+      th Effort
       th Comments
       th Progress     
       th Code Review
@@ -17,6 +18,7 @@ table.index-table
       tr
         td = index_link code.deliverable_id,    edit_code_path(code)
         td = index_link code.try(:user).try(:name), edit_code_path(code)
+        td = index_link code.effort,                edit_code_path(code)
         td = index_link code.comments,              edit_code_path(code)
         td = index_link code.progress,              edit_code_path(code)
         td = index_link code.code_review_date,      edit_code_path(code)
