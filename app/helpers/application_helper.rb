@@ -28,4 +28,8 @@ module ApplicationHelper
     '<a class="close" data-dismiss="alert">x</a>'.html_safe
   end
   
+  def tick_box(draw_tick_box = false)
+    '<i class="icon-ok"> </i>'.html_safe if draw_tick_box
+  end
+  
 end

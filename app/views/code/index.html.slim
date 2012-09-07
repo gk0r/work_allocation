@@ -16,7 +16,6 @@ table.index-table
     - @code.each do |code|
       tr
         td = index_link code.deliverable_id,    edit_code_path(code)
-        / td = debug(code.user)
         td = index_link code.try(:user).try(:name), edit_code_path(code)
         td = index_link code.comments,              edit_code_path(code)
         td = index_link code.progress,              edit_code_path(code)

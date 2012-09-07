@@ -23,9 +23,9 @@ table.data-table
         td = index_link b.name,                     edit_ba_spec_path(b)
         td = index_link b.progress,                 edit_ba_spec_path(b)
         td = index_link b.internal_review_date,     edit_ba_spec_path(b)
-        td = index_link b.internal_review_signoff,  edit_ba_spec_path(b)
+        td = index_link tick_box(b.internal_review_signoff),  edit_ba_spec_path(b)
         td = index_link b.external_review_date,     edit_ba_spec_path(b)
-        td = index_link b.external_review_signoff,  edit_ba_spec_path(b)
+        td = index_link tick_box(b.external_review_signoff),  edit_ba_spec_path(b)
         td = index_link b.final_version,            edit_ba_spec_path(b)
         td = index_link b.comments,                 edit_ba_spec_path(b)
       
