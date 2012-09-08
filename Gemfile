@@ -35,5 +35,3 @@ end
 # gem 'redcarpet'
 # gem 'albino'
 # gem 'nokogiri'
-
-gem "devise"
