@@ -43,5 +43,8 @@ en:
         effort: "Effot estimate"
       code:
         user_id: "Technical Programmer"
-        effort: "Effot estimate"        
+        effort: "Effot estimate"
+      rfc:
+        rfc: "RFC"
+        description: "RFC Description"
     
