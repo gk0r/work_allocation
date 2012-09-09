@@ -10,6 +10,7 @@
         li= link_to 'Tech Specs', tech_specs_url
         li= link_to 'Code', code_index_url
 
+        / Team Leader Functions
         li.dropdown
           erb:
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Team Leader Functions<b class="caret"></b></a>
@@ -18,8 +19,10 @@
             li= link_to "Roles", roles_url
             li= link_to "Users", users_url
             li.divider
-            li= link_to "Projects", projects_url
             li= link_to "Software Releases", software_releases_url
+            li= link_to "Projects", projects_url
+            li= link_to "RFCs", rfcs_url
+
             / li.divider
             / li= link_to 'Admin Panel', rails_admin_url
       

@@ -1,6 +1,8 @@
 WorkAllocation::Application.routes.draw do
 
-  resources :deliverables, :projects, :users, :software_releases, :roles, :teams, :code, :tech_specs, :ba_specs, :deliverables, :welcome
+  resources :rfcs
+
+  resources :deliverables, :projects, :users, :software_releases, :rfc, :roles, :teams, :code, :tech_specs, :ba_specs, :deliverables, :welcome
 
   root :to => 'welcome#home'
 
