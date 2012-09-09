@@ -84,19 +84,6 @@ ActiveRecord::Schema.define(:version => 20120907064805) do
     t.integer  "rfc_id"
   end
 
-  create_table "rails_admin_histories", :force => true do |t|
-    t.text     "message"
-    t.string   "username"
-    t.integer  "item"
-    t.string   "table"
-    t.integer  "month",      :limit => 2
-    t.integer  "year",       :limit => 5
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
-  end
-
-  add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
-
   create_table "rfcs", :force => true do |t|
     t.integer  "project_id"
     t.datetime "created_at",  :null => false
