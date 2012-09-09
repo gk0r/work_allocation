@@ -2,7 +2,12 @@ class DeliverablesController < ApplicationController
   # GET /deliverables
   # GET /deliverables.json
   def index
+    @deliverables = Deliverable.all
     
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @deliverables }
+    end
   end
 
   # GET /deliverables/1
