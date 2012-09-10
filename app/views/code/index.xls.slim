@@ -1,0 +1,38 @@
+/ Code
+
+table[border='1']
+  thead
+    tr
+      th Release
+      th DMR
+      th Project
+      th RFC
+      th Deliverable
+      th Team
+      th Technical Programmer
+      th Effort
+      th Progress
+      th Code review date
+      th Q Level date
+      th Staged date
+      
+  tbody
+    - @code.each do |code|
+      tr
+        td = code.try(:deliverable).try(:software_release).try(:name)
+        td = code.try(:deliverable).try(:project).try(:dmr)
+        td = code.try(:deliverable).try(:project).try(:name)
+
+        td
+          - code.try(:deliverable).try(:project).try(:rfcs).to_a.each do |r|
+            = [r.rfc, r.description].join(' - ')
+            br            
+              
+        td = code.try(:deliverable).try(:description)
+        td = code.try(:deliverable).try(:team).try(:name)
+        td = code.try(:user).try(:name)
+        td = code.effort
+        td = code.progress
+        td = xls_format_date code.code_review_date
+        td = xls_format_date code.q_level_date
+        td = xls_format_date code.staged_date

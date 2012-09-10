@@ -8,6 +8,10 @@ module ApplicationHelper
     date.try {|b| b.strftime("%d %b")}
   end
   
+  def xls_format_date(date = nil)
+    date.try {|b| b.strftime("%d %b %Y")}
+  end  
+  
   def delete_link (path)
     link_to "<i class='icon-white icon-trash'></i> ".html_safe, path, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
   end
@@ -35,5 +39,15 @@ module ApplicationHelper
   def tick_box(draw_tick_box = false)
     '<i class="icon-ok"> </i>'.html_safe if draw_tick_box
   end
+  
+  def to_csv(record, options = {})
+    CSV.generate(options) do |csv|
+      csv << column_names
+      all.each do |model|
+        csv << record.attributes.values_at(*column_names)
+      end
+    end
+  end
+  
   
 end

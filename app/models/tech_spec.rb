@@ -6,5 +6,11 @@ class TechSpec < ActiveRecord::Base
   
   def progress
     read_attribute(:progress).to_s + '%'
-  end  
+  end
+  
+  def self.to_csv(options = {})
+    to_csv(record, options = {})
+  end
+  
+  
 end

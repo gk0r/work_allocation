@@ -47,4 +47,6 @@ en:
       rfc:
         rfc: "RFC"
         description: "RFC Description"
-    
+  messages:
+    xls: "Export in Excel"
+  

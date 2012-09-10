@@ -1,0 +1,40 @@
+/ Tech Specs
+
+table[border='1']
+  thead
+    tr
+      th Release
+      th DMR
+      th Project
+      th RFC
+      th Deliverable
+      th Team
+      th Technical Programmer
+      th Effort
+      th Document Name
+      th Progress
+      th Internal review date
+      th Inernal review signoff
+      th Final version
+      
+  tbody
+    - @tech_specs.each do |ts|
+      tr
+        td = ts.try(:deliverable).try(:software_release).try(:name)
+        td = ts.try(:deliverable).try(:project).try(:dmr)
+        td = ts.try(:deliverable).try(:project).try(:name)
+
+        td
+          - ts.try(:deliverable).try(:project).try(:rfcs).to_a.each do |r|
+            = [r.rfc, r.description].join(' - ')
+            br            
+              
+        td = ts.try(:deliverable).try(:description)
+        td = ts.try(:deliverable).try(:team).try(:name)
+        td = ts.try(:user).try(:name)
+        td = ts.effort
+        td = ts.name
+        td = ts.progress
+        td = xls_format_date ts.internal_review_date
+        td = "Complete" if ts.internal_review_signoff
+        td = xls_format_date ts.final_version

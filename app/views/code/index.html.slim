@@ -1,4 +1,7 @@
-.index-heading Code
+.row
+  .index-heading.span5 Code
+  a.pull-right href="#{code_index_path(format: 'xls')}" = t('messages.xls')
+.row
 
 table.index-table
   thead
@@ -16,7 +19,7 @@ table.index-table
   tbody
     - @code.each do |code|
       tr
-        td = index_link code.deliverable_id,                            edit_code_path(code)
+        td = index_link code.try(:deliverable).try(:name),              edit_code_path(code)
         td = index_link code.try(:user).try(:name),                     edit_code_path(code)
         td = index_link code.effort,                                    edit_code_path(code)
         td = index_link code.comments,                                  edit_code_path(code)

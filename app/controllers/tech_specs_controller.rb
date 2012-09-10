@@ -7,6 +7,8 @@ class TechSpecsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @tech_specs }
+      format.csv { send_data @ba_specs.to_csv }
+      format.xls
     end
   end
 
