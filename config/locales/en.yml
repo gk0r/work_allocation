@@ -19,6 +19,7 @@ en:
       ba_spec: "BA Spec"
       tech_spec: "Tech Spec"
       role: "Role"
+      rfc: "RFC"
     attributes:
       project:
         name: "Name"

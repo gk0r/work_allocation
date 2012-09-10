@@ -1,0 +1,6 @@
+.row
+
+  .index-heading.span5 = controller.controller_name.classify.constantize.model_name.human.pluralize
+  = link_to t('messages.xls'), {:controller => controller.controller_name, :action => :index, :format => 'xls'}, :class => 'pull-right'
+
+.row
