@@ -6,7 +6,7 @@
       .form-inputs
         = f.input :name                       , :input_html => { :class => 'span4' }      
         = f.input :dmr                        , :input_html => { :class => 'span1' }      
-        = f.association :software_release   
+        = f.association :software_releases   
         = f.input :approval_status, :collection => [['Approved',true] ,['Not approved', false]], :as => :radio_buttons, :item_wrapper_class => 'inline'
         = f.input :category                   , :collection => ['Budget', 'Legislative', 'Sponsor Funded Enhancement', 'Business as Usual']             
         = f.input :work_plan_id               , :input_html => { :class => 'span1' }      
