@@ -1,0 +1,23 @@
+.index-heading RFCs
+
+table.index-table
+  thead
+    tr
+      th Software Release
+      th RFC
+      th Description
+      th Project
+      th Delete
+
+  tbody
+    - @rfcs.each do |rfc|
+      tr
+        td = index_link rfc.project.software_release.name   , edit_rfc_path(rfc)
+        td = index_link rfc.rfc                             , edit_rfc_path(rfc)
+        td = index_link rfc.description                     , edit_rfc_path(rfc)
+        td = index_link rfc.project.name                    , edit_rfc_path(rfc)
+        td = delete_link rfc
+
+.row
+
+= new_button

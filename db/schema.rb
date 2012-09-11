@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120831064851) do
+ActiveRecord::Schema.define(:version => 20120911085548) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20120831064851) do
     t.date     "final_version"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.integer  "effort"
   end
 
   create_table "code", :force => true do |t|
@@ -56,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20120831064851) do
     t.date     "staged_date"
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
+    t.integer  "effort"
   end
 
   create_table "deliverables", :force => true do |t|
@@ -70,9 +72,7 @@ ActiveRecord::Schema.define(:version => 20120831064851) do
   create_table "projects", :force => true do |t|
     t.string   "name"
     t.string   "dmr"
-    t.string   "software_release_id"
     t.string   "work_order"
-    t.string   "rfc"
     t.string   "timesheets_request_date"
     t.string   "admin_ref"
     t.datetime "created_at",              :null => false
@@ -80,6 +80,9 @@ ActiveRecord::Schema.define(:version => 20120831064851) do
     t.string   "category"
     t.string   "work_plan_id"
     t.boolean  "approval_status"
+    t.string   "business_pm"
+    t.string   "it_pm"
+    t.string   "test_manager"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
@@ -95,11 +98,36 @@ ActiveRecord::Schema.define(:version => 20120831064851) do
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
 
+  create_table "release_projects", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "software_release_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  create_table "rfcs", :force => true do |t|
+    t.integer  "project_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "description"
+    t.integer  "rfc"
+  end
+
   create_table "roles", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "sessions", :force => true do |t|
+    t.string   "session_id", :null => false
+    t.text     "data"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
   create_table "software_releases", :force => true do |t|
     t.string   "name"
@@ -126,16 +154,21 @@ ActiveRecord::Schema.define(:version => 20120831064851) do
     t.date     "final_version"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.integer  "effort"
   end
 
   create_table "user_roles", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+    t.integer  "role_id"
   end
 
   create_table "user_teams", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+    t.integer  "team_id"
   end
 
   create_table "users", :force => true do |t|
@@ -143,8 +176,6 @@ ActiveRecord::Schema.define(:version => 20120831064851) do
     t.string   "last_name"
     t.string   "email"
     t.string   "telephone_number"
-    t.string   "role_id"
-    t.string   "team_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end

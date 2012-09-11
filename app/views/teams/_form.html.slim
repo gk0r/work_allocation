@@ -1,9 +1,11 @@
 = simple_form_for @team, :html => { :class => 'form-horizontal' } do |f| 
   = f.error_notification 
   
-  = f.input :name, :autofocus => true
+  .form-input
+    = f.input :name, :autofocus => true
   
   .form-actions
-    = f.submit :class => 'btn-primary' 
+    = submit_button f
     '
     = cancel_button f
+

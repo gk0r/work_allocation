@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Rfc:
+  = @rfc.rfc
+p
+  strong Description:
+  = @rfc.description
+p
+  strong Project:
+  = @rfc.project_id
+
+= link_to 'Edit', edit_rfc_path(@rfc)
+'|
+= link_to 'Back', rfcs_path

@@ -1,4 +1,4 @@
-.index-heading Deliverables
+= render 'partials/index_header_excel'
 
 table.index-table
   thead
@@ -37,9 +37,8 @@ table.index-table
             = link_to c.progress, edit_code_path(c)
             br
     
-        td 
-          = link_to '<i class="icon-white icon-trash"></i>'.html_safe, deliverable, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
-
-br
-
-= link_to 'New Deliverable', new_deliverable_path, :class => 'btn btn-primary'
+        td
+          = delete_link deliverable
+.row
+          
+= new_button

@@ -17,9 +17,6 @@
 //= require jquery_nested_form
 //= require jquery.dataTables.min
 //= require dataTables.bootstrap
+//= require ColVis
+//= require ColReorderWithResize
 //= require_tree .
-
-// Experimental Area
-$(function() {
-	$('table').dataTable();
-});

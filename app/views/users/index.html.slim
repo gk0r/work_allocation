@@ -6,7 +6,7 @@ table.data-table
       th Name
       th Email
       th Telephone
-      th Role
+      th Roles
       th Team
       th Delete
 
@@ -16,12 +16,21 @@ table.data-table
         td = link_to user.name, edit_user_path(user)
         td = link_to user.email, edit_user_path(user)
         td = link_to user.telephone_number, edit_user_path(user)
-        td = link_to user.role.name, edit_user_path(user)
-        td = link_to user.team.name, edit_user_path(user)
-        td = link_to '<i class="icon-white icon-trash"></i>'.html_safe, user_path(user), 
-                      :method => :delete, :confirm => 'Are you sure you want to delete this user?',
-                      :class => 'btn btn-mini btn-danger'
+        / td = link_to user.roles.name, edit_user_path(user)
+        / td = link_to user.teams.name, edit_user_path(user)
+        
+        td
+          - user.roles.each do |r|
+            = index_link r.name                                     , edit_user_path(user)
+            br
+            
+        td
+          - user.teams.each do |r|
+            = index_link r.name                                     , edit_user_path(user)
+            br
+        
+        td = delete_link user_path(user)
 
-= link_to t('.new', :default => t("helpers.links.new")),
-            new_user_path,
-            :class => 'btn btn-primary'
+.row
+
+= new_button

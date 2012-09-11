@@ -1,10 +1,11 @@
-.index-heading Code
+= render 'partials/index_header_excel'
 
 table.index-table
   thead
     tr
-      th Deliverable ID
+      th Deliverable
       th Programmer
+      th Effort
       th Comments
       th Progress     
       th Code Review
@@ -15,18 +16,17 @@ table.index-table
   tbody
     - @code.each do |code|
       tr
-        td = index_link code.deliverable_id,    edit_code_path(code)
-        / td = debug(code.user)
-        td = index_link code.try(:user).try(:name), edit_code_path(code)
-        td = index_link code.comments,              edit_code_path(code)
-        td = index_link code.progress,              edit_code_path(code)
-        td = index_link code.code_review_date,      edit_code_path(code)
-        td = index_link code.q_level_date,          edit_code_path(code)
-        td = index_link code.staged_date,           edit_code_path(code)
-      
-        td = link_to '<i class="icon-white icon-trash"></i>'.html_safe, code, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
+        td = index_link code.try(:deliverable).try(:name),              edit_code_path(code)
+        td = index_link code.try(:user).try(:name),                     edit_code_path(code)
+        td = index_link code.effort,                                    edit_code_path(code)
+        td = index_link code.comments,                                  edit_code_path(code)
+        td = index_link code.progress,                                  edit_code_path(code)
+        td = index_link index_format_date(code.code_review_date),       edit_code_path(code)
+        td = index_link index_format_date(code.q_level_date),           edit_code_path(code)
+        td = index_link index_format_date(code.staged_date),            edit_code_path(code)
+        td = delete_link code
 
-br
+.row
 
-= link_to 'Add Code', new_code_path, :class => 'btn btn-primary'
+= new_button
 

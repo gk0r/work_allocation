@@ -1,0 +1,33 @@
+@import "twitter/bootstrap";
+@import "twitter/bootstrap-responsive";
+
+.index-heading {
+  @extend .lead;
+}
+
+.form-heading {
+  @extend .index-heading;
+}
+
+.index-table {
+  @extend .table;
+  @extend .table-bordered;
+  @extend .table-hover;
+}
+
+.data-table {
+  @extend .table;
+  @extend .table-bordered;
+  @extend .table-hover;
+}
+
+.date {width: 150px;}
+
+.pagination a, .pagination span {
+  line-height: 30px;
+  margin-top: 10px;
+}
+
+.add_nested_fields {
+  margin-top: 10px;
+}
