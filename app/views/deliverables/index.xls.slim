@@ -1,0 +1,36 @@
+/ Deliverables
+table[border='1']
+  thead
+    tr
+      th ID
+      th Description
+      th Release
+      th Team
+      th Project
+      th BA Spec
+      th Tech Spec
+      th Code
+
+  tbody
+    - @deliverables.each do |deliverable|
+      tr
+        td =  deliverable.id
+        td =  deliverable.try(:description)
+        td =  deliverable.software_release.try(:name)
+        td =  deliverable.try(:team).try(:name)
+        td =  deliverable.try(:project).try(:name)
+
+        td 
+          - deliverable.ba_specs.each do |s|
+            = s.progress
+            br
+        
+        td 
+          - deliverable.tech_specs.each do |s|
+            = s.progress
+            br
+                  
+        td 
+          - deliverable.code.each do |c|
+            = c.progress
+            br

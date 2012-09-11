@@ -3,8 +3,9 @@
 
   .form-inputs
     = f.association :deliverable, :label => 'Deliverable'
-    = f.input :user_id, :label => 'Technical Programmer', :collection => User.where(:role_id => 2)
+    = f.input :user_id, :label => 'Technical Programmer', :collection => User.joins(:user_roles).where('user_roles.role_id' => 1)
     = f.input :name, :label => 'Document name', :input_html => { :class => 'span5' }
+    = f.input :effort,  :input_html => { :class => 'span1' }, :placeholder => "Days" , :hint => "Effort estimate (days)"
 
     = f.input :comments, :as => :text, :input_html => { :rows => 4, :class => 'span5' }
     = f.input :progress, :input_html => { :class => 'span1' }
@@ -15,6 +16,6 @@
     = f.input :final_version, :as => :string, :input_html => { :class => 'span2 date' }
     
   .form-actions
-    = f.submit :class => 'btn btn-primary'
+    = submit_button f
     '
     = cancel_button f

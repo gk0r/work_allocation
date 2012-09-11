@@ -1,0 +1,46 @@
+/ BA Specs
+
+table[border='1']
+  thead
+    tr
+      th Release
+      th DMR
+      th Project
+      th RFC
+      th Deliverable
+      th Team
+      th Business Analyst
+      th Effort
+      th Document Name
+      th Progress
+      th Internal review date
+      th Internal review signoff
+      th External review date
+      th External review signoff
+      th Final version
+      th Comments      
+      
+  tbody
+    - @ba_specs.each do |b|
+      tr
+        td = b.try(:deliverable).try(:software_release).try(:name)
+        td = b.try(:deliverable).try(:project).try(:dmr)
+        td = b.try(:deliverable).try(:project).try(:name)
+
+        td
+          - b.try(:deliverable).try(:project).try(:rfcs).to_a.each do |r|
+            = [r.rfc, r.description].join(' - ')
+            br            
+              
+        td = b.try(:deliverable).try(:description)
+        td = b.try(:deliverable).try(:team).try(:name)
+        td = b.try(:user).try(:name)
+        td = b.effort
+        td = b.name
+        td = b.progress
+        td = xls_format_date(b.internal_review_date)
+        td = "Complete"  if b.internal_review_signoff
+        td = xls_format_date(b.external_review_date)
+        td = "Complete" if b.external_review_signoff
+        td = xls_format_date(b.final_version)
+        td = b.comments      

@@ -20,14 +20,26 @@ table.index-table
       tr
         td = index_link project.try(:name)                          , edit_project_path(project)
         td = index_link project.try(:dmr)                           , edit_project_path(project)
-        td = index_link project.try(:software_release).try(:name)   , edit_project_path(project)
-        td = index_link project.try(:approval_status)               , edit_project_path(project)
+        
+        td
+          - project.software_releases.each do |r|
+            = index_link r.name                                     , edit_project_path(project)
+            br
+        
+        td = index_link tick_box(project.try(:approval_status))     , edit_project_path(project)
         td = index_link project.try(:category)                      , edit_project_path(project)
         td = index_link project.try(:work_plan_id)                  , edit_project_path(project)
         td = index_link project.try(:work_order)                    , edit_project_path(project)
-        td = index_link project.try(:rfc)                           , edit_project_path(project)
+
+        td
+          - project.rfcs.each do |r|
+            = index_link [r.rfc, r.description].join(' - ')         , edit_project_path(project)
+            br
+
         td = index_link project.try(:timesheets_request_date)       , edit_project_path(project)
         td = index_link project.try(:admin_ref)                     , edit_project_path(project)
         td = delete_link(project)
 
-= link_to 'New Project', new_project_path, :class => 'btn btn-primary' 
+.row
+
+= new_button

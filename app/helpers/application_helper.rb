@@ -1,27 +1,27 @@
 module ApplicationHelper
   
-  def index_link(link_text, link_url)
-    link_to link_text.to_s.truncate(50, :separator => ' '), link_url if link_text && link_url
-  end
+  include IndexActionHelper
+  include FormHelper
   
-  def delete_link (path)
-    link_to '<i class="icon-trash"></i> '.html_safe, path, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
-  end
-  
-  def cancel_button (form_builder)
-    form_builder.submit "Cancel", :name => "cancel", :class => 'btn btn-danger'
-  end
-
-  def cancel_button_processing(path = nil)
-    if params[:cancel]
-      return_to_path = path ? path : session[:return_to]
-      redirect_to return_to_path
-      return
-    end
-  end
+  def xls_format_date(date = nil)
+    date.try {|b| b.strftime("%d %b %Y")}
+  end  
   
   def close_icon
     '<a class="close" data-dismiss="alert">x</a>'.html_safe
   end
+
+  #  
+  # I don't think I need this..
+  #   
+  # def to_csv(record, options = {})
+  #   CSV.generate(options) do |csv|
+  #     csv << column_names
+  #     all.each do |model|
+  #       csv << record.attributes.values_at(*column_names)
+  #     end
+  #   end
+  # end
+  
   
 end
