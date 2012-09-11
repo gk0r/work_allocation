@@ -5,8 +5,8 @@
   = f.input :first_name                                                                                                                 , :placeholder => 'First name'
   = f.input :last_name                                                                                                                  , :placeholder => 'Last Name'
   = f.input :telephone_number , :input_html => { :class => 'span2' }, :hint => 'Please enter in the following format: (02) 0000 0000'   , :placeholder => 'Telephone Number'
-  = f.association :role 
-  = f.association :team 
+  = f.association :roles 
+  = f.association :teams 
 
   .form-actions
     = submit_button f
