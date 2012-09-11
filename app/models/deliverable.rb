@@ -7,24 +7,26 @@ class Deliverable < ActiveRecord::Base
   belongs_to :user
   belongs_to :software_release
   belongs_to :team
-  
+
   accepts_nested_attributes_for :ba_specs # Add the destroy calls in here, so that if the Deliverable is deleted, all associated 
   accepts_nested_attributes_for :tech_specs
   accepts_nested_attributes_for :code
 
   validates_presence_of :description
+
+  # has_many :rfcs        , :through => :project
   
   def name
     description
   end
   
-  def self.to_csv(options = {})
-    CSV.generate(options) do |csv|
-      csv << column_names
-      all.each do |deliverable|
-        csv << deliverable.attributes.values_at(*column_names)
-      end
-    end
-  end
+  # def self.to_csv(options = {})
+  #   CSV.generate(options) do |csv|
+  #     csv << column_names
+  #     all.each do |deliverable|
+  #       csv << deliverable.attributes.values_at(*column_names)
+  #     end
+  #   end
+  # end
   
 end

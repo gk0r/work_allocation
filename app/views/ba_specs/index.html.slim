@@ -30,9 +30,8 @@ table.data-table
         td = index_link tick_box(b.external_review_signoff),           edit_ba_spec_path(b)
         td = index_link index_format_date(b.final_version),            edit_ba_spec_path(b)
         td = index_link b.comments,                                    edit_ba_spec_path(b)
-      
         td = delete_link b
 
 .row
 
-= link_to 'New BA Spec', new_ba_spec_path, :class => 'btn btn-primary'
+= new_button

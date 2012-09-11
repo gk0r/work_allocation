@@ -2,11 +2,12 @@ class BaSpec < ActiveRecord::Base
   belongs_to :deliverable
   belongs_to :user
   
+  # has_one :rfc, :through => :deliverable
+  belongs_to :rfc
+  
   validates_presence_of :deliverable
   
   # attr_accessible :effort
-  
-  human_attribute_name('BA Spec')
   
   def progress
     read_attribute(:progress).to_s + '%'

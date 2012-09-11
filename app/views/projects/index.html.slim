@@ -28,7 +28,7 @@ table.index-table
 
         td
           - project.rfcs.each do |r|
-            = [r.rfc, r.description].join(' - ')
+            = index_link [r.rfc, r.description].join(' - ')         , edit_project_path(project)
             br
 
         td = index_link project.try(:timesheets_request_date)       , edit_project_path(project)
