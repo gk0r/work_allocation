@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 gem 'rails'
 gem 'sqlite3'
-gem 'thin'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -30,8 +29,10 @@ group :development, :test do
   gem 'quiet_assets'
 end
 
-# # Following three are included to use Red Carpet and Markdown from http://railscasts.com/episodes/272-markdown-with-redcarpet
-# # I am probably not going to need these three gems.
-# gem 'redcarpet'
-# gem 'albino'
-# gem 'nokogiri'
+# platforms :mswin do
+#   gem 'thin', "1.2.11" 
+# end
+# 
+# platforms :ruby do
+#   gem 'thin'
+# end
