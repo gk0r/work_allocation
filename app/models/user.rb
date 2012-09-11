@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   has_many :tech_specs
   has_many :code
   
-  validates_presence_of :email, :first_name, :last_name, :telephone_number
+  validates_presence_of :email, :first_name, :last_name
   
   def name
     [first_name, last_name].join(' ')

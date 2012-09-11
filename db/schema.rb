@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120911071256) do
+ActiveRecord::Schema.define(:version => 20120911085548) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -80,7 +80,6 @@ ActiveRecord::Schema.define(:version => 20120911071256) do
     t.string   "category"
     t.string   "work_plan_id"
     t.boolean  "approval_status"
-    t.integer  "rfc_id"
     t.string   "business_pm"
     t.string   "it_pm"
     t.string   "test_manager"
@@ -119,6 +118,16 @@ ActiveRecord::Schema.define(:version => 20120911071256) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "sessions", :force => true do |t|
+    t.string   "session_id", :null => false
+    t.text     "data"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
   create_table "software_releases", :force => true do |t|
     t.string   "name"

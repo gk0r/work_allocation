@@ -44,7 +44,7 @@ class TeamsController < ApplicationController
 
     respond_to do |format|
       if @team.save
-        format.html { redirect_to teams_url, :flash => {:success => t('flash.created_new', :type => 'team', :name => @team.name) } }
+        format.html { redirect_to teams_url }
         format.json { render json: @team, status: :created, location: @team }
       else
         format.html { render action: "new" }
