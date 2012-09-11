@@ -1,29 +1,36 @@
 = simple_nested_form_for @project, :html => { :class => 'form-horizontal' } do |f|
   = f.error_notification
 
-  .form-inputs
-    = f.input :name                       , :input_html => { :class => 'span4' }      
-    = f.input :dmr                        , :input_html => { :class => 'span1' }      
-    = f.association :software_release   
-    = f.input :approval_status, :collection => [['Approved',true] ,['Not approved', false]], :as => :radio_buttons, :item_wrapper_class => 'inline'
-    = f.input :category                   , :collection => ['Budget', 'Legislative', 'Sponsor Funded Enhancement', 'Business as Usual']             
-    = f.input :work_plan_id               , :input_html => { :class => 'span1' }      
-    = f.input :work_order                 , :input_html => { :class => 'span1' }
+  .row  
+    .span6
+      .form-inputs
+        = f.input :name                       , :input_html => { :class => 'span4' }      
+        = f.input :dmr                        , :input_html => { :class => 'span1' }      
+        = f.association :software_release   
+        = f.input :approval_status, :collection => [['Approved',true] ,['Not approved', false]], :as => :radio_buttons, :item_wrapper_class => 'inline'
+        = f.input :category                   , :collection => ['Budget', 'Legislative', 'Sponsor Funded Enhancement', 'Business as Usual']             
+        = f.input :work_plan_id               , :input_html => { :class => 'span1' }      
+        = f.input :work_order                 , :input_html => { :class => 'span1' }
 
-    = f.input :timesheets_request_date    , :input_html => { :class => 'span2 date' }  
-    = f.input :admin_ref                  , :input_html => { :class => 'span5' }      
+        = f.input :timesheets_request_date    , :input_html => { :class => 'span2 date' }  
+        = f.input :admin_ref                  , :input_html => { :rows => 2, :class => 'span4' }, :as => :text
 
-    = f.simple_fields_for :rfcs do |rfc|
-      / .well
-      br
-      / h4 RFC
-      = rfc.input :rfc
-      = rfc.input :description
-      = rfc.link_to_remove 'Remove RFC', :class => 'btn btn-danger'
-    = f.link_to_add "Add RFCs", :rfcs, :class => 'btn btn-info'    
+        = f.simple_fields_for :rfcs do |rfc|
+          / .well
+          br
+          / h4 RFC
+          = rfc.input :rfc
+          = rfc.input :description
+          = rfc.link_to_remove 'Remove RFC', :class => 'btn btn-danger'
+        = f.link_to_add "Add RFCs", :rfcs, :class => 'btn btn-info'    
 
-
-  .form-actions
-    = f.submit :class => 'btn btn-primary'
-    '
-    = cancel_button f
+    .span4
+      .form-inputs
+        = f.input :business_pm
+        = f.input :it_pm
+        = f.input :test_manager
+  .row
+    .form-actions
+      = f.submit :class => 'btn btn-primary'
+      '
+      = cancel_button f

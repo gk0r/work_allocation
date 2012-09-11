@@ -31,6 +31,9 @@ en:
         rfc: "RFC"
         timesheets_request_date: "Timesheets Date"
         admin_ref: "Admin File Reference"
+        business_pm: "Business PM"
+        it_pm: "IT PM"
+        test_manager: "Test Manager"
       software_release: 
         name: "Release"
         date: "Release date"
