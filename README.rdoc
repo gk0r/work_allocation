@@ -2,20 +2,23 @@
 The purpose of this application is to replace conventional methods of tracking assigned work.
 My vision includes using a web-based system to keep track of all assigned and outstanding work. 
 
-I appreciate that there are a number of open source systems and commercially available products, yet the cheif purpose of this is for me to 
-learn Ruby on Rails and manage to build a locally significant application.
+I appreciate that there are a number of open source systems and commercially available products, yet the main objective for me is to 
+learn Ruby on Rails and to build a locally significant application.
 
 == Security
 A few notes about security
 
-* This is application is designed to run behind a firewall and does not employ standard suite of security measures.
-* User management is very limited
-* The application will not work until the v1.0, this may or may not happen at all.
+* This is application is designed to run behind a firewall and does not employ standard suite of authentication measures.
+* User management is somewhat limited
 
 == Conventions
-1. Fonts
-  * Use H2 headings on all Index pages
-  * Use legend on all Editing pages
+
   
 == Bugs
-1. Unable to create sub-deliverables when creating a brand new deliverable. This is due to having deliverable_id marked as mandatory. It appears that the sub-deliverables are created first, thereby not having access to the main deliverable...
+
+
+== Plans and thoughts on progress
+Observer Notification Triggers
+  * Deliverable Component (BA Spec, Tech Spec, Code) assigned
+  * Deliverable Component (BA Spec, Tech Spec, Code) un-assigned
+  * Deliverable Component (BA Spec, Tech Spec, Code) deleted (either directly, or via a cascade action)
