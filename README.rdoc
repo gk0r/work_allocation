@@ -18,7 +18,3 @@ A few notes about security
 
 
 == Plans and thoughts on progress
-Observer Notification Triggers
-  * Deliverable Component (BA Spec, Tech Spec, Code) assigned
-  * Deliverable Component (BA Spec, Tech Spec, Code) un-assigned
-  * Deliverable Component (BA Spec, Tech Spec, Code) deleted (either directly, or via a cascade action)
