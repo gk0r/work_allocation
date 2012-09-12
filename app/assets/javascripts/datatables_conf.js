@@ -1,13 +1,6 @@
 // 
 // Data Tables configuration
 // 
-// $(function() {
-// 	$('table').dataTable(
-// 		{
-// 			"sDom": 'C<"row">Rlfrtip',
-// 			"bStateSave": true
-// 		});
-// });
 
 $(function() {
 	$('table').dataTable(
@@ -16,10 +9,10 @@ $(function() {
 			"bStateSave": true,
 			"fnStateSave": function (oSettings, oData) {
 			            localStorage.setItem( 'DataTables_'+window.location.pathname, JSON.stringify(oData) );
-       },
-       "fnStateLoad": function (oSettings) {
-           return JSON.parse( localStorage.getItem('DataTables_'+window.location.pathname) );
-       }
+			       },
+			       "fnStateLoad": function (oSettings) {
+			           return JSON.parse( localStorage.getItem('DataTables_'+window.location.pathname) );
+			       }
 		});
 });
 
@@ -27,16 +20,7 @@ $(function() {
 // -------------------------------------
 // 
 // Copy of a working javascript
+//
+// Populate as needed
 // 
 // -------------------------------------
-//
-// $(function() {
-// 	$('table').dataTable(
-// 		{
-// 			"sDom": 'C<"clear">lfrtip',
-// 			"bStateSave": true,
-// 			"oColVis": {
-// 						"activate": "mouseover"
-// 					}
-// 		});
-// });

@@ -12,10 +12,10 @@ table.index-table
   tbody
     - @rfcs.each do |rfc|
       tr
-        td = index_link rfc.project.software_release.name   , edit_rfc_path(rfc)
-        td = index_link rfc.rfc                             , edit_rfc_path(rfc)
-        td = index_link rfc.description                     , edit_rfc_path(rfc)
-        td = index_link rfc.project.name                    , edit_rfc_path(rfc)
+        td = index_link rfc.try(:project).try(:software_release).try(:name)   , edit_rfc_path(rfc)
+        td = index_link rfc.rfc                                               , edit_rfc_path(rfc)
+        td = index_link rfc.description                                       , edit_rfc_path(rfc)
+        td = index_link rfc.try(:project).try(:name)                          , edit_rfc_path(rfc)
         td = delete_link rfc
 
 .row
