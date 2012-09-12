@@ -13,24 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20120911085548) do
 
-  create_table "admins", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
-  end
-
-  add_index "admins", ["email"], :name => "index_admins_on_email", :unique => true
-  add_index "admins", ["reset_password_token"], :name => "index_admins_on_reset_password_token", :unique => true
-
   create_table "ba_specs", :force => true do |t|
     t.integer  "deliverable_id"
     t.integer  "user_id"
@@ -63,10 +45,10 @@ ActiveRecord::Schema.define(:version => 20120911085548) do
   create_table "deliverables", :force => true do |t|
     t.string   "description"
     t.string   "project_id"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
     t.integer  "software_release_id"
     t.integer  "team_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "projects", :force => true do |t|
@@ -75,28 +57,15 @@ ActiveRecord::Schema.define(:version => 20120911085548) do
     t.string   "work_order"
     t.string   "timesheets_request_date"
     t.string   "admin_ref"
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
     t.string   "category"
     t.string   "work_plan_id"
     t.boolean  "approval_status"
     t.string   "business_pm"
     t.string   "it_pm"
     t.string   "test_manager"
-  end
-
-  create_table "rails_admin_histories", :force => true do |t|
-    t.text     "message"
-    t.string   "username"
-    t.integer  "item"
-    t.string   "table"
-    t.integer  "month",      :limit => 2
-    t.integer  "year",       :limit => 5
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
   end
-
-  add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
 
   create_table "release_projects", :force => true do |t|
     t.integer  "project_id"
@@ -107,10 +76,10 @@ ActiveRecord::Schema.define(:version => 20120911085548) do
 
   create_table "rfcs", :force => true do |t|
     t.integer  "project_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
     t.string   "description"
     t.integer  "rfc"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "roles", :force => true do |t|
@@ -147,6 +116,7 @@ ActiveRecord::Schema.define(:version => 20120911085548) do
     t.integer  "deliverable_id"
     t.integer  "user_id"
     t.string   "name"
+    t.integer  "effort"
     t.string   "comments"
     t.integer  "progress",                :default => 0
     t.date     "internal_review_date"
@@ -154,21 +124,20 @@ ActiveRecord::Schema.define(:version => 20120911085548) do
     t.date     "final_version"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
-    t.integer  "effort"
   end
 
   create_table "user_roles", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
     t.integer  "user_id"
     t.integer  "role_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "user_teams", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
     t.integer  "user_id"
     t.integer  "team_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
