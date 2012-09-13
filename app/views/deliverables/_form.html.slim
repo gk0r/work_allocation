@@ -5,9 +5,9 @@
     = f.input :description, :as => :text, :input_html => { :rows => 4, :class => 'span5' }, :autofocus => true
     = f.association :team
     = f.association :project, :collection => Project.all(:order => :dmr)
-    / = f.association :milestone
-    = f.association :milestone, :collection => Milestone.all(:order => :project_id)
 
+    = f.input :milestone_id, :collection => Project.all(:order => :id), :as => :grouped_select, :group_method => :milestones, :label_html => {:class => 'milestone'}
+    
     = f.simple_fields_for :ba_specs do |spec|
       .well
         h3 BA User Spec / Combined Spec

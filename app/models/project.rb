@@ -3,6 +3,7 @@ class Project < ActiveRecord::Base
   belongs_to :user
 
   has_many :deliverables,                               :dependent  => :destroy
+  has_many :milestones,                                 :dependent  => :destroy
   has_many :ba_specs,   :through    => :deliverables,   :dependent  => :destroy    
   has_many :rfcs,       :inverse_of => :project,        :dependent  => :destroy
   
