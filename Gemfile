@@ -22,12 +22,18 @@ gem 'cancan'
 
 # Gems that are only required in Development and Test environments
 group :development, :test do
-  gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
   gem 'letter_opener'
   gem 'quiet_assets'
 end
+
+gem 'capybara'
+gem 'factory_girl_rails'
+gem "rspec-rails"
+gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+gem "guard-rspec"
+
 
 # platforms :mswin do
 #   gem 'thin', "1.2.11" 

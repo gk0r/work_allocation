@@ -60,6 +60,8 @@ en:
         business_pm: 'Business PM'
         it_pm: 'IT PM'
         test_manager: 'Test Manager'
+      role:
+        name: "Role"
   messages:
     xls: "Export in Excel"
   hint:

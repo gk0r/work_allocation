@@ -44,7 +44,7 @@ class RfcsController < ApplicationController
 
     respond_to do |format|
       if @rfc.save
-        format.html { redirect_to @rfc, notice: 'Rfc was successfully created.' }
+        format.html { redirect_to rfcs_path }
         format.json { render json: @rfc, status: :created, location: @rfc }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class RfcsController < ApplicationController
 
     respond_to do |format|
       if @rfc.update_attributes(params[:rfc])
-        format.html { redirect_to @rfc, notice: 'Rfc was successfully updated.' }
+        format.html { redirect_to rfcs_path }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

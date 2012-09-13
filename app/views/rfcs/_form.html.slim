@@ -1,10 +1,14 @@
-= simple_form_for(@rfc) do |f|
+= render 'partials/form_heading'
+
+= simple_form_for(@rfc, :html => { :class => 'form form-horizontal' }) do |f|
   = f.error_notification
 
   .form-inputs
     = f.input :rfc
     = f.input :description
-    = f.input :project_id
+    = f.association :milestone
 
   .form-actions
-    = f.button :submit
+    = submit_button f
+    '
+    = cancel_button f
