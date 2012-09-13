@@ -9,9 +9,6 @@ table.index-table
       th Approval Status
       th Category
       th ICT Work Plan
-      th Work Order
-      th RFC
-      th Timesheets
       th Admin Ref
       th Delete
 
@@ -29,14 +26,6 @@ table.index-table
         td = index_link tick_box(project.try(:approval_status))     , edit_project_path(project)
         td = index_link project.try(:category)                      , edit_project_path(project)
         td = index_link project.try(:work_plan_id)                  , edit_project_path(project)
-        td = index_link project.try(:work_order)                    , edit_project_path(project)
-
-        td
-          - project.rfcs.each do |r|
-            = index_link [r.rfc, r.description].join(' - ')         , edit_project_path(project)
-            br
-
-        td = index_link project.try(:timesheets_request_date)       , edit_project_path(project)
         td = index_link project.try(:admin_ref)                     , edit_project_path(project)
         td = delete_link(project)
 

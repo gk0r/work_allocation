@@ -1,5 +1,7 @@
 WorkAllocation::Application.routes.draw do
 
+  resources :milestones
+
   resources :rfcs
 
   resources :deliverables, :projects, :users, :software_releases, :rfc, :roles, :teams, :code, :tech_specs, :ba_specs, :deliverables, :welcome

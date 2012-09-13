@@ -1,0 +1,31 @@
+= render 'partials/form_heading'
+
+= simple_nested_form_for(@milestone, :html => { :class => 'form-horizontal' }) do |f|
+  = f.error_notification
+
+  .form-inputs
+    .row  
+      .span5
+        = f.association :software_release,  :input_html => { :class => 'span3' }
+        = f.association :project,           :input_html => { :class => 'span3' }
+        = f.input :work_order
+        = f.input :timesheets_request_date,    :as => :string,  :input_html => { :class => 'span2 date' },  :hint => t('hint.timesheets')
+
+        = f.simple_fields_for :rfcs do |rfc|
+          br
+          = rfc.input :rfc
+          = rfc.input :description
+          = rfc.link_to_remove 'Remove RFC', :class => 'btn btn-danger'
+        = f.link_to_add "Add RFCs", :rfcs, :class => 'btn btn-info'    
+
+      .span4
+        = f.input :business_pm
+        = f.input :it_pm
+        = f.input :test_manager
+
+  .row
+
+  .form-actions
+    = submit_button f
+    '
+    = cancel_button f

@@ -1,0 +1,36 @@
+= render 'partials/index_header_excel'
+
+table.index-table
+  thead
+    tr
+      th Software release
+      th Project
+      th RFC
+      th Work order
+      th Timesheets date
+      th Business PM
+      th IT PM
+      th Test Manager
+      th Delete
+
+  tbody
+    - @milestones.each do |m|
+      tr
+        td = index_link m.software_release.try(:name)                 , edit_milestone_path(m)
+        td = index_link m.project.try(:name)                          , edit_milestone_path(m)
+        
+        td 
+          - m.rfcs.each do |r|
+            = index_link [r.rfc, r.description].join(' - ')           , edit_milestone_path(m)
+            br
+        
+        td = index_link m.work_order                                  , edit_milestone_path(m)
+        td = index_link index_format_date(m.timesheets_request_date)  , edit_milestone_path(m)
+        td = index_link m.business_pm                                 , edit_milestone_path(m)
+        td = index_link m.it_pm                                       , edit_milestone_path(m)
+        td = index_link m.test_manager                                , edit_milestone_path(m)
+        td = delete_link m
+
+.row
+
+= new_button

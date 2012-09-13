@@ -51,6 +51,17 @@ en:
       rfc:
         rfc: "RFC"
         description: "RFC Description"
+      milestone:
+        software_release_id: 'Software Release'
+        project_id: 'Project'
+        rfc_id: 'RFC'
+        work_order: 'Work Order'
+        timesheets_request_date: 'Timesheets Date'
+        business_pm: 'Business PM'
+        it_pm: 'IT PM'
+        test_manager: 'Test Manager'
   messages:
     xls: "Export in Excel"
+  hint:
+    timesheets: "Date when Primavera request was last updated"
   

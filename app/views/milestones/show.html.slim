@@ -1,0 +1,30 @@
+p#notice = notice
+
+p
+  strong Software release:
+  = @milestone.software_release_id
+p
+  strong Project:
+  = @milestone.project_id
+p
+  strong Rfc:
+  = @milestone.rfc_id
+p
+  strong Work order:
+  = @milestone.work_order
+p
+  strong Timesheets request date:
+  = @milestone.timesheets_request_date
+p
+  strong Business pm:
+  = @milestone.business_pm
+p
+  strong It pm:
+  = @milestone.it_pm
+p
+  strong Test manager:
+  = @milestone.test_manager
+
+= link_to 'Edit', edit_milestone_path(@milestone)
+'|
+= link_to 'Back', milestones_path

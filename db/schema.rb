@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120911085548) do
+ActiveRecord::Schema.define(:version => 20120913053325) do
 
   create_table "ba_specs", :force => true do |t|
     t.integer  "deliverable_id"
@@ -45,26 +45,34 @@ ActiveRecord::Schema.define(:version => 20120911085548) do
   create_table "deliverables", :force => true do |t|
     t.string   "description"
     t.string   "project_id"
-    t.integer  "software_release_id"
     t.integer  "team_id"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "milestone_id"
   end
 
-  create_table "projects", :force => true do |t|
-    t.string   "name"
-    t.string   "dmr"
+  create_table "milestones", :force => true do |t|
+    t.integer  "software_release_id"
+    t.integer  "project_id"
+    t.integer  "rfc_id"
     t.string   "work_order"
-    t.string   "timesheets_request_date"
-    t.string   "admin_ref"
-    t.string   "category"
-    t.string   "work_plan_id"
-    t.boolean  "approval_status"
+    t.date     "timesheets_request_date"
     t.string   "business_pm"
     t.string   "it_pm"
     t.string   "test_manager"
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
+  end
+
+  create_table "projects", :force => true do |t|
+    t.string   "name"
+    t.string   "dmr"
+    t.string   "admin_ref"
+    t.string   "category"
+    t.string   "work_plan_id"
+    t.boolean  "approval_status"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "release_projects", :force => true do |t|
@@ -75,11 +83,11 @@ ActiveRecord::Schema.define(:version => 20120911085548) do
   end
 
   create_table "rfcs", :force => true do |t|
-    t.integer  "project_id"
     t.string   "description"
     t.integer  "rfc"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "milestone_id"
   end
 
   create_table "roles", :force => true do |t|
