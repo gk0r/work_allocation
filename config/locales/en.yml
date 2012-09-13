@@ -66,4 +66,5 @@ en:
     xls: "Export in Excel"
   hint:
     timesheets: "Date when Primavera request was last updated"
+    username: "Your DHS username (Logon ID)"
   

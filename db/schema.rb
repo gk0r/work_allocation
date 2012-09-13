@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120913053325) do
+ActiveRecord::Schema.define(:version => 20120913130858) do
 
   create_table "ba_specs", :force => true do |t|
     t.integer  "deliverable_id"
@@ -155,6 +155,7 @@ ActiveRecord::Schema.define(:version => 20120913053325) do
     t.string   "telephone_number"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.string   "username"
   end
 
 end

@@ -5,6 +5,7 @@
     = f.input :email            , :input_html => { :class => 'span3' }                                                                    , :placeholder => 'email_address@humanservices.gov.au'  , :autofocus => true
     = f.input :first_name                                                                                                                 , :placeholder => 'First name'
     = f.input :last_name                                                                                                                  , :placeholder => 'Last Name'
+    = f.input :username, :hint => t('hint.username')
     = f.input :telephone_number , :input_html => { :class => 'span2' }, :hint => 'Please enter in the following format: (02) 0000 0000'   , :placeholder => 'Telephone Number'
     = f.association :roles, :hint => "Multiple selections are allowed, use SHIFT and CONTROL keys" 
     = f.association :teams, :hint => "Multiple selections are allowed, use SHIFT and CONTROL keys"

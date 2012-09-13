@@ -11,7 +11,6 @@ class SessionsController < ApplicationController
     user = User.find_by_email(params[:session][:email])
     
     if (user)
-      # session[:user] = @current_user = current_user = user
       session[:user_id] = user.id
       redirect_to root_url
     else
@@ -20,7 +19,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = @current_user = session[:user] = nil
+    session[:user_id] = @current_user = session[:user_id] = nil
     redirect_to root_url
   end
   

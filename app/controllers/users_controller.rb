@@ -48,7 +48,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        session[:user] = @user unless session[:user] # Log the current user in upon successful registration, unless the user is already registered
+        session[:user_id] = @user.id unless session[:user_id] # Log the current user in upon successful registration, unless the user is already registered
         format.html { redirect_to users_path, :flash => {:success => "User was successfully created."} }
         format.json { render json: @user, status: :created, location: @user }
       else
