@@ -5,12 +5,9 @@ class Project < ActiveRecord::Base
   has_many :deliverables,                               :dependent  => :destroy
   has_many :milestones,                                 :dependent  => :destroy
   has_many :ba_specs,   :through    => :deliverables,   :dependent  => :destroy    
-  has_many :rfcs,       :inverse_of => :project,        :dependent  => :destroy
   
   has_many :release_projects,   :dependent  => :destroy
   has_many :software_releases,  :through    => :release_projects
-  
-  accepts_nested_attributes_for :rfcs
   
   validates_presence_of :name
   

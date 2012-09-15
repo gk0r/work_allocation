@@ -1,6 +1,6 @@
 module IndexActionHelper
   
-  def index_link(link_text, link_url)
+  def index_link(link_text = nil, link_url = nil)
     link_to link_text.to_s.truncate(50, :separator => ' '), link_url if link_text && link_url
   end
   

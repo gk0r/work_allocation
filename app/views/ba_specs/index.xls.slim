@@ -23,14 +23,14 @@ table[border='1']
   tbody
     - @ba_specs.each do |b|
       tr
-        td = b.try(:deliverable).try(:software_release).try(:name)
-        td = b.try(:deliverable).try(:project).try(:dmr)
-        td = b.try(:deliverable).try(:project).try(:name)
+        / td = b.try(:deliverable).try(:milestone).try(:software_release).try(:name)
+        / td = b.try(:deliverable).try(:milestone).try(:project).try(:dmr)
+        / td = b.try(:deliverable).try(:project).try(:name)
 
-        td
-          - b.try(:deliverable).try(:project).try(:rfcs).to_a.each do |r|
-            = [r.rfc, r.description].join(' - ')
-            br            
+        / td
+        /   - b.try(:deliverable).try(:milestone).try(:rfc).to_a.each do |r|
+        /     = [r.rfc, r.description].join(' - ')
+        /     br            
               
         td = b.try(:deliverable).try(:description)
         td = b.try(:deliverable).try(:team).try(:name)

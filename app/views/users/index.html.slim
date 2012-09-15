@@ -5,19 +5,19 @@ table.data-table
     tr
       th Name
       th Email
+      th Username
       th Telephone
-      th Roles
+      th Role
       th Team
       th Delete
 
   tbody
     - @users.each do |user|
       tr
-        td = link_to user.name, edit_user_path(user)
-        td = link_to user.email, edit_user_path(user)
-        td = link_to user.telephone_number, edit_user_path(user)
-        / td = link_to user.roles.name, edit_user_path(user)
-        / td = link_to user.teams.name, edit_user_path(user)
+        td = index_link user.name, edit_user_path(user)
+        td = index_link user.email, edit_user_path(user)
+        td = index_link user.try(:username), edit_user_path(user)
+        td = index_link user.telephone_number, edit_user_path(user)
         
         td
           - user.roles.each do |r|

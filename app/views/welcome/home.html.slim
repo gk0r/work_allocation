@@ -1,15 +1,54 @@
 .index-heading Dashboard
 
--if user_signed_in?
-  table.index-table
-    thead
-      tr 
-        th Description
-        th Progress
+- if !user_signed_in?
+  p Please #{link_to "sign in", sign_in_path} to use the Dashboard.
 
-    - BaSpec.find_all_by_user_id(current_user.id).each do |s|
-      tbody
-        tr
-          td = s.try(:name)
-          td = s.try(:progress)
-        
+-else
+  
+  - if !@ba_specs.empty?
+    .legend BA Specs
+    
+    table.index-table
+      thead
+        tr 
+          th Description
+          th Progress
+
+      - @ba_specs.each do |s|
+        tbody
+          tr
+            td = s.try(:name)
+            td = s.try(:progress)
+
+  - if !@tech_specs.empty?
+    .legend BA Specs
+
+    table.index-table
+      thead
+        tr 
+          th Description
+          th Progress
+
+      - @tech_specs.each do |s|
+        tbody
+          tr
+            td = s.try(:name)
+            td = s.try(:progress)
+
+  - if !@code.empty?
+    .legend BA Specs
+
+    table.index-table
+      thead
+        tr 
+          th Description
+          th Progress
+
+      - @code.each do |c|
+        tbody
+          tr
+            td = c.try(:name)
+            td = c.try(:progress)
+
+  - if @ba_specs.empty? && @tech_specs.empty? && @code.empty?
+    p You do not have any deliverables assigned to you.

@@ -20,7 +20,7 @@ table.index-table
         td = index_link deliverable.try(:description),            edit_deliverable_path(deliverable)
         td = index_link deliverable.try(:milestone).try(:software_release).try(:name),  edit_deliverable_path(deliverable)
         td = index_link deliverable.try(:team).try(:name),        edit_deliverable_path(deliverable)
-        td = index_link deliverable.try(:project).try(:name),     edit_project_path(deliverable.try(:project).try(:id)) if deliverable.project.try(:id)
+        td = index_link deliverable.try(:project).try(:name),     edit_project_path(deliverable.try(:project).try(:id)) if deliverable.try(:project).try(:id)
 
         td 
           - deliverable.ba_specs.each do |s|

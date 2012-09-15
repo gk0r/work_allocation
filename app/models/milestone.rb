@@ -4,7 +4,7 @@ class Milestone < ActiveRecord::Base
   belongs_to :software_release
   
   has_many :deliverables
-  has_many :rfcs
+  has_many :rfcs, :inverse_of => :milestone
   
   accepts_nested_attributes_for :rfcs
 

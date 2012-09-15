@@ -1,0 +1,33 @@
+/ Milestones
+
+table[border='1']
+  thead
+    tr
+      th Release
+      th DMR
+      th Project
+      th RFC
+      th Work Order
+      th Timesheets last updated
+      th IT PM
+      th Business Pm
+      th Test Manager
+      
+      
+  tbody
+    - @milestones.each do |m|
+      tr
+        td = m.try(:software_release).try(:name)
+        td = m.try(:project).try(:dmr)
+        td = m.try(:project).try(:name)
+
+        td
+          - m.try(:rfcs).to_a.each do |r|
+            = [r.rfc, r.description].join(' - ')
+            br            
+
+        td = m.work_order
+        td = xls_format_date m.timesheets_request_date
+        td = m.it_pm
+        td = m.business_pm
+        td = m.test_manager

@@ -15,11 +15,4 @@ describe "Creates new user" do
     page.should have_selector('table')
   end
 
-  it "does not allow blank roles to be created" do
-    visit new_role_path
-    fill_in 'Role', :with => ""
-    click_button 'Add new Role'
-    page.should have_content('error')
-  end  
-  
 end

@@ -20,12 +20,12 @@ table[border='1']
   tbody
     - @tech_specs.each do |ts|
       tr
-        td = ts.try(:deliverable).try(:software_release).try(:name)
+        td = ts.try(:deliverable).try(:milestone).try(:software_release).try(:name)
         td = ts.try(:deliverable).try(:project).try(:dmr)
         td = ts.try(:deliverable).try(:project).try(:name)
 
         td
-          - ts.try(:deliverable).try(:project).try(:rfcs).to_a.each do |r|
+          - ts.try(:deliverable).try(:milestone).try(:rfcs).to_a.each do |r|
             = [r.rfc, r.description].join(' - ')
             br            
               

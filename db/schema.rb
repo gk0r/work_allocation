@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120913130858) do
+ActiveRecord::Schema.define(:version => 20120914075020) do
 
   create_table "ba_specs", :force => true do |t|
     t.integer  "deliverable_id"
@@ -54,7 +54,6 @@ ActiveRecord::Schema.define(:version => 20120913130858) do
   create_table "milestones", :force => true do |t|
     t.integer  "software_release_id"
     t.integer  "project_id"
-    t.integer  "rfc_id"
     t.string   "work_order"
     t.date     "timesheets_request_date"
     t.string   "business_pm"
