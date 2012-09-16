@@ -37,6 +37,8 @@ GEM
     audited-activerecord (3.0.0.rc2)
       activerecord (~> 3.0)
       audited (= 3.0.0.rc2)
+    auto_strip_attributes (2.0.2)
+      activerecord (>= 3.0)
     builder (3.0.3)
     cancan (1.6.8)
     capybara (1.1.2)
@@ -183,6 +185,7 @@ PLATFORMS
 DEPENDENCIES
   anjlab-bootstrap-rails (>= 2.1)
   audited-activerecord
+  auto_strip_attributes
   cancan
   capybara
   coffee-rails

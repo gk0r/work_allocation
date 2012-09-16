@@ -13,12 +13,6 @@ Team.find_or_create_by_name(name: 'FAO IT - Team One')
 Team.find_or_create_by_name(name: 'FAO IT - Team Two')
 Team.find_or_create_by_name(name: 'Hobart IT - DAP')
 
-User.find_or_create_by_name(first_name: 'Ilya',   last_name: 'Gvozdenko', email: 'test@email.com', telephone_number: '00 0000 0000')
-User.find_or_create_by_name(first_name: 'Chris',  last_name: 'Martin',    email: 'test@email.com', telephone_number: '00 0000 0000')
-User.find_or_create_by_name(first_name: 'Paul',   last_name: 'Nesbit',    email: 'test@email.com', telephone_number: '00 0000 0000')
-User.find_or_create_by_name(first_name: 'Manicks',last_name: 'Mathaven',  email: 'test@email.com', telephone_number: '00 0000 0000')
-User.find_or_create_by_name(first_name: 'Roger',  last_name: 'Bate',      email: 'test@email.com', telephone_number: '00 0000 0000')
-
 UserRole.find_or_create_by_user_id(user_id: '1', role_id: '1')
 UserRole.find_or_create_by_user_id(user_id: '2', role_id: '1')
 UserRole.find_or_create_by_user_id(user_id: '3', role_id: '1')

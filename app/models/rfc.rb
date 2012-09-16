@@ -3,6 +3,5 @@ class Rfc < ActiveRecord::Base
   
   belongs_to :milestone
   
-  # has_many :ba_specs, :through => :project
-  # has_many :deliverables, :through => :project
+  validates_uniqueness_of :rfc
 end
