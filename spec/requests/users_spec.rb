@@ -14,5 +14,24 @@ describe "Creates new user" do
     current_path.should == users_path
     page.should have_selector('table')
   end
+end
 
+describe "Login" do
+#   it "Should login correctly with the right username" do
+#     visit sign_in_path
+#     # fill_in 'Username', :with => "delta"
+#     click_button 'Sign in'
+#     save_and_open_page
+#     page.should have_content('Dashboard')
+#   end
+  
+  it "Should present an error message when an incorrect username is entered" do
+    visit sign_in_path
+    fill_in 'Username', :with => "666"
+    click_button 'Sign in'
+    current_path.should == sign_in_path
+    save_and_open_page
+    page.should have_content('Unable')
+  end
+  
 end

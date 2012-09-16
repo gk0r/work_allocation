@@ -8,13 +8,13 @@ class SessionsController < ApplicationController
   end
   
   def create
-    user = User.find_by_username(params[:session][:email])
+    user = User.find_by_username(params[:session][:username])
     
     if (user)
       session[:user_id] = user.id
       redirect_to root_url
     else
-      redirect_to sign_in_path, alert: 'Unable to find a user with this username'
+      redirect_to sign_in_path, :flash => {:error => "Unable to find a user with this username: " + params[:session][:username].to_s}
     end
   end
 
