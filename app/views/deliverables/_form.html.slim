@@ -12,6 +12,7 @@
       .well
         h3 BA User Spec / Combined Spec
         = spec.input :user_id, :collection => User.joins(:user_roles).where('user_roles.role_id' => 1), :label => 'Business Analyst'
+        = spec.input :effort, :placeholder => t('placeholder.effort')
         = spec.input :comments, :as => :text, :input_html => { :rows => 4, :class => 'span5' }
         = spec.link_to_remove 'Remove', :class => 'btn btn-danger'
     = f.link_to_add "Add BA Spec", :ba_specs, :class => 'btn btn-info'
@@ -20,6 +21,7 @@
       .well
         h3 Tech Spec
         = tech.input :user_id, :collection => User.joins(:user_roles).where('user_roles.role_id' => 2), :label => 'Technical Programmer' 
+        = tech.input :effort, :placeholder => t('placeholder.effort')
         = tech.input :comments, :as => :text, :input_html => { :rows => 4, :class => 'span5' }
         = tech.link_to_remove 'Remove', :class => 'btn btn-danger'
     '
@@ -29,6 +31,7 @@
       .well
         h3 Code   
         = c.input :user_id, :collection => User.joins(:user_roles).where('user_roles.role_id' => 1), :label => 'Technical Programmer' 
+        = c.input :effort, :placeholder => t('placeholder.effort')
         = c.input :comments, :as => :text, :input_html => { :rows => 4, :class => 'span5' }
         = c.link_to_remove 'Remove', :class => 'btn btn-danger'
     '

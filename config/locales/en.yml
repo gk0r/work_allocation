@@ -40,14 +40,14 @@ en:
         version: "Software version"
       ba_spec:
         user_id: "Business Analyst"
-        effort: "Effot estimate"
+        effort: "Effort estimate"
         name: "Document name"
       tech_spec:
         user_id: "Technical Programmer"        
-        effort: "Effot estimate"
+        effort: "Effort estimate"
       code:
         user_id: "Technical Programmer"
-        effort: "Effot estimate"
+        effort: "Effort estimate"
       rfc:
         rfc: "RFC"
         description: "RFC Description"
@@ -67,3 +67,5 @@ en:
   hint:
     timesheets: "Date when Primavera request was last updated"
     username: "Your DHS username (Logon ID)"
+  placeholder:
+    effort: "Days"
