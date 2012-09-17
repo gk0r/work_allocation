@@ -30,7 +30,6 @@ describe "Login" do
     fill_in 'Username', :with => "666"
     click_button 'Sign in'
     current_path.should == sign_in_path
-    save_and_open_page
     page.should have_content('Unable')
   end
   

@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   
   before_filter :return_logic, :only => [:index, :new, :edit]              
   before_filter :cancel_button_processing
+  before_filter :refuse_ie6
           
   # before_filter :user_signed_in
   
@@ -32,6 +33,10 @@ class ApplicationController < ActionController::Base
   
   def return_logic
     session[:return_to] = request.referer
+  end
+  
+  def refuse_ie6
+    render :action => '../layouts/ie6', :layout => "ie6" if browser.ie6?
   end
   
   # RAILS ADMIN CONFIGURATION

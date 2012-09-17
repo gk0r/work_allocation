@@ -20,6 +20,7 @@ gem 'slim-rails'                # This gem allows SLIM templates to be generated
 gem 'audited-activerecord'
 gem 'cancan'
 gem 'auto_strip_attributes'
+gem 'browser'
 
 # Gems that are only required in Development and Test environments
 gem 'capybara'

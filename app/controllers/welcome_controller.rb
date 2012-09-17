@@ -9,7 +9,7 @@ class WelcomeController < ApplicationController
     end
     
     respond_to do |format|
-      format.html
+      format.html # home.html
     end
   end
   
