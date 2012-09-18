@@ -67,5 +67,6 @@ en:
   hint:
     timesheets: "Date when Primavera request was last updated"
     username: "Your DHS username (Logon ID)"
+    effort_estimate: "Effort estimate (days)"
   placeholder:
     effort: "Days"

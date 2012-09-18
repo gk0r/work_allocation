@@ -3,7 +3,7 @@
 
   .form-inputs
     = f.association :deliverable, :label => 'Deliverable'
-    = f.input :user_id, :label => 'Technical Programmer', :collection => User.joins(:user_roles).where('user_roles.role_id' => 1)
+    = f.input :user_id, :label => 'Technical Programmer', :collection => User.joins(:user_roles).where('user_roles.role_id' => 2)
     = f.input :name, :label => 'Document name', :input_html => { :class => 'span5' }
     = f.input :effort,  :input_html => { :class => 'span1' }, :placeholder => "Days" , :hint => "Effort estimate (days)"
 
