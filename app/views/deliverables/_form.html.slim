@@ -6,7 +6,7 @@
     = f.association :team
     = f.association :project, :collection => Project.all(:order => :dmr)
 
-    = f.input :milestone_id, :collection => Project.all(:order => :id), :as => :grouped_select, :group_method => :milestones, :label_html => {:class => 'milestone'}
+    = f.input :milestone_id, :collection => Project.all(:order => :id), :as => :grouped_select, :group_method => :milestones, :label_html => {:class => 'milestone'}, :input_html => { :class => 'span6' }
     
     = f.simple_fields_for :ba_specs do |spec|
       .well
