@@ -70,3 +70,4 @@ en:
     effort_estimate: "Effort estimate (days)"
   placeholder:
     effort: "Days"
+    document_name: "Document name"
