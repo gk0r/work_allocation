@@ -35,7 +35,7 @@ en:
         it_pm: "IT PM"
         test_manager: "Test Manager"
       software_release: 
-        name: "Release"
+        name: "Release name"
         date: "Release date"
         version: "Software version"
       ba_spec:

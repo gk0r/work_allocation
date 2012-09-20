@@ -10,7 +10,7 @@ class Milestone < ActiveRecord::Base
 
   attr_accessible :business_pm, :it_pm, :project_id, :software_release_id, :test_manager, :timesheets_request_date, :work_order, :rfcs_attributes, :approval_status
   
-  validates_presence_of :project
+  validates_presence_of :project, :software_release_id
   
   def name
     dmr = self.project.dmr.empty? ? "?????" : self.project.dmr
