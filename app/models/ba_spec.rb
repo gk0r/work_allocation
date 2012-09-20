@@ -10,5 +10,20 @@ class BaSpec < ActiveRecord::Base
   def progress
     read_attribute(:progress).to_s + '%'
   end
+
+  #
+  # Virtual Attributes
+  # 
+  # I may end up having to re-implement this code in the future, so leaving the section below as is for now
+  # 
+  # 
+  #
+  # attr_accessible :milestone, :project
+  # 
+  # def project
+  # end
+  # 
+  # def milestone
+  # end
   
 end

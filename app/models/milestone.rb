@@ -13,7 +13,7 @@ class Milestone < ActiveRecord::Base
   def name
     dmr = self.project.dmr.empty? ? "?????" : self.project.dmr
     release = self.software_release.name.empty? ? "No Release Date" : self.software_release.name
-    "#{dmr}: #{self.project.name} - #{release}"
+    "DMR#{dmr}: #{self.project.name} - #{release}"
   end
   
 end

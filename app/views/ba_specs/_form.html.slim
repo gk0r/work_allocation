@@ -1,24 +1,29 @@
 = simple_form_for @ba_spec, :html => { :class => 'form-horizontal' } do |f|
   = f.error_notification
-
-  .form-inputs
-    = f.association :deliverable
+  .row.span6.form-inputs
+    = f.input :deliverable, :collection => Milestone.all, :as => :grouped_select, :group_method => :deliverables, :input_html => { :class => 'span4' }, :include_blank => true
     = f.input :user_id, :collection => User.joins(:user_roles).where('user_roles.role_id' => 1)
-    = f.input :name,                                                                  :input_html => { :class => 'span5' }
-    = f.input :effort, :placeholder => "Days" , :hint => "Effort estimate (days)",    :input_html => { :class => 'span1' }
-    
-    = f.input :comments,              :as => :text,                                   :input_html => { :rows => 4, :class => 'span5' }
+    = f.input :name, :placeholder => t('placeholder.document_name'),                                    :input_html => { :class => 'span4' }
+    = f.input :effort, :placeholder => t('placeholder.effort') , :hint => t('hint.effort_estimate'),    :input_html => { :class => 'span1' }
     = f.input :progress,                                                              :input_html => { :class => 'span1' }
+    = f.input :comments,              :as => :text,                                   :input_html => { :rows => 4, :class => 'span4' }
 
+  .row.span4.form-inputs
     = f.input :internal_review_date,  :as => :string,                                 :input_html => { :class => 'span2 date' }
     = f.input :internal_review_signoff
-
     = f.input :external_review_date,  :as => :string,                                 :input_html => { :class => 'span2 date' }
     = f.input :external_review_signoff
-    
     = f.input :final_version,         :as => :string,                                 :input_html => { :class => 'span2 date' }
-    
+
+  .row
   .form-actions
     = submit_button f
     '
     = cancel_button f
+    
+/ 
+/   This section below is really good. I may need to revisit and re-implement these things. For now I will just settle on having a grouped
+/   deliverable select
+/ 
+    / = f.input :project, :collection => Project.all, :input_html => { :class => 'span4' }  
+    / = f.input :milestone, :collection => Project.all, :as => :grouped_select, :group_method => :milestones, :input_html => { :class => 'span4' }
