@@ -8,8 +8,9 @@ module IndexActionHelper
     date.try {|b| b.strftime("%d %b")}
   end
   
-  def delete_link (path)
-    link_to "<i class='icon-white icon-trash'></i> ".html_safe, path, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini btn-danger'
+  def delete_link (path, text = nil)
+    text = text ? text : 'Are you sure?'
+    link_to "<i class='icon-white icon-trash'></i> ".html_safe, path, :confirm => text, :method => :delete, :class => 'btn btn-mini btn-danger'
   end
   
   def tick_box(draw_tick_box = false)

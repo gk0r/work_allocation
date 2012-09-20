@@ -12,7 +12,7 @@ class Project < ActiveRecord::Base
   validates_presence_of :name
   validates_uniqueness_of :dmr, :if => :dmr?
   
-  attr_accessible :name, :dmr, :admin_ref, :category, :work_plan_id, :approval_status
+  attr_accessible :name, :dmr, :admin_ref, :category, :work_plan_id, :approval_status, :software_release_ids
   
   # def to_label
   #   "DMR #{self.dmr} #{self.name}"

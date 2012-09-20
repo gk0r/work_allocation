@@ -1,7 +1,7 @@
 class Deliverable < ActiveRecord::Base
-  has_many :ba_specs    , :inverse_of => :deliverable
-  has_many :tech_specs  , :inverse_of => :deliverable
-  has_many :code        , :inverse_of => :deliverable
+  has_many :ba_specs    , :inverse_of => :deliverable, :dependent => :destroy
+  has_many :tech_specs  , :inverse_of => :deliverable, :dependent => :destroy
+  has_many :code        , :inverse_of => :deliverable, :dependent => :destroy
 
   belongs_to :milestone  
   belongs_to :project

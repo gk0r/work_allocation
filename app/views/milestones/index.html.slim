@@ -29,7 +29,7 @@ table.index-table
         td = index_link m.business_pm                                 , edit_milestone_path(m)
         td = index_link m.it_pm                                       , edit_milestone_path(m)
         td = index_link m.test_manager                                , edit_milestone_path(m)
-        td = delete_link m
+        td = delete_link(m, t('alert.delete_milestone'))
 
 .row
 

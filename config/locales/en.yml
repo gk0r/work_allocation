@@ -71,3 +71,6 @@ en:
   placeholder:
     effort: "Days"
     document_name: "Document name"
+  alert:
+    delete_project: "Are you sure you want to delete this project? IMPORTANT: this action will also delete all associated entities such as Project Milestones and Project Deliverables and so on"
+    delete_milestone: "Are you sure you want to delete this milestone? IMPORTANT: This action will also delete all associated entities such as Project Deliverables and Deliverable Components"

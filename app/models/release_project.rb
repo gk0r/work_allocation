@@ -3,4 +3,5 @@ class ReleaseProject < ActiveRecord::Base
   
   belongs_to :project
   belongs_to :software_release
+  
 end

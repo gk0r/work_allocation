@@ -2,7 +2,7 @@ class MilestonesController < ApplicationController
   # GET /milestones
   # GET /milestones.json
   def index
-    @milestones = Milestone.all
+    @milestones = Milestone.all(:order => :software_release_id)
 
     respond_to do |format|
       format.html # index.html.erb
