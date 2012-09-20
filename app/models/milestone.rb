@@ -8,7 +8,8 @@ class Milestone < ActiveRecord::Base
   
   accepts_nested_attributes_for :rfcs
 
-  attr_accessible :business_pm, :it_pm, :project_id, :software_release_id, :test_manager, :timesheets_request_date, :work_order, :rfcs_attributes
+  attr_accessible :business_pm, :it_pm, :project_id, :software_release_id, :test_manager, :timesheets_request_date, :work_order, :rfcs_attributes, :approval_status
+  
   validates_presence_of :project
   
   def name

@@ -7,6 +7,7 @@ table.index-table
       th Project
       th RFC
       th Work order
+      th Approval Status
       th Timesheets date
       th Business PM
       th IT PM
@@ -25,6 +26,7 @@ table.index-table
             br
         
         td = index_link m.work_order                                  , edit_milestone_path(m)
+        td = index_link tick_box(m.try(:approval_status))             , edit_milestone_path(m)
         td = index_link index_format_date(m.timesheets_request_date)  , edit_milestone_path(m)
         td = index_link m.business_pm                                 , edit_milestone_path(m)
         td = index_link m.it_pm                                       , edit_milestone_path(m)
