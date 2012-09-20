@@ -2,7 +2,7 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :description, :as => :text, :input_html => { :rows => 4, :class => 'span5' }, :autofocus => true
+    = f.input :description, :as => :text, :input_html => { :rows => 4, :class => 'span6' }, :autofocus => true
     = f.association :team
     = f.association :project, :collection => Project.all(:order => :dmr)
 
