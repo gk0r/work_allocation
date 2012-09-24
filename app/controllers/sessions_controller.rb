@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
   
     if (user)
       session[:user_id] = user.id
-      redirect_to root_url
+      redirect_to session[:return_to]
     else
       redirect_to sign_in_path, :flash => {:error => "Unable to find a user with this username: " + params[:session][:username].to_s}
     end

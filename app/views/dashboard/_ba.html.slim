@@ -1,0 +1,23 @@
+.row
+- if !@ba_specs.empty?
+  h4 BA Specs
+  
+  table.index-table
+    thead
+      tr 
+        th Project DMR
+        th Project Name
+        th Release
+        th Deliverable
+        th Document Name
+        th Progress
+
+    - @ba_specs.each do |s|
+      tbody
+        tr
+          td = index_link s.try(:deliverable).try(:milestone).try(:project).try(:dmr)             , edit_ba_spec_path(s)
+          td = index_link s.try(:deliverable).try(:milestone).try(:project).try(:name)            , edit_ba_spec_path(s)
+          td = index_link s.try(:deliverable).try(:milestone).try(:software_release).try(:name)   , edit_ba_spec_path(s)
+          td = index_link s.try(:deliverable).try(:description)                                   , edit_ba_spec_path(s)
+          td = index_link s.try(:name)                                                            , edit_ba_spec_path(s)
+          td = index_link s.try(:progress)                                                        , edit_ba_spec_path(s)
