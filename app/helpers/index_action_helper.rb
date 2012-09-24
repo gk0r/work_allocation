@@ -1,7 +1,15 @@
 module IndexActionHelper
   
   def index_link(link_text = nil, link_url = nil)
-    link_to link_text.to_s.truncate(50, :separator => ' '), link_url if link_text && link_url
+    if link_text && link_url
+      if link_text.length > 50
+        # Setup the link to have the tooltip
+        link_to link_text.to_s.truncate(50, :separator => ' '), link_url, {:title => link_text, :class => 'tip'}
+      else
+        # Normal link that does not require a tooltip
+        link_to link_text.to_s.truncate(50, :separator => ' '), link_url
+      end
+    end
   end
   
   def index_format_date(date = nil)

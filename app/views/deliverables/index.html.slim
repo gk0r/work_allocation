@@ -11,6 +11,7 @@ table.index-table
       th BA Spec
       th Tech Spec
       th Code
+      th Comments
       th Delete
 
   tbody
@@ -37,8 +38,13 @@ table.index-table
             = link_to c.progress, edit_code_path(c)
             br
     
+        td = index_link deliverable.comment                     , edit_deliverable_path(deliverable)
         td = delete_link deliverable
 
 .row
           
 = new_button
+
+.row
+br
+a[href="#" title="A really nice tooltip" class="tip"] Test

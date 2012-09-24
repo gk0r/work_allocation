@@ -20,3 +20,10 @@
 //= require ColVis
 //= require ColReorderWithResize
 //= require_tree .
+
+$(function() {
+	$('.tip').tooltip
+	({
+		placement: 'bottom'
+	});
+});
