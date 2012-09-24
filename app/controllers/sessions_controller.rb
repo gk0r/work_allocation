@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
-  # skip_before_filter :authorise
+
+  skip_load_and_authorize_resource
   
   def new
     respond_to do |format|
@@ -9,7 +10,7 @@ class SessionsController < ApplicationController
   
   def create
     user = User.find_by_username(params[:session][:username])
-    
+  
     if (user)
       session[:user_id] = user.id
       redirect_to root_url
@@ -17,9 +18,9 @@ class SessionsController < ApplicationController
       redirect_to sign_in_path, :flash => {:error => "Unable to find a user with this username: " + params[:session][:username].to_s}
     end
   end
-
+  
   def destroy
-    session[:user_id] = @current_user = session[:user_id] = nil
+    session[:user_id] = @current_user = nil
     redirect_to root_url
   end
   

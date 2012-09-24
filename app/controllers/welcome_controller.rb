@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
-  # skip_before_filter :authorise
+
+  skip_load_and_authorize_resource
   
   def home
     if current_user

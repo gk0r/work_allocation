@@ -3,7 +3,7 @@
 = simple_form_for :session, :html => { :class => 'form-horizontal' } do |f|
   
   .form-inputs
-    = f.input :username, :input_html => { :class => 'span3' }, :placeholder => "Username", :label => "Username", :hint => t('hint.username')
+    = f.input :username, :input_html => { :class => 'span3' }, :placeholder => "Username", :label => "Username", :hint => t('hint.username'), :autofocus =>true
   
   .form-actions
     = f.submit "Sign in", :class => 'btn btn-primary'

@@ -12,5 +12,4 @@ class TechSpec < ActiveRecord::Base
     to_csv(record, options = {})
   end
   
-  
 end

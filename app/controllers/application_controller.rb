@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
+  load_and_authorize_resource
+  
   include ApplicationHelper
   
   helper_method :current_user,
@@ -20,7 +22,8 @@ class ApplicationController < ActionController::Base
   protected
   
   def current_user
-    @current_user ||= User.find_by_id(session[:user_id]) if session[:user_id]
+    Rails.logger.debug "dd [] session[:user_id] = #{session[:user_id]} and @current_user = #{@current_user}"
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
   
   def user_signed_in?

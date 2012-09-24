@@ -10,7 +10,7 @@ module IndexActionHelper
   
   def delete_link (path, text = nil)
     text = text ? text : 'Are you sure?'
-    link_to "<i class='icon-white icon-trash'></i> ".html_safe, path, :confirm => text, :method => :delete, :class => 'btn btn-mini btn-danger'
+    link_to "<i class='icon-white icon-trash'></i> ".html_safe, path, :confirm => text, :method => :delete, :class => 'btn btn-mini btn-danger' if can? :destroy, path
   end
   
   def tick_box(draw_tick_box = false)
@@ -23,7 +23,7 @@ module IndexActionHelper
   def new_button  ( button_label  = 'New ' + controller.controller_name.classify.constantize.model_name.human, 
                     button_path   = {:controller => controller.controller_name, :action => :new}  )
     
-    link_to button_label, button_path, :class => 'btn btn-primary'
+    link_to button_label, button_path, :class => 'btn btn-primary' if can? :create, controller.controller_name.classify.constantize.model_name.human
   end
   
 end

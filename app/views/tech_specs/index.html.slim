@@ -28,7 +28,8 @@ table.index-table
         td = index_link index_format_date(ts.internal_review_date),           edit_tech_spec_path(ts)
         td = index_link tick_box(ts.internal_review_signoff),                 edit_tech_spec_path(ts)
         td = index_link index_format_date(ts.final_version),                  edit_tech_spec_path(ts)
-        td = delete_link ts
+        td 
+          = delete_link ts
 
 .row
 
