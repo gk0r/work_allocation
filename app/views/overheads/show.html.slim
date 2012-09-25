@@ -1,15 +1,1 @@
-p#notice = notice
-
-p
-  strong Description:
-  = @overhead.description
-p
-  strong User:
-  = @overhead.user_id
-p
-  strong Effort:
-  = @overhead.effort
-
-= link_to 'Edit', edit_overhead_path(@overhead)
-'|
-= link_to 'Back', overheads_path
+== render 'form'
