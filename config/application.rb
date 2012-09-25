@@ -57,5 +57,8 @@ module WorkAllocation
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    
+    # Setting this to local timezone in order to neatly display meaningful dates on history audit logs
+    config.time_zone = 'Canberra'
   end
 end

@@ -21,6 +21,7 @@ gem 'audited-activerecord'
 gem 'cancan'
 gem 'auto_strip_attributes'
 gem 'browser'
+gem "paper_trail"
 
 # Gems that are only required in Development and Test environments
 gem 'capybara'

@@ -27,3 +27,29 @@
 / 
     / = f.input :project, :collection => Project.all, :input_html => { :class => 'span4' }  
     / = f.input :milestone, :collection => Project.all, :as => :grouped_select, :group_method => :milestones, :input_html => { :class => 'span4' }
+
+table.audit-log
+  thead
+    tr
+      th Timestamp
+      th User
+      th Updated Attribute
+      th Old value
+      th New value
+      
+  tbody
+    - @ba_spec.versions.each do |h|
+      - @ba_spec.audited_attributes.each do |attribute|
+        / If there is a next entry in the audit log, compare the previous entry with the next entry to detect if there had been any changes
+        / If there is no next entry, then compare the previous entry with the current model to detect if there had been any changes
+        - if (h.next and (h.reify.send(attribute) != h.next.reify.send(attribute))) or (!h.next and (h.reify.send(attribute) != @ba_spec.send(attribute)))
+          tr
+            td = h.created_at
+            td = User.find(h.whodunnit).name
+            td = @ba_spec.class.human_attribute_name(attribute)
+            td = h.reify.send(attribute)
+            td 
+              - if h.next
+                = h.next.reify.send(attribute) 
+              - else
+                 = @ba_spec.send(attribute)  

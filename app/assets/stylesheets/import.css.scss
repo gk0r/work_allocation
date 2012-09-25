@@ -9,7 +9,7 @@
   @extend .index-heading;
 }
 
-.index-table {
+.index-table, .audit-log {
   @extend .table;
   @extend .table-bordered;
   @extend .table-hover;
