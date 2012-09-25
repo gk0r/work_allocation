@@ -9,8 +9,8 @@ table.index-table
   tbody    
     - @roles.each do |role|
       tr
-        td = index_link role.name,      edit_role_path(role)
-        td = delete_link(role)
+        td = index_link role.name         , role
+        td = delete_link role
 
 .row
 

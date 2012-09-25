@@ -1,0 +1,13 @@
+= simple_form_for @overhead, :html => { :class => 'form-horizontal' } do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :description, :input_html => { :rows => 3, :class => 'span5' }, :as => :text
+    = f.input :deliverable_id, :collection => Milestone.all, :as => :grouped_select, :group_method => :deliverables, :input_html => { :class => 'span4' }, :include_blank => true
+    = f.association :user
+    = f.input :effort, :input_html => { :class => 'span1' }, :hint => t('hint.effort'), :placeholder => t('placeholder.effort')
+
+  .form-actions
+    = submit_button f
+    '
+    = cancel_button f

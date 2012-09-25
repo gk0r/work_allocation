@@ -12,11 +12,11 @@ table.index-table
   tbody
     - @software_releases.each do |software_release|
       tr
-        td = index_link software_release.id,        edit_software_release_path(software_release)
-        td = index_link software_release.name,      edit_software_release_path(software_release)
-        td = index_link software_release.date,      edit_software_release_path(software_release)
-        td = index_link software_release.version,   edit_software_release_path(software_release)
-        td = delete_link(software_release_path(software_release))
+        td = index_link software_release.id,        software_release
+        td = index_link software_release.name,      software_release
+        td = index_link software_release.date,      software_release
+        td = index_link software_release.version,   software_release
+        td = delete_link software_release
 
 .row
 

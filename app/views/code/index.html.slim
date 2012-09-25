@@ -16,14 +16,14 @@ table.index-table
   tbody
     - @code.each do |code|
       tr
-        td = index_link code.try(:deliverable).try(:name),              edit_code_path(code)
-        td = index_link code.try(:user).try(:name),                     edit_code_path(code)
-        td = index_link code.effort,                                    edit_code_path(code)
-        td = index_link code.comments,                                  edit_code_path(code)
-        td = index_link code.progress,                                  edit_code_path(code)
-        td = index_link index_format_date(code.code_review_date),       edit_code_path(code)
-        td = index_link index_format_date(code.q_level_date),           edit_code_path(code)
-        td = index_link index_format_date(code.staged_date),            edit_code_path(code)
+        td = index_link code.try(:deliverable).try(:name),              code
+        td = index_link code.try(:user).try(:name),                     code
+        td = index_link code.effort,                                    code
+        td = index_link code.comments,                                  code
+        td = index_link code.progress,                                  code
+        td = index_link index_format_date(code.code_review_date),       code
+        td = index_link index_format_date(code.q_level_date),           code
+        td = index_link index_format_date(code.staged_date),            code
         td = delete_link code
 
 .row

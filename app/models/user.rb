@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :ba_specs
   has_many :tech_specs
   has_many :code
+  has_many :overheads
   
   validates_presence_of :email, :first_name, :last_name, :username
   validates_uniqueness_of :username, :email

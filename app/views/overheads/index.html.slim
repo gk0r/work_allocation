@@ -1,0 +1,21 @@
+= render 'partials/index_header_excel'
+
+table.index-table
+  thead
+    tr
+      th Deliverable
+      th Description
+      th Resource
+      th Effort
+
+  tbody
+    - @overheads.each do |overhead|
+      tr
+        td = index_link overhead.deliverable.name   , overhead
+        td = index_link overhead.description        , overhead
+        td = index_link overhead.user.name          , overhead
+        td = index_link overhead.effort             , overhead
+
+.row
+
+= new_button

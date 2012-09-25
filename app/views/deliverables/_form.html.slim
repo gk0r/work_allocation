@@ -9,6 +9,9 @@
     = f.input :milestone_id, :collection => Project.all(:order => :id), :as => :grouped_select, :group_method => :milestones, :label_html => {:class => 'milestone'}, :input_html => { :class => 'span6' }
     = f.input :comment, :as => :text, :input_html => { :rows => 3, :class => 'span6' }
     
+    / 
+    / BA Specs Nested Attributes
+    /
     = f.simple_fields_for :ba_specs do |spec|
       .well
         h3 BA User Spec / Combined Spec
@@ -18,6 +21,9 @@
         = spec.link_to_remove 'Remove', :class => 'btn btn-danger'
     = f.link_to_add "Add BA Spec", :ba_specs, :class => 'btn btn-info'
 
+    / 
+    / Tech Specs Nested Attributes
+    /
     = f.simple_fields_for :tech_specs do |tech|
       .well
         h3 Tech Spec
@@ -28,16 +34,35 @@
     '
     = f.link_to_add "Add Tech Spec", :tech_specs, :class => 'btn btn-info'
 
+    / 
+    / Code Nested Attributes
+    /
     = f.simple_fields_for :code do |c|
       .well
         h3 Code   
-        = c.input :user_id, :collection => User.joins(:user_roles).where('user_roles.role_id' => 1), :label => 'Technical Programmer' 
+        = c.input :user_id, :collection => User.joins(:user_roles).where('user_roles.role_id' => 2), :label => 'Technical Programmer' 
         = c.input :effort, :placeholder => t('placeholder.effort')
         = c.input :comments, :as => :text, :input_html => { :rows => 4, :class => 'span5' }
         = c.link_to_remove 'Remove', :class => 'btn btn-danger'
     '
     = f.link_to_add "Add Code", :code, :class => 'btn btn-info'
-    
+
+    / 
+    / Overheads Nested Attributes
+    / 
+    = f.simple_fields_for :overheads do |overhead|
+      .well
+        h3 Overhead   
+        = overhead.input :description, :as => :text, :input_html => { :rows => 3, :class => 'span5' }
+        = overhead.association :user
+        = overhead.input :effort, :placeholder => t('placeholder.effort')
+        = overhead.link_to_remove 'Remove', :class => 'btn btn-danger'
+    '
+    = f.link_to_add "Add Overhead", :overheads, :class => 'btn btn-info'
+
+  / 
+  / Form Actoins
+  / 
   .form-actions
     = submit_button f
     '

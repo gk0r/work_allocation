@@ -14,19 +14,19 @@ table.data-table
   tbody
     - @users.each do |user|
       tr
-        td = index_link user.name, edit_user_path(user)
-        td = index_link user.email, edit_user_path(user)
-        td = index_link user.try(:username), edit_user_path(user)
-        td = index_link user.telephone_number, edit_user_path(user)
+        td = index_link user.name                 , user
+        td = index_link user.email                , user
+        td = index_link user.try(:username)       , user
+        td = index_link user.telephone_number     , user
         
         td
           - user.roles.each do |r|
-            = index_link r.name                                     , edit_user_path(user)
+            = index_link r.name                   , user
             br
             
         td
           - user.teams.each do |r|
-            = index_link r.name                                     , edit_user_path(user)
+            = index_link r.name                   , user
             br
         
         td = delete_link user_path(user)

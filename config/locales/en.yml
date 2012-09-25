@@ -48,6 +48,9 @@ en:
       code:
         user_id: "Technical Programmer"
         effort: "Effort estimate"
+      overhead:
+        user: "Resource"
+        effort: "Effort estimate"
       rfc:
         rfc: "RFC"
         description: "RFC Description"
@@ -68,6 +71,7 @@ en:
     timesheets: "Date when Primavera request was last updated"
     username: "Your DHS username (Logon ID)"
     effort_estimate: "Effort estimate (days)"
+    effort: "Effort estimate (days)"
   placeholder:
     effort: "Days"
     document_name: "Document name"

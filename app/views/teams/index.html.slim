@@ -10,8 +10,8 @@ table.index-table
   tbody
     - @teams.each do |team|
       tr
-        td = link_to team.id, edit_team_path(team)
-        td = link_to team.name, edit_team_path(team)
+        td = link_to team.id      , team
+        td = link_to team.name    , team
         td 
           = link_to '<i class="icon-white icon-trash"></i>'.html_safe, team, :confirm => 'Are you sure?', :method => :delete, 
             :class => 'btn btn-mini btn-danger'

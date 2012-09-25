@@ -11,6 +11,7 @@ table.index-table
       th BA Spec
       th Tech Spec
       th Code
+      th Overheads
       th Comments
       th Delete
 
@@ -18,10 +19,10 @@ table.index-table
     - @deliverables.each do |deliverable|
       tr
         td = deliverable.id
-        td = index_link deliverable.try(:description),            edit_deliverable_path(deliverable)
-        td = index_link deliverable.try(:milestone).try(:software_release).try(:name),  edit_deliverable_path(deliverable)
-        td = index_link deliverable.try(:team).try(:name),        edit_deliverable_path(deliverable)
-        td = index_link deliverable.try(:project).try(:name),     edit_project_path(deliverable.try(:project).try(:id)) if deliverable.try(:project).try(:id)
+        td = index_link deliverable.try(:description)                                     , deliverable
+        td = index_link deliverable.try(:milestone).try(:software_release).try(:name)     , deliverable
+        td = index_link deliverable.try(:team).try(:name)                                 , deliverable
+        td = index_link deliverable.try(:project).try(:name)                              , deliverable if deliverable.try(:project).try(:id)
 
         td 
           - deliverable.ba_specs.each do |s|
@@ -37,14 +38,15 @@ table.index-table
           - deliverable.code.each do |c|
             = link_to c.progress, edit_code_path(c)
             br
+        
+        td 
+          - deliverable.overheads.each do |o|
+            = link_to o.user.name, edit_overhead_path(o)
+            br
     
-        td = index_link deliverable.comment                     , edit_deliverable_path(deliverable)
+        td = index_link deliverable.comment, deliverable
         td = delete_link deliverable
 
 .row
           
 = new_button
-
-.row
-br
-a[href="#" title="A really nice tooltip" class="tip"] Test
