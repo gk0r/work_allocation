@@ -26,17 +26,17 @@ table.index-table
 
         td 
           - deliverable.ba_specs.each do |s|
-            = link_to s.progress, edit_ba_spec_path(s)
+            = tooltip_link s.progress, edit_ba_spec_path(s), s.name
             br
         
         td 
           - deliverable.tech_specs.each do |s|
-            = link_to s.progress, edit_tech_spec_path(s)
+            = tooltip_link s.progress, edit_tech_spec_path(s), s.name
             br
                   
         td 
           - deliverable.code.each do |c|
-            = link_to c.progress, edit_code_path(c)
+            = tooltip_link c.progress, edit_code_path(c), c.try(:user).try(:name)
             br
         
         td 

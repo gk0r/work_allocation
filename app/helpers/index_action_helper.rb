@@ -11,6 +11,10 @@ module IndexActionHelper
       end
     end
   end
+  
+  def tooltip_link(link_text, link, link_tooltip)
+    link_to link_text, link, {:title => link_tooltip, :class => 'tip'}
+  end
 
   def index_format_date(date = nil)
     date.try {|b| b.strftime("%d %b")}
