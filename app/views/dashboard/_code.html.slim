@@ -14,8 +14,8 @@
     - @code.each do |c|
       tbody
         tr
-          td = index_link c.try(:deliverable).try(:milestone).try(:project).try(:dmr)             , edit_code_path(c)
-          td = index_link c.try(:deliverable).try(:milestone).try(:project).try(:name)            , edit_code_path(c)
-          td = index_link c.try(:deliverable).try(:milestone).try(:software_release).try(:name)   , edit_code_path(c)
-          td = index_link c.try(:deliverable).try(:name)                                          , edit_code_path(c)
-          td = index_link c.try(:progress)                                                        , edit_code_path(c)
+          td = dashboard_link c.try(:deliverable).try(:milestone).try(:project).try(:dmr)             , edit_code_path(c)
+          td = dashboard_link c.try(:deliverable).try(:milestone).try(:project).try(:name)            , edit_code_path(c)
+          td = dashboard_link c.try(:deliverable).try(:milestone).try(:software_release).try(:name)   , edit_code_path(c)
+          td = dashboard_link c.try(:deliverable).try(:name)                                          , edit_code_path(c)
+          td = dashboard_link c.try(:progress)                                                        , edit_code_path(c)

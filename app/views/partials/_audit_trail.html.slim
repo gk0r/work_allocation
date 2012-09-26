@@ -1,0 +1,27 @@
+
+
+table.audit-log
+  thead
+    tr
+      th Timestamp
+      th User
+      th Updated Attribute
+      th Old value
+      th New value
+      
+  tbody
+    - audited_object.versions.each do |h|
+      - audited_object.audited_attributes.each do |attribute|
+        / If there is a next entry in the audit log, compare the previous entry with the next entry to detect if there had been any changes
+        / If there is no next entry, then compare the previous entry with the current model to detect if there had been any changes
+        - if (h.next and (h.reify.send(attribute) != h.next.reify.send(attribute))) or (!h.next and (h.reify.send(attribute) != audited_object.send(attribute)))
+          tr
+            td = h.created_at
+            td = User.find(h.whodunnit).name
+            td = audited_object.class.human_attribute_name(attribute)
+            td = h.reify.send(attribute)
+            td 
+              - if h.next
+                = h.next.reify.send(attribute) 
+              - else
+                 = audited_object.send(attribute)

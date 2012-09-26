@@ -12,9 +12,6 @@ class BaSpec < ActiveRecord::Base
   
   has_paper_trail
   
-  BA_SPEC_AUDITED_ATTRIBUTES = [  :deliverable_id, :user_id, :name, :comments, :progress, :internal_review_date, :internal_review_signoff, 
-                                  :external_review_date, :external_review_signoff, :final_version, :effort  ]
-
   def audited_attributes
     [  :deliverable_id, :user_id, :name, :comments, :progress, :internal_review_date, :internal_review_signoff, 
                                     :external_review_date, :external_review_signoff, :final_version, :effort  ]

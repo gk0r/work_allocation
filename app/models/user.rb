@@ -13,6 +13,12 @@ class User < ActiveRecord::Base
   has_many :code
   has_many :overheads
   
+  has_paper_trail
+  
+  def audited_attributes
+    [  :first_name, :last_name, :username, :telephone_number, :email  ]
+  end                                
+  
   validates_presence_of :email, :first_name, :last_name, :username
   validates_uniqueness_of :username, :email
   

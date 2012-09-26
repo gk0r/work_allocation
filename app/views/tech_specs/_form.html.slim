@@ -19,3 +19,7 @@
     = submit_button f
     '
     = cancel_button f
+    '
+    = audit_button f
+    
+= display_audit_table(@tech_spec) if params[:audit_record]

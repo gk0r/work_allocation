@@ -15,9 +15,9 @@
     - @tech_specs.each do |s|
       tbody
         tr
-          td = index_link s.try(:deliverable).try(:milestone).try(:project).try(:dmr)             , edit_tech_spec_path(s)
-          td = index_link s.try(:deliverable).try(:milestone).try(:project).try(:name)            , edit_tech_spec_path(s)
-          td = index_link s.try(:deliverable).try(:milestone).try(:software_release).try(:name)   , edit_tech_spec_path(s)
-          td = index_link s.try(:deliverable).try(:description)                                   , edit_tech_spec_path(s)
-          td = index_link s.try(:name)                                                            , edit_tech_spec_path(s)
-          td = index_link s.try(:progress)                                                        , edit_tech_spec_path(s)
+          td = dashboard_link s.try(:deliverable).try(:milestone).try(:project).try(:dmr)             , edit_tech_spec_path(s)
+          td = dashboard_link s.try(:deliverable).try(:milestone).try(:project).try(:name)            , edit_tech_spec_path(s)
+          td = dashboard_link s.try(:deliverable).try(:milestone).try(:software_release).try(:name)   , edit_tech_spec_path(s)
+          td = dashboard_link s.try(:deliverable).try(:description)                                   , edit_tech_spec_path(s)
+          td = dashboard_link s.try(:name)                                                            , edit_tech_spec_path(s)
+          td = dashboard_link s.try(:progress)                                                        , edit_tech_spec_path(s)

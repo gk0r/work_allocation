@@ -8,6 +8,10 @@ module FormHelper
     form_builder.submit "Cancel", :name => "cancel", :class => 'btn btn-danger'
   end
   
+  def audit_button (form_builder)
+    form_builder.submit "Audit", :name => "audit", :class => 'btn btn-warning' if team_leader?
+  end
+  
   def cancel_button_processing(path = nil)
     if params[:cancel]
       return_to_path = path ? path : session[:return_to]
@@ -15,5 +19,13 @@ module FormHelper
       return
     end
   end
+
+  def audit_button_processing
+    if params[:audit]
+      redirect_to :controller => controller_name, :action => 'edit', :audit_record => true
+      return
+    end
+  end
+
   
 end

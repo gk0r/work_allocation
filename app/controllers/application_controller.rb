@@ -9,12 +9,12 @@ class ApplicationController < ActionController::Base
                 :user_signed_in?,
                 :paginate_at
   
-  before_filter :return_logic, :only => [:index, :new, :edit]              
   before_filter :cancel_button_processing
+  before_filter :audit_button_processing
   before_filter :refuse_ie6
-          
-  # before_filter :user_signed_in
   
+  after_filter :return_logic, :only => :index
+          
   # This is my 'Test' method. Can be accessed via a GET request to /test URL.
   def test 
   end
@@ -22,7 +22,8 @@ class ApplicationController < ActionController::Base
   protected
   
   def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    # Do not change find_by_id again. This stops the annoying ActiveRecord:NotFound exceptions when deploying development and prod envs on the same box
+    @current_user ||= User.find_by_id(session[:user_id]) if session[:user_id]
   end
   
   def user_signed_in?
@@ -34,7 +35,7 @@ class ApplicationController < ActionController::Base
   end
   
   def return_logic
-    session[:return_to] = request.referer
+    session[:return_to] = '/' + controller_name
   end
   
   def refuse_ie6
