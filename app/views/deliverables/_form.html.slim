@@ -15,7 +15,7 @@
     = f.simple_fields_for :ba_specs do |spec|
       .well
         h3 BA User Spec / Combined Spec
-        = spec.input :user_id, :collection => User.joins(:user_roles).where('user_roles.role_id' => 1), :label => 'Business Analyst'
+        = spec.input :user_id, :collection => User.my_team(@current_user, 1)
         = spec.input :effort, :placeholder => t('placeholder.effort')
         = spec.input :comments, :as => :text, :input_html => { :rows => 4, :class => 'span5' }
         = spec.link_to_remove 'Remove', :class => 'btn btn-danger'
@@ -27,7 +27,7 @@
     = f.simple_fields_for :tech_specs do |tech|
       .well
         h3 Tech Spec
-        = tech.input :user_id, :collection => User.joins(:user_roles).where('user_roles.role_id' => 2), :label => 'Technical Programmer' 
+        = tech.input :user_id, :collection => User.my_team(@current_user, 2)
         = tech.input :effort, :placeholder => t('placeholder.effort')
         = tech.input :comments, :as => :text, :input_html => { :rows => 4, :class => 'span5' }
         = tech.link_to_remove 'Remove', :class => 'btn btn-danger'
@@ -40,7 +40,7 @@
     = f.simple_fields_for :code do |c|
       .well
         h3 Code   
-        = c.input :user_id, :collection => User.joins(:user_roles).where('user_roles.role_id' => 2), :label => 'Technical Programmer' 
+        = c.input :user_id, :collection => User.my_team(@current_user, 2)
         = c.input :effort, :placeholder => t('placeholder.effort')
         = c.input :comments, :as => :text, :input_html => { :rows => 4, :class => 'span5' }
         = c.link_to_remove 'Remove', :class => 'btn btn-danger'
@@ -54,7 +54,7 @@
       .well
         h3 Overhead   
         = overhead.input :description, :as => :text, :input_html => { :rows => 3, :class => 'span5' }
-        = overhead.association :user
+        = overhead.input :user_id, :collection => User.my_team(@current_user, Role.all)
         = overhead.input :effort, :placeholder => t('placeholder.effort')
         = overhead.link_to_remove 'Remove', :class => 'btn btn-danger'
     '

@@ -2,13 +2,13 @@ class DeliverablesController < ApplicationController
   # GET /deliverables
   # GET /deliverables.json
   def index
-    @deliverables = Deliverable.all
+    @deliverables = Deliverable.my_team(@current_user)
     
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @deliverables }
       format.csv { send_data @deliverables.to_csv }
-      format.xls #{ send_data @deliverables.to_csv(col_sep: "\t") }
+      format.xls
     end
   end
 
@@ -46,7 +46,7 @@ class DeliverablesController < ApplicationController
 
     respond_to do |format|
       if @deliverable.save
-        format.html { redirect_to deliverables_path}#, :flash => {:success => t("flash.created_new", :type => "deliverable", :name => @deliverable.description) } }
+        format.html { redirect_to deliverables_path}
         format.json { render json: @deliverable, status: :created, location: @deliverable }
       else
         format.html { render action: "new" }

@@ -2,7 +2,7 @@ class TechSpecsController < ApplicationController
   # GET /tech_specs
   # GET /tech_specs.json
   def index
-    @tech_specs = TechSpec.all
+    @tech_specs = TechSpec.my_team(@current_user)
 
     respond_to do |format|
       format.html # index.html.erb

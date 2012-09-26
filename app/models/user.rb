@@ -19,6 +19,14 @@ class User < ActiveRecord::Base
     [  :first_name, :last_name, :username, :telephone_number, :email  ]
   end                                
   
+  def self.my_team(current_user, role)
+    if !current_user.nil?
+      joins(:user_teams).where(:user_teams => {:team_id => current_user.team_ids}).joins(:user_roles).where(:user_roles => {:role_id => role}).uniq.order(:first_name, :last_name)
+    else
+      all
+    end
+  end
+  
   validates_presence_of :email, :first_name, :last_name, :username
   validates_uniqueness_of :username, :email
   

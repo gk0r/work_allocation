@@ -45,6 +45,7 @@ en:
       tech_spec:
         user_id: "Technical Programmer"        
         effort: "Effort estimate"
+        name: "Document name"
       code:
         user_id: "Technical Programmer"
         effort: "Effort estimate"

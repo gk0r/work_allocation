@@ -3,7 +3,7 @@ class CodeController < ApplicationController
   # GET /code
   # GET /code.json
   def index
-    @code = Code.all
+    @code = Code.my_team(@current_user)
 
     respond_to do |format|
       format.html # index.html.erb

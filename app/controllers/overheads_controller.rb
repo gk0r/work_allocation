@@ -2,7 +2,7 @@ class OverheadsController < ApplicationController
   # GET /overheads
   # GET /overheads.json
   def index
-    @overheads = Overhead.all
+    @overheads = Overhead.my_team(@current_user)
 
     respond_to do |format|
       format.html # index.html.erb

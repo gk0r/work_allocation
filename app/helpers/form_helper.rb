@@ -9,7 +9,7 @@ module FormHelper
   end
   
   def audit_button (form_builder)
-    form_builder.submit "Audit", :name => "audit", :class => 'btn btn-warning' if team_leader?
+    form_builder.submit "Audit", :name => "audit", :class => 'btn btn-warning' if team_leader? and controller.action_name != 'new'
   end
   
   def cancel_button_processing(path = nil)

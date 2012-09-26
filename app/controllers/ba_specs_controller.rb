@@ -2,7 +2,7 @@ class BaSpecsController < ApplicationController
   # GET /ba_specs
   # GET /ba_specs.json
   def index
-    @ba_specs = BaSpec.all
+    @ba_specs = BaSpec.my_team(@current_user)
 
     respond_to do |format|
       format.html # index.html.erb
