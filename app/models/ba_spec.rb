@@ -9,6 +9,8 @@ class BaSpec < ActiveRecord::Base
   belongs_to :user
   
   validates_presence_of :deliverable
+  validates_presence_of :internal_review_date, :if => :internal_review_signoff, :message => I18n.t('error.quality_gate')
+  validates_presence_of :external_review_date, :if => :external_review_signoff, :message => I18n.t('error.quality_gate')
   
   has_paper_trail
   

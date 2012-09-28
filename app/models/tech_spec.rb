@@ -9,6 +9,8 @@ class TechSpec < ActiveRecord::Base
 
   has_paper_trail
 
+  validates_presence_of :internal_review_date, :if => :internal_review_signoff, :message => I18n.t('error.quality_gate')
+
   def self.my_team(current_user)
     # Only display Deliverable Components that are assigned to user's team. 
     if !current_user.nil?

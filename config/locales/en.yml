@@ -68,6 +68,8 @@ en:
         name: "Role"
   messages:
     xls: "Export in Excel"
+  error:
+    quality_gate: "A date must be entered in this field if this quality checkpoint is achieved"
   hint:
     timesheets: "Date when Primavera request was last updated"
     username: "Your DHS username (Logon ID)"

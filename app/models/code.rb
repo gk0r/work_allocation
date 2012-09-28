@@ -8,7 +8,7 @@ class Code < ActiveRecord::Base
   belongs_to :user
   
   validates_presence_of :deliverable
-
+  
   def audited_attributes
     [  :deliverable_id, :user_id, :progress, :comments, :code_review_date, :q_level_date, :staged_date, :effort  ]
   end
