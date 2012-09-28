@@ -21,7 +21,7 @@ table.index-table
       tr
         td = link_to code.try(:deliverable).try(:project).try(:dmr),  edit_project_path(code.try(:deliverable).try(:project).try(:id))  if code.try(:deliverable).try(:project).try(:id)
         td = link_to code.try(:deliverable).try(:project).try(:name), edit_project_path(code.try(:deliverable).try(:project).try(:id))  if code.try(:deliverable).try(:project).try(:id)
-        td = link_to code.try(:deliverable).try(:milestone).try(:software_release).try(:name), edit_milestone_path(code.try(:deliverable).try(:milestone).try(:id))
+        td = link_to code.try(:deliverable).try(:milestone).try(:software_release).try(:name), edit_milestone_path(code.try(:deliverable).try(:milestone).try(:id)) if code.try(:deliverable).try(:milestone).try(:id)
         td = index_link code.try(:deliverable).try(:name),              code
         td = index_link code.try(:user).try(:name),                     code
         td = index_link code.effort,                                    code

@@ -25,7 +25,7 @@ table.data-table
       tr
         / td = link_to b.try(:deliverable).try(:project).try(:dmr),  edit_project_path(b.try(:deliverable).try(:project).try(:id))  if b.try(:deliverable).try(:project).try(:id)
         td = link_to b.try(:deliverable).try(:project).try(:name), edit_project_path(b.try(:deliverable).try(:project).try(:id))  if b.try(:deliverable).try(:project).try(:id)
-        td = link_to b.try(:deliverable).try(:milestone).try(:software_release).try(:name), edit_milestone_path(b.try(:deliverable).try(:milestone).try(:id))
+        td = link_to b.try(:deliverable).try(:milestone).try(:software_release).try(:name), edit_milestone_path(b.try(:deliverable).try(:milestone).try(:id)) if b.try(:deliverable).try(:milestone).try(:id)
         
         td = index_link b.try(:deliverable).try(:description),         b
         td = index_link b.try(:user).try(:name),                       b
