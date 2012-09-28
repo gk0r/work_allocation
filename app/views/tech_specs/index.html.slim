@@ -3,6 +3,9 @@
 table.index-table
   thead
     tr
+      th DMR
+      th Project
+      th Release
       th Project
       th Deliverable
       th Programmer
@@ -18,6 +21,10 @@ table.index-table
   tbody
     - @tech_specs.each do |ts|
       tr
+        td = link_to ts.try(:deliverable).try(:project).try(:dmr),  edit_project_path(ts.try(:deliverable).try(:project).try(:id))  if ts.try(:deliverable).try(:project).try(:id)
+        td = link_to ts.try(:deliverable).try(:project).try(:name), edit_project_path(ts.try(:deliverable).try(:project).try(:id))  if ts.try(:deliverable).try(:project).try(:id)
+        td = link_to ts.try(:deliverable).try(:milestone).try(:software_release).try(:name), edit_milestone_path(ts.try(:deliverable).try(:milestone).try(:id))
+      
         td = index_link ts.deliverable.try(:project).try(:name),              ts
         td = index_link ts.deliverable.try(:description),                     ts
         td = index_link ts.user.try(:name),                                   ts

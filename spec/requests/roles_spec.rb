@@ -1,8 +1,15 @@
 require 'spec_helper'
 
 describe "Create new user role" do
+  
+  before :each do
+    @user = create(:user)
+    visit sign_in_path
+    fill_in 'Username', :with => @user.username
+    click_button 'Sign in'    
+  end
+  
   it "creates new role" do
-    # user = FactoryGirl.create(:user)
     visit new_role_path
     fill_in 'Role', :with => "Systems Analyst"
     click_button 'Add new Role'

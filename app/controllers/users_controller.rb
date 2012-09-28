@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   
-  include ApplicationHelper
-  before_filter :cancel_button_processing
+  # include ApplicationHelper
+  # before_filter :cancel_button_processing
+  skip_load_and_authorize_resource :only => [ :new, :create ]
   
   # GET /users
   # GET /users.json
@@ -49,7 +50,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         session[:user_id] = @user.id unless session[:user_id] # Log the current user in upon successful registration, unless the user is already registered
-        format.html { redirect_to users_path, :flash => {:success => "User was successfully created."} }
+        format.html { redirect_to users_path }
         format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render action: "new" }
@@ -65,7 +66,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to users_path, :flash => {:success => "User was successfully updated."} }
+        format.html { redirect_to users_path }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

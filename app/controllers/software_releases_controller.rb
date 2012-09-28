@@ -44,7 +44,7 @@ class SoftwareReleasesController < ApplicationController
 
     respond_to do |format|
       if @software_release.save
-        format.html { redirect_to software_releases_path, :flash => {:success => "Software release was successfully created."} }
+        format.html { redirect_to software_releases_path }
         format.json { render json: @software_release, status: :created, location: @software_release }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class SoftwareReleasesController < ApplicationController
 
     respond_to do |format|
       if @software_release.update_attributes(params[:software_release])
-        format.html { redirect_to software_releases_path, :flash => {:success => "Software release was successfully updated."} }
+        format.html { redirect_to software_releases_path }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

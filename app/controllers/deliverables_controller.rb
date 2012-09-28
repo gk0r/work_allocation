@@ -62,7 +62,7 @@ class DeliverablesController < ApplicationController
 
     respond_to do |format|
       if @deliverable.update_attributes(params[:deliverable])
-        format.html { redirect_to deliverables_path, :flash => {:success => "Deliverable was successfully updated."} }
+        format.html { redirect_to deliverables_path }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

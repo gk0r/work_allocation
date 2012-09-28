@@ -48,7 +48,7 @@ class CodeController < ApplicationController
     
     respond_to do |format|
       if @code.save
-        format.html { redirect_to code_index_url, :flash => {:success => "Code deliverable added successfully"} }
+        format.html { redirect_to code_index_url }
         format.json { render json: @code, status: :created, location: @code }
       else
         format.html { render action: "new" }
@@ -64,7 +64,7 @@ class CodeController < ApplicationController
     
     respond_to do |format|
       if @code.update_attributes(params[:code])
-        format.html { redirect_to session[:return_to], :flash => {:success => "Code deliverable updated"} }
+        format.html { redirect_to session[:return_to] }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

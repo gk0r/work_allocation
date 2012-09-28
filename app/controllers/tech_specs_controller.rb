@@ -46,7 +46,7 @@ class TechSpecsController < ApplicationController
 
     respond_to do |format|
       if @tech_spec.save
-        format.html { redirect_to tech_specs_path, :flash => {:success => "Tech Spec created"} }
+        format.html { redirect_to tech_specs_path }
         format.json { render json: @tech_spec, status: :created, location: @tech_spec }
       else
         format.html { render action: "new" }
@@ -62,7 +62,7 @@ class TechSpecsController < ApplicationController
 
     respond_to do |format|
       if @tech_spec.update_attributes(params[:tech_spec])
-        format.html { redirect_to session[:return_to], :flash => {:success => "Tech Spec updated"} }
+        format.html { redirect_to session[:return_to] }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
