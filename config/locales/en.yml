@@ -8,6 +8,7 @@ en:
   flash:
     created_new: "Successfully created new %{type}: %{name}"
     updated: "%{name} updated"
+    please_sign_in: "Please sign in to use this application"
   helpers:
     submit:
       create: "Add new %{model}"

@@ -42,6 +42,14 @@ class ApplicationController < ActionController::Base
     render :action => '../layouts/ie6', :layout => "ie6" if browser.ie6?
   end
   
+  rescue_from CanCan::AccessDenied do |exception|
+    if user_signed_in?
+      redirect_to return_logic, :flash => {:error => exception.message}
+    else
+      redirect_to sign_in_path, :flash => {:info => t('flash.please_sign_in') }
+    end
+  end
+  
   # RAILS ADMIN CONFIGURATION
   # 
   # Activate this when I need it

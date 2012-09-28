@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
   
-  # include ApplicationHelper
-  # before_filter :cancel_button_processing
   skip_load_and_authorize_resource :only => [ :new, :create ]
+  skip_before_filter :user_signed_in?
   
   # GET /users
   # GET /users.json

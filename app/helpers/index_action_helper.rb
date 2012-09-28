@@ -12,6 +12,18 @@ module IndexActionHelper
     end
   end
   
+  def index_link_with_url(link_text = nil, link_url = nil)
+    if link_text && link_url
+      if link_text.to_s.length > 50
+        # Setup the link to have the tooltip
+        link_to link_text.to_s.truncate(50, :separator => ' '), link_url, {:title => link_text, :class => 'tip'}
+      else
+        # Normal link that does not require a tooltip
+        link_to link_text.to_s.truncate(50, :separator => ' '), link_url
+      end
+    end
+  end
+  
   def tooltip_link(link_text, link, link_tooltip)
     link_to link_text, link, {:title => link_tooltip, :class => 'tip'}
   end
@@ -26,7 +38,11 @@ module IndexActionHelper
   end
   
   def tick_box(draw_tick_box = false)
-    '<i class="icon-ok"> </i>'.html_safe if draw_tick_box
+    if draw_tick_box
+      '<i class="icon-ok"> </i>'.html_safe
+    elsif !draw_tick_box.nil?
+      '<i class="icon-remove"> </i>'.html_safe
+    end
   end
 
   # This helper draws the 'New XXXX' button where 'XXXX' is the name of the model. 

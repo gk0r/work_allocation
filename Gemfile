@@ -34,8 +34,9 @@ group :development, :test do
   gem 'launchy'
   gem 'letter_opener'
   gem 'quiet_assets'
-end
 
+end
+  gem 'rack-mini-profiler'
 # platforms :mswin do
 #   gem 'thin', "1.2.11" 
 # end

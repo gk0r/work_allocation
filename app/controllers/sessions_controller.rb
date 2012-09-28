@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   skip_load_and_authorize_resource
+  skip_before_filter :user_signed_in?
   
   def new
     respond_to do |format|
