@@ -29,6 +29,7 @@ gem 'factory_girl_rails'
 gem "rspec-rails"
 gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
 gem "guard-rspec"
+gem 'faker'
 gem 'launchy'
 gem 'letter_opener'
 gem 'quiet_assets'

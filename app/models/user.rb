@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessible       :first_name, :last_name, :username, :telephone_number, :email, :role_ids, :team_ids
-  auto_strip_attributes :first_name, :last_name, :username, :telephone_number, :email, :role_ids, :team_ids
+  auto_strip_attributes :first_name, :last_name, :username, :telephone_number, :email
   
   has_many :user_roles
   has_many :user_teams

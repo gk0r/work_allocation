@@ -15,6 +15,7 @@ table[border='1']
       th Code review date
       th Q Level date
       th Staged date
+      th Comments
       
   tbody
     - @code.each do |code|
@@ -36,3 +37,4 @@ table[border='1']
         td = xls_format_date code.code_review_date
         td = xls_format_date code.q_level_date
         td = xls_format_date code.staged_date
+        td = code.comments

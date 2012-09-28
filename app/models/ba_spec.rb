@@ -3,7 +3,7 @@ class BaSpec < ActiveRecord::Base
                           :external_review_date, :external_review_signoff, :final_version, :effort, :deliverable
 
   auto_strip_attributes   :deliverable_id, :user_id, :name, :comments, :progress, :internal_review_date, :internal_review_signoff, 
-                          :external_review_date, :external_review_signoff, :final_version, :effort, :deliverable
+                          :external_review_date, :external_review_signoff, :final_version, :effort
   
   belongs_to :deliverable
   belongs_to :user
