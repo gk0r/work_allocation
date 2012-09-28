@@ -8,6 +8,7 @@ table[border='1']
       th Project
       th RFC
       th Work Order
+      th Approval Status
       th Timesheets last updated
       th IT PM
       th Business Pm
@@ -27,6 +28,7 @@ table[border='1']
             br            
 
         td = m.work_order
+        td = m.approval_status
         td = xls_format_date m.timesheets_request_date
         td = m.it_pm
         td = m.business_pm

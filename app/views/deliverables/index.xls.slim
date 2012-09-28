@@ -1,24 +1,37 @@
 / Deliverables
+
 table[border='1']
   thead
     tr
-      th ID
-      th Description
       th Release
-      th Team
+      th DMR
       th Project
+      th RFC
+      th Work Order
+      th Approval Status
+      th Description
+      th Team
       th BA Spec
       th Tech Spec
       th Code
+      th Overheads
 
   tbody
     - @deliverables.each do |deliverable|
       tr
-        td =  deliverable.id
-        td =  deliverable.try(:description)
         td =  deliverable.try(:milestone).try(:software_release).try(:name)
-        td =  deliverable.try(:team).try(:name)
+        td =  deliverable.try(:milestone).try(:project).try(:dmr)
         td =  deliverable.try(:milestone).try(:project).try(:name)
+        
+        td
+          - deliverable.try(:milestone).try(:rfcs).to_a.each do |r|
+            = [r.rfc, r.description].join(' - ')
+            br            
+        
+        td =  deliverable.try(:milestone).try(:work_order)
+        td =  deliverable.try(:milestone).try(:approval_status)
+        td =  deliverable.try(:description)
+        td =  deliverable.try(:team).try(:name)
 
         td 
           - deliverable.ba_specs.each do |s|
@@ -34,3 +47,9 @@ table[border='1']
           - deliverable.code.each do |c|
             = c.progress
             br
+            
+        td 
+          - deliverable.overheads.each do |c|
+            = c.user.name
+            br
+        
