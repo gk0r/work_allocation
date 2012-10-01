@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
     user = User.find_by_username(params[:session][:username])
   
     if (user)
-      session[:user_id] = user.id
+      @current_user = session[:user_id] = user.id
       return_path = session[:return_to] ||= root_url
       redirect_to return_path
     else
