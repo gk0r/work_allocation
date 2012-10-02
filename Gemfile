@@ -35,6 +35,8 @@ group :development, :test do
   gem 'letter_opener'
   gem 'quiet_assets'
   gem 'rack-mini-profiler'
+  gem 'ruby-prof'
+  gem 'test-unit'
 end
 
 # platforms :mswin do
