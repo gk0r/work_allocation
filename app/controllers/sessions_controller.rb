@@ -10,7 +10,8 @@ class SessionsController < ApplicationController
   end
   
   def create
-    user = User.find_by_username(params[:session][:username])
+    # Strips all whitespaces form the username
+    user = User.find_by_username(params[:session][:username].to_s.gsub(/\s+/, ""))
   
     if (user)
       @current_user = session[:user_id] = user.id

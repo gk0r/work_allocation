@@ -15,6 +15,7 @@ class Deliverable < ActiveRecord::Base
   accepts_nested_attributes_for :overheads
 
   validates_presence_of :description
+  validates_presence_of :team
 
   def self.my_team(current_user)
     # Only display Deliverable Components that are assigned to user's team. 

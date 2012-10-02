@@ -1,5 +1,9 @@
 FactoryGirl.define do
   
+  factory :team do
+    name "Team One"
+  end
+  
   # Create our user
   factory :user do
     first_name Faker::Name.first_name
@@ -25,6 +29,7 @@ FactoryGirl.define do
   end
   
   factory :deliverable do
+    team
     description "Testing Deliverable"
   end
   
