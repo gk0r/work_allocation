@@ -6,7 +6,6 @@ table.index-table
       th DMR
       th Project
       th Release
-      th Project
       th Deliverable
       th Programmer
       th Effort
@@ -25,7 +24,6 @@ table.index-table
         td = link_to ts.try(:deliverable).try(:project).try(:name), edit_project_path(ts.try(:deliverable).try(:project).try(:id))  if ts.try(:deliverable).try(:project).try(:id)
         td = link_to ts.try(:deliverable).try(:milestone).try(:software_release).try(:name), edit_milestone_path(ts.try(:deliverable).try(:milestone).try(:id)) if ts.try(:deliverable).try(:milestone).try(:id)
       
-        td = index_link ts.deliverable.try(:project).try(:name),              ts
         td = index_link ts.deliverable.try(:description),                     ts
         td = index_link ts.user.try(:name),                                   ts
         td = index_link ts.effort,                                            ts
