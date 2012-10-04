@@ -13,7 +13,7 @@ describe "Visit Excel Data Dump for: Deliverables" do
   it "works" do
     component = create(:deliverable)
     visit(deliverables_path + '.xls')
-    page.should have_content component.name
+    page.should have_content component.description
   end
 end
 

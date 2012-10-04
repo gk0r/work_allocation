@@ -21,12 +21,12 @@ class Project < ActiveRecord::Base
   def dmr
     # Allow blank DMR for future work that has not been assigned a formal record yet. Display "????" where there is no DMR recorded
     dmr = read_attribute(:dmr)
-    dmr.empty? ? "????" : dmr if dmr
+    dmr.to_s.nil? ? "????" : dmr if dmr
   end
   
   def DMR_with_prefix
     # Only return a DMR + Number if the DMR exists
-    "DMR" + read_attribute(:dmr) if read_attribute(:dmr).size > 1
+    "DMR" + read_attribute(:dmr) if read_attribute(:dmr).to_s.size > 1
   end
     
 end

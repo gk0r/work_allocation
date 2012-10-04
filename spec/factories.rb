@@ -24,14 +24,15 @@ FactoryGirl.define do
   factory :user do
     first_name Faker::Name.first_name
     last_name Faker::Name.last_name
-    username Faker::Internet.user_name
-    email Faker::Internet.email
+    sequence :username do
+      "username#{n}"
+    end
+    
+    sequence :email do
+      "user#{n}@example.com"
+    end
   end
 
-  factory :ba_user, parent: :user do
-    # user
-    association :role, factory: :role, name: "Business / Systems Analyst"
-  end
   
   factory :software_release do
     month = ['March', 'June', 'September', 'December'].sample
@@ -40,24 +41,29 @@ FactoryGirl.define do
     date Date.parse('09 ' + month + ' '+ year)
   end
   
+  
   factory :project do
     name Faker::Company.catch_phrase
   end
   
+  
   factory :milestone do
     project
     software_release
+    before (:create) do |milestone|
+      milestone.software_release = SoftwareRelease.first
+    end
   end
   
   factory :deliverable do
-    # association :team, factory :team, name: "Team One"
     team
     milestone
-    # description Faker::Company.catch_phrase
+
     sequence :description do |n|
       "Magic Deliverable #{n}"
     end
   end
+  
   
   factory :ba_spec do
     user

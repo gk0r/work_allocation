@@ -7,7 +7,8 @@ class SoftwareRelease < ActiveRecord::Base
   # has_many :code,             :through => :deliverables
   # has_many :teams,            :through => :deliverables
   
-  has_many :release_projects,   :dependent => :destroy
+  has_many :release_projects,   :dependent  => :destroy
+  has_many :projects,           :through    => :release_projects,      :dependent => :destroy
   # has_many :software_releases,  :through => :release_projects #What the hell is this?
 
   validates_presence_of   :name, :date

@@ -5,6 +5,8 @@ class TechSpec < ActiveRecord::Base
   belongs_to :deliverable
   belongs_to :user
   
+  has_one :project, :through => :deliverable
+  
   validates_presence_of :deliverable
 
   has_paper_trail
@@ -14,7 +16,7 @@ class TechSpec < ActiveRecord::Base
   def self.my_team(current_user)
     # Only display Deliverable Components that are assigned to user's team. 
     if !current_user.nil?
-      joins(:deliverable).where(:deliverables => {:team_id => current_user.team_ids})
+      joins(:deliverable).where(:deliverables => {:team_id => current_user.team_ids}).includes(:project, :user)
     else
       # Display everything to users who are not signed in as we cannot determine what their team is.
       # At some point - I should restrict the application such that everyone has to be logged in.

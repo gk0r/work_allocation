@@ -20,8 +20,8 @@ table.index-table
   tbody
     - @tech_specs.each do |ts|
       tr
-        td = link_to ts.try(:deliverable).try(:project).try(:dmr),  edit_project_path(ts.try(:deliverable).try(:project).try(:id))  if ts.try(:deliverable).try(:project).try(:id)
-        td = link_to ts.try(:deliverable).try(:project).try(:name), edit_project_path(ts.try(:deliverable).try(:project).try(:id))  if ts.try(:deliverable).try(:project).try(:id)
+        td = link_to ts.try(:deliverable).try(:project).try(:dmr),  edit_project_path(ts.try(:deliverable).try(:project).try(:id))  if ts.try(:deliverable).try(:project).try(:dmr)
+        td = link_to ts.try(:deliverable).try(:project).try(:name), edit_project_path(ts.try(:deliverable).try(:project).try(:id))  if ts.try(:deliverable).try(:project).try(:name)
         td = link_to ts.try(:deliverable).try(:milestone).try(:software_release).try(:name), edit_milestone_path(ts.try(:deliverable).try(:milestone).try(:id)) if ts.try(:deliverable).try(:milestone).try(:id)
       
         td = index_link ts.deliverable.try(:description),                     ts
