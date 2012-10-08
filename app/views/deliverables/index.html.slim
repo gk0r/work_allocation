@@ -19,7 +19,6 @@ table.index-table
     - @deliverables.each do |deliverable|
       tr
         td = index_link_with_url([deliverable.try(:milestone).try(:project).try(:DMR_with_prefix), deliverable.try(:milestone).try(:project).try(:name)].join(' '), edit_milestone_path(deliverable.try(:milestone).try(:id))) if deliverable.try(:milestone).try(:id)
-        / td = index_link_with_url([deliverable.try(:milestone).try(:project).try(:dmr), deliverable.try(:milestone).try(:project).try(:name)].join(' '), edit_milestone_path(deliverable.try(:milestone).try(:id))) if deliverable.try(:milestone).try(:id)
         td = index_link deliverable.try(:milestone).try(:software_release).try(:name)     , deliverable
         td = index_link deliverable.try(:description)                                     , deliverable
         td = index_link deliverable.try(:team).try(:name)                                 , deliverable

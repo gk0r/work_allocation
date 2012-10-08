@@ -17,8 +17,8 @@ table.index-table
   tbody
     - @milestones.each do |m|
       tr
-        td = index_link m.software_release.try(:name)                 , m
-        td = index_link m.project.try(:name)                          , m
+        td = index_link m.software_release.try(:name)                                         , m
+        td = index_link [m.project.try(:DMR_with_prefix), m.project.try(:name)].join(' ')     , m
                                                                          
         td                                                               
           - m.rfcs.each do |r|                                           
