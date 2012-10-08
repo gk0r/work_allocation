@@ -23,7 +23,7 @@
 
 $(function() {
 	$('.tip').tooltip
-	({
-		placement: 'bottom'
-	});
+		({
+			placement: 'bottom'
+		});
 });

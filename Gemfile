@@ -22,14 +22,16 @@ gem 'cancan'
 gem 'auto_strip_attributes'
 gem 'browser'
 gem 'paper_trail'
+gem 'rabl'
+gem 'yajl-ruby'     # Required for RABL
 
 # Gems that are only required in Development and Test environments
 group :development, :test do
   gem 'capybara'
   gem 'factory_girl_rails'
-  gem "rspec-rails"
+  gem 'rspec-rails'
   gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
-  gem "guard-rspec"
+  gem 'guard-rspec'
   gem 'faker'
   gem 'launchy'
   gem 'letter_opener'
@@ -40,7 +42,7 @@ group :development, :test do
 end
 
 # platforms :mswin do
-#   gem 'thin', "1.2.11" 
+#   gem 'thin', '1.2.11' 
 # end
 # 
 # platforms :ruby do
