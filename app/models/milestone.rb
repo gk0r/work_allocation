@@ -13,7 +13,7 @@ class Milestone < ActiveRecord::Base
   validates_presence_of :project, :software_release_id
   
   def name
-    dmr = self.try(:project).try(:dmr).to_a.empty? ? "?????" : self.project.dmr
+    dmr = self.try(:project).try(:dmr).nil? ? "?????" : self.project.dmr
     release = self.try(:software_release).try(:name).empty? ? "No Release Date" : self.software_release.try(:name)
     "DMR#{dmr}: #{self.project.try(:name)} - #{release}"
   end
