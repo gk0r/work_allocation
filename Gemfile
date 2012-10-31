@@ -24,6 +24,7 @@ gem 'browser'
 gem 'paper_trail'
 gem 'rabl'
 gem 'yajl-ruby'     # Required for RABL
+gem 'd3_rails', :git => "https://github.com/logical42/d3_rails"
 
 # Gems that are only required in Development and Test environments
 group :development, :test do

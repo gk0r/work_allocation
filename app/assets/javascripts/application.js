@@ -19,6 +19,7 @@
 //= require dataTables.bootstrap
 //= require ColVis
 //= require ColReorderWithResize
+//= require d3.v2
 //= require_tree .
 
 $(function() {
@@ -27,3 +28,6 @@ $(function() {
 			placement: 'bottom'
 		});
 });
+
+// EXPERIMENTAL ZONE 
+

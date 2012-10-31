@@ -1,4 +1,6 @@
 module DashboardHelper
+
+  include ChartHelper
   
   def dashboard_link(link_text = nil, link_url = nil)
     if link_text && link_url
@@ -11,5 +13,5 @@ module DashboardHelper
       end
     end
   end
-
+  
 end

@@ -2,7 +2,7 @@ class WelcomeController < ApplicationController
 
   skip_load_and_authorize_resource
   
-  def home
+  def index
     if current_user
       @ba_specs   = BaSpec.find_all_by_user_id(current_user.id)
       @tech_specs = TechSpec.find_all_by_user_id(current_user)
@@ -10,7 +10,7 @@ class WelcomeController < ApplicationController
     end
     
     respond_to do |format|
-      format.html # home.html
+      format.html # index.html
     end
   end
   

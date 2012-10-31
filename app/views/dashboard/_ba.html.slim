@@ -1,5 +1,8 @@
 .row
 - if !@ba_specs.empty?
+  
+  = content_tag :div, "Chart Data", id: "ba_specs", data: { ba_specs: ba_specs_chart_data }
+
   h4 BA Specs
   
   table.index-table

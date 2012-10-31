@@ -1,0 +1,24 @@
+//
+// D3 Bar Chart Style (SVG)
+//
+
+.chart rect, .progress {
+  stroke: white;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+}
+
+.axis text {
+    font-family: sans-serif;
+    font-size: 11px;
+}
+
+.spec_draft               { fill: #C13332; }
+.spec_internal_signoff    { fill: #F17A00; }
+.spec_external_signoff    { fill: #39F013; }
+.spec_final               { fill: green; }
