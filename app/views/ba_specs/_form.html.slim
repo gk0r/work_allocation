@@ -1,7 +1,7 @@
 = simple_form_for @ba_spec, :html => { :class => 'form-horizontal' } do |f|
   = f.error_notification
   .row.span6.form-inputs
-    = f.input :deliverable_id, :collection => Milestone.all, :as => :grouped_select, :group_method => :deliverables, :input_html => { :class => 'span4' }, :include_blank => true, :required=>true
+    = f.input :deliverable_id, :collection => Milestone.eager_load, :as => :grouped_select, :group_method => :deliverables, :input_html => { :class => 'span4' }, :include_blank => true, :required=>true
     = f.input :user_id, :collection => User.my_team(@current_user, 1)
     = f.input :name, :placeholder => t('placeholder.document_name'),                                    :input_html => { :class => 'span4' }
     = f.input :effort, :placeholder => t('placeholder.effort') , :hint => t('hint.effort_estimate'),    :input_html => { :class => 'span1' }

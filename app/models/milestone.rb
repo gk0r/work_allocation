@@ -18,4 +18,9 @@ class Milestone < ActiveRecord::Base
     "DMR#{dmr}: #{self.project.try(:name)} - #{release}"
   end
   
+  def self.eager_load
+    # joins(:deliverables).includes(:project, :software_release)
+    includes(:project, :software_release, :deliverables)
+  end
+  
 end
