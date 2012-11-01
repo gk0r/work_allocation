@@ -22,12 +22,6 @@
 //= require d3.v2
 //= require_tree .
 
-$(function() {
-	$('.tip').tooltip
-		({
-			placement: 'bottom'
-		});
-});
 
 // EXPERIMENTAL ZONE 
 

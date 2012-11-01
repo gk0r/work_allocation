@@ -7,11 +7,13 @@ module ChartHelper
     @ba_specs.map do |spec|
       Rails.logger.debug "dd Charting - Spec Name: #{spec.name}"
       {
+        id: spec.id,
         name: spec.name.truncate(65, :separator => ' '),
         progress: spec.progress.sub('%', ''),
         internal_review_signoff: spec.internal_review_signoff ? true : false,
         external_review_signoff: spec.external_review_signoff ? true : false,
-        final: spec.final_version ? true : false
+        final: spec.final_version ? true : false,
+        edit_path: edit_ba_spec_path(spec.id),
       }
     end
   end

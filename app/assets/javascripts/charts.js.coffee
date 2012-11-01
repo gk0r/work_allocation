@@ -64,7 +64,8 @@ jQuery ->
             else if d.external_review_signoff then "spec_external_signoff" 
             else if d.internal_review_signoff then "spec_internal_signoff" 
             else "spec_draft")
-          .text((d) -> d.progress)           
+          .text((d) -> d.progress)     
+          .on('click', (d) -> window.location.href = d.edit_path)
 
   #
   # PROGRESS PERCENTAGE DISPLAYED AT THE END OF THE CHART BAR
@@ -80,6 +81,7 @@ jQuery ->
           .attr("dy", ".35em")
           .attr("text-anchor", "end")
           .text((d) -> d.progress)
+          .on('click', (d) -> window.location.href = d.edit_path)          
 
   #
   # SPEC LABELS - SPEC NAME
@@ -95,7 +97,7 @@ jQuery ->
           .attr("dy", ".35em")
           .attr("text-anchor", "end")
           .text((d) -> d.name)
-
+          .on('click', (d) -> window.location.href = d.edit_path)          
   
   #        
   # CHART AXIS        
