@@ -3,7 +3,8 @@ class Ability
   
   def initialize(user)
     # Guest users are allowed to read everything
-    can :read, :all
+    # can :read, :all
+    can :read, [User]
     
     # Only registered users are allowed to play with things
     if user

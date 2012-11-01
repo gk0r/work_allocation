@@ -46,7 +46,7 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       redirect_to return_logic, :flash => {:error => exception.message}
     else
-      redirect_to sign_in_path, :flash => {:info => t('flash.please_sign_in') }
+      redirect_to sign_in_path, :flash => {:error => t('flash.please_sign_in') }
     end
   end
   
