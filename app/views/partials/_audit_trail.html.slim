@@ -1,4 +1,8 @@
-
+/ 
+/ AUDIT LOG PARTIAL.
+/ This partial is invoked from the 'display_audit_table' Application Helper to Audit requested records
+/ Each audited model has a list of 'audited_attributes' that will be displayed in the Audit table.
+/ 
 
 table.audit-log
   thead
@@ -12,16 +16,20 @@ table.audit-log
   tbody
     - audited_object.versions.each do |h|
       - audited_object.audited_attributes.each do |attribute|
-        / If there is a next entry in the audit log, compare the previous entry with the next entry to detect if there had been any changes
-        / If there is no next entry, then compare the previous entry with the current model to detect if there had been any changes
-        - if (h.next and (h.reify.send(attribute) != h.next.reify.send(attribute))) or (!h.next and (h.reify.send(attribute) != audited_object.send(attribute)))
-          tr
-            td = h.created_at
-            td = User.find(h.whodunnit).name
-            td = audited_object.class.human_attribute_name(attribute)
-            td = h.reify.send(attribute)
-            td 
-              - if h.next
-                = h.next.reify.send(attribute) 
-              - else
-                 = audited_object.send(attribute)
+      
+        / Only proceed if there is an earlier version of the object. If we can't re-instate it, we won't be able to compare.
+        - if h.reify
+        
+          / If there is a next entry in the audit log, compare the previous entry with the next entry to detect if there had been any changes
+          / If there is no next entry, then compare the previous entry with the current model to detect if there had been any changes
+          - if  (h.next and (h.reify.send(attribute) != h.next.reify.send(attribute))) or (!h.next and (h.reify.send(attribute) != audited_object.send(attribute)))
+              tr
+                td = h.created_at
+                td = User.find(h.whodunnit).name
+                td = audited_object.class.human_attribute_name(attribute)
+                td = h.reify.send(attribute)
+                td 
+                  - if h.next
+                    = h.next.reify.send(attribute) 
+                  - else
+                     = audited_object.send(attribute)

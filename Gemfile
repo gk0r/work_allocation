@@ -21,7 +21,7 @@ gem 'audited-activerecord'
 gem 'cancan'
 gem 'auto_strip_attributes'
 gem 'browser'
-gem 'paper_trail'
+gem 'paper_trail', :git => 'https://github.com/airblade/paper_trail.git'
 gem 'rabl'
 gem 'yajl-ruby'     # Required for RABL
 gem 'd3_rails', :git => "https://github.com/logical42/d3_rails"

@@ -13,7 +13,7 @@ module ApplicationHelper
   end
   
   def display_audit_table(audited_object)
-    Rails.logger.debug 'dd Audit Mode: About to render the audit_trail partial'
+    # Rails.logger.debug 'dd Audit Mode: About to render the audit_trail partial [display_audit_table routine inside application_helper]'
     # Pass the object we want to Audit
     render :partial => 'partials/audit_trail', :locals => { :audited_object => audited_object }
   end
