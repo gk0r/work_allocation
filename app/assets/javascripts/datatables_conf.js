@@ -53,7 +53,12 @@ $(function() {
        },
       "fnStateLoad": function (oSettings) {
           return JSON.parse( localStorage.getItem('DataTables_'+window.location.pathname) );
-      }
+      },
+			"fnDrawCallback": function(oSettings) {
+	        if (oSettings._iDisplayLength > oSettings.fnRecordsDisplay()) {
+	            $(oSettings.nTableWrapper).find('.dataTables_paginate').hide();
+	        }
+			},
 		});
 });
 
