@@ -8,6 +8,7 @@ table[border='1']
       th Project
       th RFC
       th Deliverable
+      th Business Requirements/Processes
       th Team
       th Business Analyst
       th Effort
@@ -33,6 +34,7 @@ table[border='1']
             br            
               
         td = b.try(:deliverable).try(:description)
+        td = b.tag_list.map { |t| t}.join(', ')
         td = b.try(:deliverable).try(:team).try(:name)
         td = b.try(:user).try(:name)
         td = b.effort
