@@ -1,9 +1,9 @@
 class BaSpec < ActiveRecord::Base
   attr_accessible         :deliverable_id, :user_id, :name, :comments, :progress, :internal_review_date, :internal_review_signoff, 
-                          :external_review_date, :external_review_signoff, :final_version, :effort, :deliverable
+                          :external_review_date, :external_review_signoff, :final_version, :effort, :deliverable, :tag_list
 
   auto_strip_attributes   :deliverable_id, :user_id, :name, :comments, :progress, :internal_review_date, :internal_review_signoff, 
-                          :external_review_date, :external_review_signoff, :final_version, :effort
+                          :external_review_date, :external_review_signoff, :final_version, :effort  
   
   belongs_to :deliverable
   belongs_to :user
@@ -14,7 +14,17 @@ class BaSpec < ActiveRecord::Base
   validates_presence_of :internal_review_date, :if => :internal_review_signoff, :message => I18n.t('error.quality_gate')
   validates_presence_of :external_review_date, :if => :external_review_signoff, :message => I18n.t('error.quality_gate')
   
+  # Re-Implement this with the view to restrict progress based on the current quality gate milestone
+  # validates :progress, :numericality => { :greater_than => 90 }
+
+  acts_as_taggable
+  
   has_paper_trail
+  
+  # Validate the Requirement / Process tags to ensure that it is a comma separate string that only contains Rn or Pn.
+  # Where 'n' is a number in 1..99 range
+  validates :tag_list, :format => { :with => /^([R,P][0-9]{1,2},?\s?)*$/,
+      :message => I18n.t('error.requirement_process_format') }  
   
   def audited_attributes
     [  :deliverable_id, :user_id, :name, :comments, :progress, :internal_review_date, :internal_review_signoff, 

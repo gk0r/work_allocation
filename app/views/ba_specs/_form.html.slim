@@ -1,14 +1,16 @@
 = simple_form_for @ba_spec, :html => { :class => 'form-horizontal' } do |f|
   = f.error_notification
-  .row.span6.form-inputs
+  
+  .span6.form-inputs
     = f.input :deliverable_id, :collection => Milestone.eager_load, :as => :grouped_select, :group_method => :deliverables, :input_html => { :class => 'span4' }, :include_blank => true, :required=>true
     = f.input :user_id, :collection => User.my_team(@current_user, 1)
-    = f.input :name, :placeholder => t('placeholder.document_name'),                                    :input_html => { :class => 'span4' }
-    = f.input :effort, :placeholder => t('placeholder.effort') , :hint => t('hint.effort_estimate'),    :input_html => { :class => 'span1' }
-    = f.input :progress,                                                              :input_html => { :class => 'span1' }
+    = f.input :name,    :placeholder => t('placeholder.document_name'),               :input_html => { :class => 'span4' }
+    = f.input :tag_list,:hint => t('hint.requirement_process_format'),                :input_html => { :class => 'span4' }
+    = f.input :effort,  :placeholder => t('placeholder.effort') ,  :hint => t('hint.effort_estimate'),    :input_html => { :class => 'span1' }
     = f.input :comments,              :as => :text,                                   :input_html => { :rows => 4, :class => 'span4' }
 
-  .row.span4.form-inputs
+  .span4.form-inputs
+    = f.input :progress,                                                              :input_html => { :class => 'span1' }  
     = f.input :internal_review_date,  :as => :string,                                 :input_html => { :class => 'span2 date' }
     = f.input :internal_review_signoff
     = f.input :external_review_date,  :as => :string,                                 :input_html => { :class => 'span2 date' }

@@ -43,6 +43,7 @@ en:
         user_id: "Business Analyst"
         effort: "Effort estimate"
         name: "Document name"
+        tag_list: "Business Requirements and Processes reference"
       tech_spec:
         user_id: "Technical Programmer"        
         effort: "Effort estimate"
@@ -71,11 +72,13 @@ en:
     xls: "Export in Excel"
   error:
     quality_gate: "A date must be entered in this field if this quality checkpoint is achieved"
+    requirement_process_format: "Requirement / Process ID must begin with an 'R' or a 'P' and be followed by a number in the 1..99 range"
   hint:
     timesheets: "Date when Primavera request was last updated"
     username: "Your DHS username (Logon ID)"
     effort_estimate: "Effort estimate (days)"
     effort: "Effort estimate (days)"
+    requirement_process_format: "Requirement/Process ID format: R1, R2, P29"
   placeholder:
     effort: "Days"
     document_name: "Document name"

@@ -43,6 +43,8 @@ GEM
     activesupport (3.2.8)
       i18n (~> 0.6)
       multi_json (~> 1.0)
+    acts-as-taggable-on (2.3.3)
+      rails (~> 3.0)
     addressable (2.3.2)
     anjlab-bootstrap-rails (2.1.1.1)
       railties (>= 3.0)
@@ -209,6 +211,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on (~> 2.3.1)
   anjlab-bootstrap-rails (>= 2.1)
   audited-activerecord
   auto_strip_attributes

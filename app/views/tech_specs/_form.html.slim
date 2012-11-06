@@ -1,20 +1,21 @@
 = simple_form_for @tech_spec, :html => { :class => 'form-horizontal' } do |f|
   = f.error_notification
 
-  .form-inputs
-    = f.association :deliverable
-    = f.input :user_id, :collection => User.my_team(@current_user, 2)
-    = f.input :name, :input_html => { :class => 'span5' }
+  .span6.form-inputs
+    = f.association :deliverable, :input_html => { :class => 'span4' }
+    = f.input :user_id, :collection => User.my_team(@current_user, 2), :input_html => { :class => 'span4' }
+    = f.input :name,    :input_html => { :class => 'span4' }
     = f.input :effort,  :input_html => { :class => 'span1' }, :placeholder => t('placeholder.effort') , :hint => t('hint.effort')
+    = f.input :comments, :as => :text, :input_html => { :rows => 4, :class => 'span4' }
 
-    = f.input :comments, :as => :text, :input_html => { :rows => 4, :class => 'span5' }
+  .span4.form-inputs    
     = f.input :progress, :input_html => { :class => 'span1' }
-
-    = f.input :internal_review_date, :as => :string, :input_html => { :class => 'span2 date' }
+    = f.input :internal_review_date,  :as => :string,     :input_html => { :class => 'span2 date' }
     = f.input :internal_review_signoff
-
-    = f.input :final_version, :as => :string, :input_html => { :class => 'span2 date' }
+    = f.input :final_version,         :as => :string,     :input_html => { :class => 'span2 date' }
     
+  .row
+  
   .form-actions
     = submit_button f
     '
