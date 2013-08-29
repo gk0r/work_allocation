@@ -19,7 +19,7 @@
 //= require dataTables.bootstrap
 //= require ColVis
 //= require ColReorderWithResize
-//= require d3.v2
+//= require d3
 //= require_tree .
 
 

@@ -9,7 +9,7 @@ group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'jquery-ui-rails'
-  gem 'anjlab-bootstrap-rails', '>= 2.1', :require => 'bootstrap-rails'
+  gem 'anjlab-bootstrap-rails', '~> 2.2', :require => 'bootstrap-rails' # Pointing specifically to version 2.2. Later versions of this gem require Bootstrap v3
   gem 'uglifier'
 end
 
@@ -25,7 +25,7 @@ gem 'paper_trail', :git => 'https://github.com/airblade/paper_trail.git'
 gem 'rabl'
 gem 'yajl-ruby'     # Required for RABL
 gem 'd3_rails', :git => "https://github.com/logical42/d3_rails"
-gem 'acts-as-taggable-on', '~> 2.3.1'
+gem 'acts-as-taggable-on' #, '~> 2.3.1'
 
 # Gems that are only required in Development and Test environments
 group :development, :test do
@@ -47,6 +47,6 @@ end
 #   gem 'thin', '1.2.11' 
 # end
 # 
-# platforms :ruby do
-#   gem 'thin'
-# end
+platforms :ruby do
+  gem 'thin'
+end
