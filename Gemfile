@@ -41,6 +41,11 @@ group :development, :test do
   gem 'rack-mini-profiler'
   gem 'ruby-prof'
   gem 'test-unit'
+  
+  # Better Error Logging and Debugging
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
 end
 
 # platforms :mswin do
