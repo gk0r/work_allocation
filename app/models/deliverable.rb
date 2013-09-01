@@ -2,7 +2,7 @@ class Deliverable < ActiveRecord::Base
   has_many :ba_specs    , :dependent => :destroy
   has_many :tech_specs  , :dependent => :destroy
   has_many :code        , :dependent => :destroy
-  has_many :overheads   , :dependent  => :destroy
+  has_many :overheads   , :dependent => :destroy
 
   belongs_to :milestone  
   belongs_to :team

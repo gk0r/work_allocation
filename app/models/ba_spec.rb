@@ -21,7 +21,7 @@ class BaSpec < ActiveRecord::Base
   
   has_paper_trail
   
-  # Validate the Requirement / Process tags to ensure that it is a comma separate string that only contains Rn or Pn.
+  # Validate the Requirement / Process tags to ensure that it is a comma (or space) separated string that only contains Rn or Pn.
   # Where 'n' is a number in 1..99 range
   validates :tag_list, :format => { :with => /^([R,P][0-9]{1,2},?\s?)*$/,
       :message => I18n.t('error.requirement_process_format') }  
