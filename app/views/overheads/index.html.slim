@@ -9,14 +9,16 @@ table.index-table
       th Description
       th Resource
       th Effort
+      th Delete
 
   tbody
     - @overheads.each do |overhead|
       tr
         td = index_link overhead.deliverable.name   , overhead
         td = index_link overhead.description        , overhead
-        td = index_link overhead.user.name          , overhead
+        td = index_link overhead.user.try(:name)    , overhead
         td = index_link overhead.effort             , overhead
+        td = delete_link overhead_path(overhead)
 
 .row
 

@@ -18,6 +18,9 @@ module ApplicationHelper
     render :partial => 'partials/audit_trail', :locals => { :audited_object => audited_object }
   end
   
+  # 
+  # TODO: Move Team Leader definition into some sort of configuration line item under config/
+  # 
   def team_leader?
     @current_user.try(:role_ids).to_a.each do |role|
       return true if role == 3 # 3 is a Team Leader
