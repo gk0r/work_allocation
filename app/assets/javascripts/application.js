@@ -17,7 +17,7 @@
 //= require jquery_nested_form
 //= require jquery.dataTables.min
 //= require dataTables.bootstrap
-//= require ColVis
+//= require ColVis.min
 //= require ColReorderWithResize
 //= require d3
 //= require_tree .
