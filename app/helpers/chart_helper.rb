@@ -8,7 +8,7 @@ module ChartHelper
       Rails.logger.debug "dd Charting - Spec Name: #{spec.name}"
       {
         id: spec.id,
-        name: spec.name.truncate(65, :separator => ' '),
+        name: spec.try(:name).to_s.truncate(65, :separator => ' '),
         progress: spec.progress.sub('%', ''),
         internal_review_signoff: spec.internal_review_signoff ? true : false,
         external_review_signoff: spec.external_review_signoff ? true : false,
