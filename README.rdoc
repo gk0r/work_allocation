@@ -18,3 +18,13 @@ A few notes about security
 
 
 == Plans and thoughts on progress
+User has many UserPreferences
+Each UserPreference has many ReleaseSubscribptions
+Each ReleaseSubscribptions belongs to a User and a Software Release
+
+== Alternative Option
+Consider checking out Rail Casts episode 403.
+http://railscasts.com/episodes/403-dynamic-forms?view=comments
+
+
+Next -- what is the best way to handle the 'turning releases off' 
