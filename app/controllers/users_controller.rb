@@ -65,7 +65,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to users_path }
+        format.html { redirect_to session[:return_to] }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
