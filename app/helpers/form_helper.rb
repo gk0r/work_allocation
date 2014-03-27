@@ -1,5 +1,9 @@
 module FormHelper
   
+  def form_header
+    content_tag(:div, controller.controller_name.classify.constantize.model_name.human, class: "form-heading")
+  end
+  
   def submit_button (form_builder)
     form_builder.submit :class => 'btn btn-primary'
   end

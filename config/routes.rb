@@ -1,5 +1,8 @@
 WorkAllocation::Application.routes.draw do
 
+  resources :tsts
+
+
   resources :overheads
 
   resources :deliverables, :projects, :users, :software_releases, :rfcs, :roles, :teams, :code, :tech_specs, :ba_specs, :deliverables, :welcome, :milestones

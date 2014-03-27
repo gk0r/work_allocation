@@ -21,6 +21,8 @@ en:
       tech_spec: "Tech Spec"
       role: "Role"
       rfc: "RFC"
+      tst: "Test Component"
+      deliverable: "Work Package"
     attributes:
       project:
         name: "Name"
@@ -68,6 +70,8 @@ en:
         test_manager: 'Test Manager'
       role:
         name: "Role"
+      tst:
+        user: "Test Manager"
   messages:
     xls: "Export in Excel"
   error:

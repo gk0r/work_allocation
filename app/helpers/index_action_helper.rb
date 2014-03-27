@@ -57,7 +57,7 @@ module IndexActionHelper
   # This helper created an appropriate page header
   def index_header
     # '<div class="index-heading">' + controller.controller_name.classify.constantize.model_name.human + '</div>'.html_safe
-    content_tag(:div, controller.controller_name.classify.constantize.model_name.human, class: "index-heading")
+    content_tag(:div, controller.controller_name.classify.constantize.model_name.human.pluralize, class: "index-heading")
   end
   
 end

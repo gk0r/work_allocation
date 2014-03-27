@@ -1,0 +1,24 @@
+p#notice = notice
+
+p
+  strong Deliverable:
+  = @tst.deliverable_id
+p
+  strong User:
+  = @tst.user_id
+p
+  strong Planned tests:
+  = @tst.planned_tests
+p
+  strong Executed tests:
+  = @tst.executed_tests
+p
+  strong Status:
+  = @tst.status
+p
+  strong Comment:
+  = @tst.comment
+
+= link_to 'Edit', edit_tst_path(@tst)
+'|
+= link_to 'Back', tsts_path

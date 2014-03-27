@@ -1,0 +1,26 @@
+== index_header
+
+table.data-table
+  thead
+    tr
+      th = t('activerecord.models.deliverable')
+      th = Tst.human_attribute_name(:user)
+      th Planned tests
+      th Executed tests
+      th Status
+      th Comment
+      th Delete
+  tbody
+    - @tsts.each do |tst|
+      tr
+        td = index_link tst.deliverable.try(:name) , tst
+        td = index_link tst.user.try(:name), tst
+        td = index_link tst.planned_tests, tst
+        td = index_link tst.executed_tests, tst
+        td = index_link tst.status, tst
+        td = index_link tst.comment, tst
+        td = delete_link tst_path(tst)
+
+.row
+
+= new_button

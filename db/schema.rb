@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121105031353) do
+ActiveRecord::Schema.define(:version => 20140325004403) do
 
   create_table "ba_specs", :force => true do |t|
     t.integer  "deliverable_id"
@@ -92,6 +92,14 @@ ActiveRecord::Schema.define(:version => 20121105031353) do
     t.datetime "updated_at",          :null => false
   end
 
+  create_table "release_subscriptions", :force => true do |t|
+    t.integer  "user_preference_id"
+    t.integer  "software_release_id"
+    t.boolean  "status",              :default => true
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
+  end
+
   create_table "rfcs", :force => true do |t|
     t.string   "description"
     t.integer  "rfc"
@@ -122,6 +130,21 @@ ActiveRecord::Schema.define(:version => 20121105031353) do
     t.string   "version"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "subscribed_releases", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "software_release_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  create_table "subscriptions", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "software_release_id"
+    t.string   "status"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "taggings", :force => true do |t|
@@ -159,6 +182,24 @@ ActiveRecord::Schema.define(:version => 20121105031353) do
     t.date     "final_version"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+  end
+
+  create_table "tsts", :force => true do |t|
+    t.integer  "deliverable_id"
+    t.integer  "user_id"
+    t.integer  "planned_tests"
+    t.integer  "executed_tests"
+    t.string   "status"
+    t.string   "comment"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "user_preferences", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "release_view"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "user_roles", :force => true do |t|
