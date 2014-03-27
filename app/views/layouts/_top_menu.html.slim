@@ -5,11 +5,12 @@
 
       / Main Navigation
       ul.nav
-        li= link_to 'Project Milestones', milestones_url
-        li= link_to 'Deliverables', deliverables_url
-        li= link_to 'BA Specs', ba_specs_url
-        li= link_to 'Tech Specs', tech_specs_url
-        li= link_to 'Code', code_index_url
+        li= link_to Milestone.model_name.human.pluralize, milestones_url
+        li= link_to Deliverable.model_name.human.pluralize, deliverables_url
+        li= link_to BaSpec.model_name.human.pluralize, ba_specs_url
+        li= link_to TechSpec.model_name.human.pluralize, tech_specs_url
+        li= link_to Code.model_name.human.pluralize, code_index_url
+        li= link_to Tst.model_name.human.pluralize, tsts_path
 
         / Team Leader Functions
         li.dropdown

@@ -23,6 +23,7 @@ en:
       rfc: "RFC"
       tst: "Test Component"
       deliverable: "Work Package"
+      milestone: "Project Milestone"
     attributes:
       project:
         name: "Name"
