@@ -3,6 +3,7 @@ class Deliverable < ActiveRecord::Base
   has_many :tech_specs  , :dependent => :destroy, :inverse_of => :deliverable
   has_many :code        , :dependent => :destroy, :inverse_of => :deliverable
   has_many :overheads   , :dependent => :destroy, :inverse_of => :deliverable
+  has_many :tsts        , :dependent => :destroy, :inverse_of => :deliverable  
 
   belongs_to :milestone  
   belongs_to :team
@@ -18,6 +19,7 @@ class Deliverable < ActiveRecord::Base
   accepts_nested_attributes_for :tech_specs
   accepts_nested_attributes_for :code
   accepts_nested_attributes_for :overheads
+  accepts_nested_attributes_for :tsts
   
   validates_presence_of :description
   validates_presence_of :team

@@ -44,7 +44,7 @@ module IndexActionHelper
       '<i class="icon-remove"> </i>'.html_safe
     end
   end
-
+  
   # This helper draws the 'New XXXX' button where 'XXXX' is the name of the model. 
   # The helper method has two optional parameters. If left blank, it will retrieve the current controller name and turn it into a proper model name.
   # If the path is not specified, it will default to the :new action of the same controller within which this action is called.

@@ -61,6 +61,18 @@
     '
     = f.link_to_add "Add Overhead", :overheads, :class => 'btn btn-info'
 
+    / 
+    / Test Component Nested Attributes
+    / 
+    = f.simple_fields_for :tsts do |t|
+      .well
+        h3 = Tst.model_name.human   
+        = t.input :comment, :as => :text, :input_html => { :rows => 3, :class => 'span5' }
+        = t.input :user_id, :collection => User.my_team(@current_user, Role.all)
+        = t.link_to_remove 'Remove', :class => 'btn btn-danger'
+    '
+    = f.link_to_add "Add Test Component", :tsts, :class => 'btn btn-info'
+
   / 
   / Form Actoins
   / 

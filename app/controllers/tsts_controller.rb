@@ -44,7 +44,7 @@ class TstsController < ApplicationController
 
     respond_to do |format|
       if @tst.save
-        format.html { redirect_to tst_path }
+        format.html { redirect_to session[:return_to] }
         format.json { render json: @tst, status: :created, location: @tst }
       else
         format.html { render action: "new" }

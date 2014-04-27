@@ -12,6 +12,7 @@ table.index-table
       th Tech Spec
       th Code
       th Overheads
+      th Testing
       th Comments
       th Delete
 
@@ -42,6 +43,14 @@ table.index-table
         td 
           - deliverable.overheads.each do |o|
             = link_to o.user.name, edit_overhead_path(o) unless o.try(:user).try(:name).nil?
+            br
+        
+        td 
+          - deliverable.tsts.each do |t|
+            - if t.try(:user).try(:name).nil?
+              = link_to '<i class="icon-question-sign"></i>'.html_safe, edit_tst_path(t)
+            - else
+              = link_to t.status, edit_tst_path(t)
             br
             
         td = index_link deliverable.comment, deliverable
